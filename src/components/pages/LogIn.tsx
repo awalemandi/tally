@@ -1,57 +1,82 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Paper from '@material-ui/core/Paper';
-import Box from '@material-ui/core/Box';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
+import {
+	Typography,
+	Button,
+	TextField,
+	FormControlLabel,
+	Checkbox,
+	Link,
+	Paper,
+	Box,
+	Grid,
+} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Copyright from '../Copyright';
+import Logo from '../../images/tally.png';
+import LoginImage from '../../images/login.jpg';
 
 const useStyles = makeStyles(theme => ({
 	root: {
 		height: '100vh',
 	},
+	logo: {
+		height: '10rem',
+		[theme.breakpoints.down('xs')]: {
+			alignSelf: 'center',
+		},
+	},
+	imageContainer: {
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
+		[theme.breakpoints.down('xs')]: {
+			display: 'none',
+		},
+	},
 	image: {
-		backgroundImage: 'url(https://source.unsplash.com/random)',
-		backgroundRepeat: 'no-repeat',
-		backgroundColor:
-			theme.palette.type === 'light'
-				? theme.palette.grey[50]
-				: theme.palette.grey[900],
-		backgroundSize: 'cover',
-		backgroundPosition: 'center',
+		width: '500px',
 	},
 	paper: {
 		margin: theme.spacing(8, 4),
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'flex-start',
+		justifyContent: 'space-around',
+	},
+	greeting: {
+		[theme.breakpoints.down('xs')]: {
+			alignSelf: 'center',
+		},
 	},
 	form: {
-		width: '100%', // Fix IE 11 issue.
+		width: '60%', // Fix IE 11 issue.
 		marginTop: theme.spacing(1),
+		[theme.breakpoints.down('xs')]: {
+			alignSelf: 'center',
+		},
 	},
 	submit: {
 		margin: theme.spacing(3, 0, 2),
 	},
 }));
 
-export default function SignIn() {
+export default function LogIn() {
 	const classes = useStyles();
 
 	return (
 		<Grid container component='main' className={classes.root}>
 			<CssBaseline />
-			<Grid item xs={false} sm={4} md={7} className={classes.image} />
-			<Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+			<Grid item xs={false} sm={4} md={6} className={classes.imageContainer}>
+				<img src={LoginImage} className={classes.image} />
+			</Grid>
+			<Grid item xs={12} sm={8} md={6} component={Paper} elevation={6} square>
 				<div className={classes.paper}>
-					<Typography component='h1' variant='h5'>
-						Tally
+					<Link href='/'>
+						<img src={Logo} className={classes.logo} />
+					</Link>
+					<Typography component='h1' variant='h5' className={classes.greeting}>
+						Welcome back!
 					</Typography>
 					<form className={classes.form} noValidate>
 						<TextField
@@ -84,7 +109,7 @@ export default function SignIn() {
 							type='submit'
 							fullWidth
 							variant='contained'
-							color='secondary'
+							color='primary'
 							className={classes.submit}
 						>
 							Sign In
@@ -96,7 +121,7 @@ export default function SignIn() {
 								</Link>
 							</Grid>
 							<Grid item>
-								<Link href='#' variant='body2'>
+								<Link href='/signup' variant='body2'>
 									{"Don't have an account? Sign Up"}
 								</Link>
 							</Grid>

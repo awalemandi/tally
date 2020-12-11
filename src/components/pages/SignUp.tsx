@@ -10,6 +10,7 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Logo from '../../images/tally.png';
 
 import Copyright from '../Copyright';
 
@@ -20,9 +21,8 @@ const useStyles = makeStyles(theme => ({
 		flexDirection: 'column',
 		alignItems: 'center',
 	},
-	avatar: {
-		margin: theme.spacing(1),
-		backgroundColor: theme.palette.secondary.main,
+	logo: {
+		height: '10rem',
 	},
 	form: {
 		width: '100%', // Fix IE 11 issue.
@@ -40,8 +40,11 @@ export const SignUp = () => {
 		<Container component='main' maxWidth='xs'>
 			<CssBaseline />
 			<div className={classes.paper}>
+				<Link href='/'>
+					<img src={Logo} className={classes.logo} />
+				</Link>
 				<Typography component='h1' variant='h5'>
-					Welcome to Tally
+					Ready to Tally Up?
 				</Typography>
 				<form className={classes.form} noValidate>
 					<Grid container spacing={2}>
@@ -102,14 +105,14 @@ export const SignUp = () => {
 						type='submit'
 						fullWidth
 						variant='contained'
-						color='secondary'
+						color='primary'
 						className={classes.submit}
 					>
 						Sign Up
 					</Button>
 					<Grid container justify='flex-end'>
 						<Grid item>
-							<Link href='#' variant='body2'>
+							<Link href='/login' variant='body2'>
 								Already have an account? Sign in
 							</Link>
 						</Grid>

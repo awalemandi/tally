@@ -10,8 +10,16 @@ import Slide from '@material-ui/core/Slide';
 import { makeStyles } from '@material-ui/core/styles';
 import Logo from '../../images/tally.png';
 import { Button } from '@material-ui/core';
+import Footer from '../layout/Footer';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
+	root: {
+		height: '100vh',
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'space-between',
+	},
 	navbar: {
 		height: '4.5rem',
 		display: 'flex',
@@ -30,12 +38,16 @@ const useStyles = makeStyles(theme => ({
 		[theme.breakpoints.down('sm')]: {
 			height: '110px',
 		},
-    },
-    buttonContainer: {
-        width: '12rem',
-        display: 'flex',
-        justifyContent: 'space-between'
-    }
+	},
+	buttonContainer: {
+		width: '12rem',
+		display: 'flex',
+		justifyContent: 'space-between',
+	},
+	navLink: {
+		textDecoration: 'none',
+		alignSelf: 'center',
+	},
 }));
 
 interface Props {
@@ -62,29 +74,31 @@ export default function LandingPage() {
 			<HideOnScroll>
 				<AppBar color='secondary'>
 					<Toolbar className={classes.navbar}>
-						<img src={Logo} className={classes.logo} />
+						<Link to='/'>
+							<img src={Logo} className={classes.logo} />
+						</Link>
 						<Box className={classes.buttonContainer}>
-							<Button
-                                size='small'
-                                variant='text'
-								href='#contained-buttons'
-							>
-								Log In
-							</Button>
-							<Button
-                                size='large'
-								variant='contained'
-								color='primary'
-								href='#contained-buttons'
-							>
-								Sign Up
-							</Button>
+							<Link to='/login' className={classes.navLink}>
+								<Button size='small' variant='text' href='#contained-buttons'>
+									Log In
+								</Button>
+							</Link>
+							<Link to='/signup' className={classes.navLink}>
+								<Button
+									size='large'
+									variant='contained'
+									color='primary'
+									href='#contained-buttons'
+								>
+									Sign Up
+								</Button>
+							</Link>
 						</Box>
 					</Toolbar>
 				</AppBar>
 			</HideOnScroll>
 			<Toolbar />
-			<Container>
+			<Container className={classes.root}>
 				<Box my={2}>
 					{[...new Array(12)]
 						.map(
@@ -93,6 +107,7 @@ export default function LandingPage() {
 						)
 						.join('\n')}
 				</Box>
+				<Footer />
 			</Container>
 		</>
 	);
