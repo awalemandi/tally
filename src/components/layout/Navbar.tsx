@@ -16,12 +16,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
-const drawerWidth: number = 240;
+export const drawerWidth: number = 240;
 
 const useStyles = makeStyles(theme => ({
-	root: {
-		display: 'flex',
-	},
 	drawer: {
 		[theme.breakpoints.up('sm')]: {
 			width: drawerWidth,
@@ -51,7 +48,7 @@ const useStyles = makeStyles(theme => ({
 	},
 }));
 
-const Navbar = () => {
+export const Navbar = () => {
 	const classes = useStyles();
 	const theme = useTheme();
 	const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -89,9 +86,9 @@ const Navbar = () => {
 	);
 
 	return (
-		<div className={classes.root}>
+		<>
 			<CssBaseline />
-			<AppBar position='fixed' className={classes.appBar}>
+			<AppBar color='secondary' position='fixed' className={classes.appBar}>
 				<Toolbar>
 					<IconButton
 						color='inherit'
@@ -108,7 +105,6 @@ const Navbar = () => {
 				</Toolbar>
 			</AppBar>
 			<nav className={classes.drawer} aria-label='mailbox folders'>
-				{/* The implementation can be swapped with js to avoid SEO duplication of links. */}
 				<Hidden smUp implementation='css'>
 					<Drawer
 						variant='temporary'
@@ -137,8 +133,6 @@ const Navbar = () => {
 					</Drawer>
 				</Hidden>
 			</nav>
-		</div>
+		</>
 	);
 };
-
-export default Navbar;

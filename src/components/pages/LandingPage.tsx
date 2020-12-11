@@ -1,0 +1,99 @@
+import React from 'react';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import Box from '@material-ui/core/Box';
+import Container from '@material-ui/core/Container';
+import Slide from '@material-ui/core/Slide';
+import { makeStyles } from '@material-ui/core/styles';
+import Logo from '../../images/tally.png';
+import { Button } from '@material-ui/core';
+
+const useStyles = makeStyles(theme => ({
+	navbar: {
+		height: '4.5rem',
+		display: 'flex',
+		justifyContent: 'space-between',
+		alignItems: 'center',
+		[theme.breakpoints.down('sm')]: {
+			height: '4rem',
+		},
+	},
+	logo: {
+		marginLeft: '5px',
+		flexShrink: 1,
+		float: 'left',
+		height: '130px',
+		alignSelf: 'center',
+		[theme.breakpoints.down('sm')]: {
+			height: '110px',
+		},
+    },
+    buttonContainer: {
+        width: '12rem',
+        display: 'flex',
+        justifyContent: 'space-between'
+    }
+}));
+
+interface Props {
+	window?: () => Window;
+	children: React.ReactElement;
+}
+
+function HideOnScroll(props: Props) {
+	const { children, window } = props;
+	const trigger = useScrollTrigger({ target: window ? window() : undefined });
+
+	return (
+		<Slide appear={false} direction='down' in={!trigger}>
+			{children}
+		</Slide>
+	);
+}
+
+export default function LandingPage() {
+	const classes = useStyles();
+	return (
+		<>
+			<CssBaseline />
+			<HideOnScroll>
+				<AppBar color='secondary'>
+					<Toolbar className={classes.navbar}>
+						<img src={Logo} className={classes.logo} />
+						<Box className={classes.buttonContainer}>
+							<Button
+                                size='small'
+                                variant='text'
+								href='#contained-buttons'
+							>
+								Log In
+							</Button>
+							<Button
+                                size='large'
+								variant='contained'
+								color='primary'
+								href='#contained-buttons'
+							>
+								Sign Up
+							</Button>
+						</Box>
+					</Toolbar>
+				</AppBar>
+			</HideOnScroll>
+			<Toolbar />
+			<Container>
+				<Box my={2}>
+					{[...new Array(12)]
+						.map(
+							() =>
+								`This is the landing page. It's what users will see when they first get on the webiste.`
+						)
+						.join('\n')}
+				</Box>
+			</Container>
+		</>
+	);
+}

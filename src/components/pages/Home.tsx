@@ -1,12 +1,15 @@
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
+import { Container } from '@material-ui/core';
 
-import Navbar from '../layout/Navbar';
+import {Navbar} from '../layout/Navbar';
 import Content from '../layout/Content';
 import Footer from '../layout/Footer';
 
 const useStyles = makeStyles(theme => ({
 	root: {
+		width: '100%',
+		minHeight: '100vh',
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'space-between',
@@ -16,11 +19,11 @@ const useStyles = makeStyles(theme => ({
 const Home = () => {
 	const classes = useStyles();
 	return (
-		<div className={classes.root}>
+		<Container className={classes.root}>
 			<Navbar />
 			<Content />
 			<Footer />
-		</div>
+		</Container>
 	);
 };
 
