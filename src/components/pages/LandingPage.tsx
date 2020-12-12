@@ -22,13 +22,10 @@ const useStyles = makeStyles(theme => ({
 		justifyContent: 'space-between',
 	},
 	navbar: {
-		height: '4.5rem',
+		height: '4rem',
 		display: 'flex',
 		justifyContent: 'space-between',
 		alignItems: 'center',
-		[theme.breakpoints.down('sm')]: {
-			height: '4rem',
-		},
 	},
 	logo: {
 		marginLeft: '5px',

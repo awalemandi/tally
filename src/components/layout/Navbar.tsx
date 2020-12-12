@@ -1,25 +1,29 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Divider from '@material-ui/core/Divider';
-import Drawer from '@material-ui/core/Drawer';
-import Hidden from '@material-ui/core/Hidden';
-import IconButton from '@material-ui/core/IconButton';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import MailIcon from '@material-ui/icons/Mail';
+import {
+	AppBar,
+	CssBaseline,
+	Divider,
+	Drawer,
+	Hidden,
+	IconButton,
+	List,
+	ListItem,
+	ListItemIcon,
+	ListItemText,
+	Toolbar,
+	Box,
+	Button,
+} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import Toolbar from '@material-ui/core/Toolbar';
-import {Box, Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { RiDashboardFill } from 'react-icons/ri';
+import { FaMoneyBillWave } from 'react-icons/fa';
+import { GiSecretBook, GiBabyFace, GiGoldBar } from 'react-icons/gi';
 
 import Logo from '../../images/tally.png';
 
-export const drawerWidth: number = 240;
+export const drawerWidth: number = 210;
 
 const useStyles = makeStyles(theme => ({
 	drawer: {
@@ -65,7 +69,7 @@ const useStyles = makeStyles(theme => ({
 	buttonContainer: {
 		width: '12rem',
 		display: 'flex',
-		justifyContent: 'space-between',
+		justifyContent: 'space-evenly',
 	},
 	navLink: {
 		textDecoration: 'none',
@@ -87,25 +91,39 @@ export const Navbar = () => {
 			<div className={classes.toolbar} />
 			<Divider />
 			<List>
-				{['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-					<ListItem button key={text}>
-						<ListItemIcon>
-							{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-						</ListItemIcon>
-						<ListItemText primary={text} />
-					</ListItem>
-				))}
+				<ListItem button>
+					<ListItemIcon>
+						<RiDashboardFill />
+					</ListItemIcon>
+					<ListItemText primary='Dashboard' />
+				</ListItem>
+				<ListItem button>
+					<ListItemIcon>
+						<FaMoneyBillWave />
+					</ListItemIcon>
+					<ListItemText primary='Tally' />
+				</ListItem>
+				<ListItem button>
+					<ListItemIcon>
+						<GiSecretBook />
+					</ListItemIcon>
+					<ListItemText primary='The Books' />
+				</ListItem>
 			</List>
 			<Divider />
 			<List>
-				{['All mail', 'Trash', 'Spam'].map((text, index) => (
-					<ListItem button key={text}>
-						<ListItemIcon>
-							{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-						</ListItemIcon>
-						<ListItemText primary={text} />
-					</ListItem>
-				))}
+				<ListItem button>
+					<ListItemIcon>
+						<GiBabyFace />
+					</ListItemIcon>
+					<ListItemText primary='Profile' />
+				</ListItem>
+				<ListItem button>
+					<ListItemIcon>
+						<GiGoldBar />
+					</ListItemIcon>
+					<ListItemText primary='Premium' />
+				</ListItem>
 			</List>
 		</div>
 	);
@@ -125,15 +143,20 @@ export const Navbar = () => {
 						<MenuIcon />
 					</IconButton>
 					<Link to='/'>
-							<img src={Logo} className={classes.logo} />
+						<img src={Logo} className={classes.logo} />
+					</Link>
+					<Box className={classes.buttonContainer}>
+						<Link to='/login' className={classes.navLink}>
+							<Button
+								size='small'
+								variant='text'
+								href='#contained-buttons'
+								color='primary'
+							>
+								Log Out
+							</Button>
 						</Link>
-						<Box className={classes.buttonContainer}>
-							<Link to='/login' className={classes.navLink}>
-								<Button size='small' variant='text' href='#contained-buttons'>
-									Sign Out
-								</Button>
-							</Link>
-						</Box>
+					</Box>
 				</Toolbar>
 			</AppBar>
 			<nav className={classes.drawer} aria-label='mailbox folders'>
