@@ -1,17 +1,18 @@
-import React from 'react';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import Typography from '@material-ui/core/Typography';
+import React, { useState } from 'react';
+import {
+	Button,
+	TextField,
+	FormControlLabel,
+	Checkbox,
+	Link,
+	Grid,
+	Box,
+	Typography,
+	Container,
+	CssBaseline,
+} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
 import Logo from '../../images/tally.png';
-
 import Copyright from '../Copyright';
 
 const useStyles = makeStyles(theme => ({
@@ -35,6 +36,54 @@ const useStyles = makeStyles(theme => ({
 
 export const SignUp = () => {
 	const classes = useStyles();
+	const [userDetails, setUserDetails] = useState({
+		firstName: '',
+		lastName: '',
+		email: '',
+		password: '',
+		subscribeNewsletter: false,
+	});
+
+	//onChange handlers for user input
+	const handleChange = {
+		firstName: function (e: React.ChangeEvent<{ value: unknown }>) {
+			setUserDetails({
+				...userDetails,
+				firstName: e.target.value as string,
+			});
+		},
+		lastName: function (e: React.ChangeEvent<{ value: unknown }>) {
+			setUserDetails({
+				...userDetails,
+				lastName: e.target.value as string,
+			});
+		},
+		email: function (e: React.ChangeEvent<{ value: unknown }>) {
+			setUserDetails({
+				...userDetails,
+				email: e.target.value as string,
+			});
+		},
+		password: function (e: React.ChangeEvent<{ value: unknown }>) {
+			setUserDetails({
+				...userDetails,
+				password: e.target.value as string,
+			});
+		},
+		//toggles subsribtion state from false to true and vice versa
+		subscribeNewsletter: function (prevState: any) {
+			setUserDetails(prevState => ({
+				...userDetails,
+				subscribeNewsletter: !prevState.subscribeNewsletter,
+			}));
+		},
+	};
+
+	//onClick handler for submit button
+	const handleSubmit = (e: React.SyntheticEvent) => {
+		e.preventDefault();
+		console.log(userDetails);
+	};
 
 	return (
 		<Container component='main' maxWidth='xs'>
@@ -46,7 +95,7 @@ export const SignUp = () => {
 				<Typography component='h1' variant='h5'>
 					Ready to Tally Up?
 				</Typography>
-				<form className={classes.form} noValidate>
+				<form className={classes.form} noValidate={false} onSubmit={handleSubmit}>
 					<Grid container spacing={2}>
 						<Grid item xs={12} sm={6}>
 							<TextField
@@ -58,6 +107,7 @@ export const SignUp = () => {
 								id='firstName'
 								label='First Name'
 								autoFocus
+								onChange={handleChange.firstName}
 							/>
 						</Grid>
 						<Grid item xs={12} sm={6}>
@@ -69,6 +119,7 @@ export const SignUp = () => {
 								label='Last Name'
 								name='lastName'
 								autoComplete='lname'
+								onChange={handleChange.lastName}
 							/>
 						</Grid>
 						<Grid item xs={12}>
@@ -79,7 +130,9 @@ export const SignUp = () => {
 								id='email'
 								label='Email Address'
 								name='email'
+								type='email'
 								autoComplete='email'
+								onChange={handleChange.email}
 							/>
 						</Grid>
 						<Grid item xs={12}>
@@ -92,11 +145,18 @@ export const SignUp = () => {
 								type='password'
 								id='password'
 								autoComplete='current-password'
+								onChange={handleChange.password}
 							/>
 						</Grid>
 						<Grid item xs={12}>
 							<FormControlLabel
-								control={<Checkbox value='allowExtraEmails' color='primary' />}
+								control={
+									<Checkbox
+										value='allowExtraEmails'
+										color='primary'
+										onChange={handleChange.subscribeNewsletter}
+									/>
+								}
 								label='I want to receive inspiration, marketing promotions and updates via email.'
 							/>
 						</Grid>
@@ -107,6 +167,7 @@ export const SignUp = () => {
 						variant='contained'
 						color='primary'
 						className={classes.submit}
+						// onClick={handleSubmit}
 					>
 						Sign Up
 					</Button>
