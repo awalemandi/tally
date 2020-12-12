@@ -20,6 +20,14 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { RiDashboardFill } from 'react-icons/ri';
 import { FaMoneyBillWave } from 'react-icons/fa';
 import { GiSecretBook, GiBabyFace, GiGoldBar } from 'react-icons/gi';
+import {
+	GrDashboard,
+	GrBarChart,
+	GrCurrency,
+	GrCalculator,
+	GrGremlin,
+	GrDiamond,
+} from 'react-icons/gr';
 
 import Logo from '../../images/tally.png';
 
@@ -56,6 +64,7 @@ const useStyles = makeStyles(theme => ({
 	navbar: {
 		height: '4rem',
 		display: 'flex',
+		flexDirection: 'row',
 		justifyContent: 'space-between',
 		alignItems: 'center',
 	},
@@ -67,6 +76,7 @@ const useStyles = makeStyles(theme => ({
 		alignSelf: 'center',
 	},
 	buttonContainer: {
+		justifySelf: 'end',
 		width: '12rem',
 		display: 'flex',
 		justifyContent: 'space-evenly',
@@ -88,24 +98,27 @@ export const Navbar = () => {
 
 	const drawer = (
 		<div>
-			<div className={classes.toolbar} />
+			{/* <div className={classes.toolbar} /> */}
+			<Link to='/'>
+				<img src={Logo} className={classes.logo} />
+			</Link>
 			<Divider />
 			<List>
 				<ListItem button>
 					<ListItemIcon>
-						<RiDashboardFill />
+						<GrDashboard />
 					</ListItemIcon>
 					<ListItemText primary='Dashboard' />
 				</ListItem>
 				<ListItem button>
 					<ListItemIcon>
-						<FaMoneyBillWave />
+						<GrCurrency />
 					</ListItemIcon>
 					<ListItemText primary='Tally' />
 				</ListItem>
 				<ListItem button>
 					<ListItemIcon>
-						<GiSecretBook />
+						<GrCalculator />
 					</ListItemIcon>
 					<ListItemText primary='The Books' />
 				</ListItem>
@@ -114,13 +127,13 @@ export const Navbar = () => {
 			<List>
 				<ListItem button>
 					<ListItemIcon>
-						<GiBabyFace />
+						<GrGremlin />
 					</ListItemIcon>
 					<ListItemText primary='Profile' />
 				</ListItem>
 				<ListItem button>
 					<ListItemIcon>
-						<GiGoldBar />
+						<GrDiamond />
 					</ListItemIcon>
 					<ListItemText primary='Premium' />
 				</ListItem>
@@ -142,9 +155,13 @@ export const Navbar = () => {
 					>
 						<MenuIcon />
 					</IconButton>
-					<Link to='/'>
-						<img src={Logo} className={classes.logo} />
-					</Link>
+					<div></div>
+					<Hidden mdUp>
+						<Link to='/'>
+							<img src={Logo} className={classes.logo} />
+						</Link>
+					</Hidden>
+					<div></div>
 					<Box className={classes.buttonContainer}>
 						<Link to='/login' className={classes.navLink}>
 							<Button
