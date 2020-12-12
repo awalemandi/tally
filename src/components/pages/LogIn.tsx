@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import {
 	Typography,
@@ -64,7 +64,37 @@ const useStyles = makeStyles(theme => ({
 
 export default function LogIn() {
 	const classes = useStyles();
+	const [signInDetails, setSignInDetails] = useState({
+		email: '',
+		password: '',
+	});
 
+	// const handleChange = (e: React.ChangeEvent<{ value: unknown }>) => {
+	// 	setSignInDetails({
+	// 		...signInDetails,
+	// 		email: e.target.value as string,
+	// 	});
+	// };
+
+	const handleChange = {
+		email: function (e: React.ChangeEvent<{ value: unknown }>) {
+			setSignInDetails({
+				...signInDetails,
+				email: e.target.value as string,
+			});
+		},
+		password: function (e: React.ChangeEvent<{ value: unknown }>) {
+			setSignInDetails({
+				...signInDetails,
+				password: e.target.value as string,
+			});
+		},
+	};
+
+	const handleSubmit = (e: React.SyntheticEvent) => {
+		e.preventDefault();
+		console.log(signInDetails);
+	};
 	return (
 		<Grid container component='main' className={classes.root}>
 			<CssBaseline />
@@ -86,10 +116,11 @@ export default function LogIn() {
 							required
 							fullWidth
 							id='email'
-							label='Email Address'
+							label='Email'
 							name='email'
 							autoComplete='email'
 							autoFocus
+							onChange={handleChange.email}
 						/>
 						<TextField
 							variant='outlined'
@@ -101,6 +132,7 @@ export default function LogIn() {
 							type='password'
 							id='password'
 							autoComplete='current-password'
+							onChange={handleChange.password}
 						/>
 						<FormControlLabel
 							control={<Checkbox value='remember' color='primary' />}
@@ -112,6 +144,7 @@ export default function LogIn() {
 							variant='contained'
 							color='primary'
 							className={classes.submit}
+							onClick={handleSubmit}
 						>
 							Sign In
 						</Button>

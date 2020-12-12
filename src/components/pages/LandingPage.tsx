@@ -8,10 +8,11 @@ import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import Slide from '@material-ui/core/Slide';
 import { makeStyles } from '@material-ui/core/styles';
-import Logo from '../../images/tally.png';
 import { Button } from '@material-ui/core';
 import Footer from '../layout/Footer';
 import { Link } from 'react-router-dom';
+
+import Logo from '../../images/tally.png';
 
 const useStyles = makeStyles(theme => ({
 	root: {

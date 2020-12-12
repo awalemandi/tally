@@ -13,8 +13,11 @@ import ListItemText from '@material-ui/core/ListItemText';
 import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+import {Box, Button } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+
+import Logo from '../../images/tally.png';
 
 export const drawerWidth: number = 240;
 
@@ -45,6 +48,28 @@ const useStyles = makeStyles(theme => ({
 	content: {
 		flexGrow: 1,
 		padding: theme.spacing(3),
+	},
+	navbar: {
+		height: '4rem',
+		display: 'flex',
+		justifyContent: 'space-between',
+		alignItems: 'center',
+	},
+	logo: {
+		marginLeft: '5px',
+		flexShrink: 1,
+		float: 'left',
+		height: '110px',
+		alignSelf: 'center',
+	},
+	buttonContainer: {
+		width: '12rem',
+		display: 'flex',
+		justifyContent: 'space-between',
+	},
+	navLink: {
+		textDecoration: 'none',
+		alignSelf: 'center',
 	},
 }));
 
@@ -88,8 +113,8 @@ export const Navbar = () => {
 	return (
 		<>
 			<CssBaseline />
-			<AppBar color='secondary' position='fixed' className={classes.appBar}>
-				<Toolbar>
+			<AppBar color='default' position='fixed' className={classes.appBar}>
+				<Toolbar className={classes.navbar}>
 					<IconButton
 						color='default'
 						aria-label='open drawer'
@@ -99,9 +124,16 @@ export const Navbar = () => {
 					>
 						<MenuIcon />
 					</IconButton>
-					<Typography variant='h6' noWrap>
-						Tally
-					</Typography>
+					<Link to='/'>
+							<img src={Logo} className={classes.logo} />
+						</Link>
+						<Box className={classes.buttonContainer}>
+							<Link to='/login' className={classes.navLink}>
+								<Button size='small' variant='text' href='#contained-buttons'>
+									Sign Out
+								</Button>
+							</Link>
+						</Box>
 				</Toolbar>
 			</AppBar>
 			<nav className={classes.drawer} aria-label='mailbox folders'>
