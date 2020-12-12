@@ -72,7 +72,7 @@ export default function LandingPage() {
 		<>
 			<CssBaseline />
 			<HideOnScroll>
-				<AppBar color='secondary'>
+				<AppBar color='default'>
 					<Toolbar className={classes.navbar}>
 						<Link to='/'>
 							<img src={Logo} className={classes.logo} />
@@ -99,6 +99,54 @@ export default function LandingPage() {
 			</HideOnScroll>
 			<Toolbar />
 			<Container className={classes.root}>
+				<Box my={2}>
+					{[...new Array(12)]
+						.map(
+							() =>
+								`This is the landing page. It's what users will see when they first get on the webiste.`
+						)
+						.join('\n')}
+				</Box>
+				<Box my={2}>
+					{[...new Array(12)]
+						.map(
+							() =>
+								`This is the landing page. It's what users will see when they first get on the webiste.`
+						)
+						.join('\n')}
+				</Box>
+				<Box my={2}>
+					{[...new Array(12)]
+						.map(
+							() =>
+								`This is the landing page. It's what users will see when they first get on the webiste.`
+						)
+						.join('\n')}
+				</Box>
+				<Box my={2}>
+					{[...new Array(12)]
+						.map(
+							() =>
+								`This is the landing page. It's what users will see when they first get on the webiste.`
+						)
+						.join('\n')}
+				</Box>
+				<Box my={2}>
+					{[...new Array(12)]
+						.map(
+							() =>
+								`This is the landing page. It's what users will see when they first get on the webiste.`
+						)
+						.join('\n')}
+				</Box>
+				<Box my={2}>
+					{[...new Array(12)]
+						.map(
+							() =>
+								`This is the landing page. It's what users will see when they first get on the webiste.`
+						)
+						.join('\n')}
+				</Box>
 				<Box my={2}>
 					{[...new Array(12)]
 						.map(

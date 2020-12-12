@@ -35,7 +35,8 @@ const useStyles = makeStyles(theme => ({
 		},
 	},
 	image: {
-		width: '500px',
+		flexGrow: 1,
+		width: '900px',
 	},
 	paper: {
 		margin: theme.spacing(8, 4),

@@ -91,7 +91,7 @@ export const Navbar = () => {
 			<AppBar color='secondary' position='fixed' className={classes.appBar}>
 				<Toolbar>
 					<IconButton
-						color='inherit'
+						color='default'
 						aria-label='open drawer'
 						edge='start'
 						onClick={handleDrawerToggle}
