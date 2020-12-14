@@ -17,9 +17,6 @@ import {
 import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from 'react-router-dom';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { RiDashboardFill } from 'react-icons/ri';
-import { FaMoneyBillWave } from 'react-icons/fa';
-import { GiSecretBook, GiBabyFace, GiGoldBar } from 'react-icons/gi';
 import {
 	GrDashboard,
 	GrBarChart,
@@ -112,16 +109,18 @@ export const Navbar = () => {
 			</Link>
 			<Divider />
 			<List>
-				<ListItem
-					button
-					selected={selectedIndex === 0}
-					onClick={event => handleListItemClick(event, 0)}
-				>
-					<ListItemIcon>
-						<GrDashboard />
-					</ListItemIcon>
-					<ListItemText primary='Dashboard' />
-				</ListItem>
+				<Link to='/home/dashboard' className={classes.navLink}>
+					<ListItem
+						button
+						selected={selectedIndex === 0}
+						onClick={event => handleListItemClick(event, 0)}
+					>
+						<ListItemIcon>
+							<GrDashboard />
+						</ListItemIcon>
+						<ListItemText primary='Dashboard' />
+					</ListItem>
+				</Link>
 				<ListItem
 					button
 					selected={selectedIndex === 1}
@@ -130,7 +129,7 @@ export const Navbar = () => {
 					<ListItemIcon>
 						<GrCurrency />
 					</ListItemIcon>
-					<ListItemText primary='Add Transaction' />
+					<ListItemText primary='New Tally' />
 				</ListItem>
 				<ListItem
 					button
@@ -140,7 +139,7 @@ export const Navbar = () => {
 					<ListItemIcon>
 						<GrCalculator />
 					</ListItemIcon>
-					<ListItemText primary='Record Book' />
+					<ListItemText primary='History' />
 				</ListItem>
 			</List>
 			<Divider />
