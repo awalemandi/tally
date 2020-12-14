@@ -28,9 +28,6 @@ function App() {
 					<Route exact path='/home'>
 						<Home />
 					</Route>
-					{/* <SignUp/> */}
-					{/* <SignIn /> */}
-					{/* <Home /> */}
 				</Switch>
 			</div>
 		</BrowserRouter>

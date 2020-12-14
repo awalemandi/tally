@@ -91,6 +91,14 @@ export const Navbar = () => {
 	const classes = useStyles();
 	const theme = useTheme();
 	const [mobileOpen, setMobileOpen] = React.useState(false);
+	const [selectedIndex, setSelectedIndex] = React.useState(0);
+
+	const handleListItemClick = (
+		event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+		index: number
+	) => {
+		setSelectedIndex(index);
+	};
 
 	const handleDrawerToggle = () => {
 		setMobileOpen(!mobileOpen);
@@ -104,34 +112,54 @@ export const Navbar = () => {
 			</Link>
 			<Divider />
 			<List>
-				<ListItem button>
+				<ListItem
+					button
+					selected={selectedIndex === 0}
+					onClick={event => handleListItemClick(event, 0)}
+				>
 					<ListItemIcon>
 						<GrDashboard />
 					</ListItemIcon>
 					<ListItemText primary='Dashboard' />
 				</ListItem>
-				<ListItem button>
+				<ListItem
+					button
+					selected={selectedIndex === 1}
+					onClick={event => handleListItemClick(event, 1)}
+				>
 					<ListItemIcon>
 						<GrCurrency />
 					</ListItemIcon>
-					<ListItemText primary='Tally' />
+					<ListItemText primary='Add Transaction' />
 				</ListItem>
-				<ListItem button>
+				<ListItem
+					button
+					selected={selectedIndex === 2}
+					onClick={event => handleListItemClick(event, 2)}
+				>
 					<ListItemIcon>
 						<GrCalculator />
 					</ListItemIcon>
-					<ListItemText primary='The Books' />
+					<ListItemText primary='Record Book' />
 				</ListItem>
 			</List>
 			<Divider />
 			<List>
-				<ListItem button>
+				<ListItem
+					button
+					selected={selectedIndex === 3}
+					onClick={event => handleListItemClick(event, 3)}
+				>
 					<ListItemIcon>
 						<GrGremlin />
 					</ListItemIcon>
 					<ListItemText primary='Profile' />
 				</ListItem>
-				<ListItem button>
+				<ListItem
+					button
+					selected={selectedIndex === 4}
+					onClick={event => handleListItemClick(event, 4)}
+				>
 					<ListItemIcon>
 						<GrDiamond />
 					</ListItemIcon>
