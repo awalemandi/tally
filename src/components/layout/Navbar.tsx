@@ -90,6 +90,13 @@ export const Navbar = () => {
 	const [mobileOpen, setMobileOpen] = React.useState(false);
 	const [selectedIndex, setSelectedIndex] = React.useState(0);
 
+	const handleListItemClick = (event: any, index: number) => {
+		setSelectedIndex(index);
+	};
+
+	const handleDrawerToggle = () => {
+		setMobileOpen(!mobileOpen);
+	};
 	interface ListItemLinkProps {
 		icon?: React.ReactElement;
 		primary: string;
@@ -114,23 +121,13 @@ export const Navbar = () => {
 					button
 					component={renderLink}
 					selected={listIndex === selectedIndex}
+					onClick={(event: any) => handleListItemClick(event, listIndex)}
 				>
 					{icon ? <ListItemIcon>{icon}</ListItemIcon> : null}
 					<ListItemText primary={primary} />
 				</ListItem>
 			</li>
 		);
-	};
-
-	const handleListItemClick = (
-		event: React.MouseEvent<HTMLDivElement, MouseEvent>,
-		index: number
-	) => {
-		setSelectedIndex(index);
-	};
-
-	const handleDrawerToggle = () => {
-		setMobileOpen(!mobileOpen);
 	};
 
 	const drawer = (
@@ -147,18 +144,6 @@ export const Navbar = () => {
 					icon={<GrDashboard />}
 					listIndex={0}
 				/>
-				{/* <ListItem
-					// component={Link}
-					// to='/home/dashboard'
-					button
-					selected={selectedIndex === 0}
-					onClick={event => handleListItemClick(event, 0)}
-				>
-					<ListItemIcon>
-						<GrDashboard />
-					</ListItemIcon>
-					<ListItemText primary='Dashboard' />
-				</ListItem> */}
 				<ListItemLink
 					to='/home/newtally'
 					primary='New Tally'
