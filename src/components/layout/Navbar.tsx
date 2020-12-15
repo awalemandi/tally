@@ -15,16 +15,16 @@ import {
 	Button,
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import { Link } from 'react-router-dom';
+import { Link, LinkProps } from 'react-router-dom';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import {
 	GrDashboard,
-	GrBarChart,
 	GrCurrency,
 	GrCalculator,
 	GrGremlin,
 	GrDiamond,
 } from 'react-icons/gr';
+import { Omit } from '@material-ui/types';
 
 import Logo from '../../images/tally.png';
 
@@ -84,6 +84,33 @@ const useStyles = makeStyles(theme => ({
 	},
 }));
 
+interface ListItemLinkProps {
+	icon?: React.ReactElement;
+	primary: string;
+	to: string;
+}
+
+const ListItemLink = (props: ListItemLinkProps) => {
+	const { icon, primary, to } = props;
+
+	const renderLink = React.useMemo(
+		() =>
+			React.forwardRef<any, Omit<LinkProps, 'to'>>((itemProps, ref) => (
+				<Link to={to} ref={ref} {...itemProps} />
+			)),
+		[to]
+	);
+
+	return (
+		<li>
+			<ListItem button component={renderLink}>
+				{icon ? <ListItemIcon>{icon}</ListItemIcon> : null}
+				<ListItemText primary={primary} />
+			</ListItem>
+		</li>
+	);
+};
+
 export const Navbar = () => {
 	const classes = useStyles();
 	const theme = useTheme();
@@ -109,61 +136,46 @@ export const Navbar = () => {
 			</Link>
 			<Divider />
 			<List>
-				<Link to='/home/dashboard' className={classes.navLink}>
-					<ListItem
-						button
-						selected={selectedIndex === 0}
-						onClick={event => handleListItemClick(event, 0)}
-					>
-						<ListItemIcon>
-							<GrDashboard />
-						</ListItemIcon>
-						<ListItemText primary='Dashboard' />
-					</ListItem>
-				</Link>
-				<ListItem
+				<ListItemLink
+					to='/home/dashboard'
+					primary='Dashboard'
+					icon={<GrDashboard />}
+				/>
+				{/* <ListItem
+					// component={Link}
+					// to='/home/dashboard'
 					button
-					selected={selectedIndex === 1}
-					onClick={event => handleListItemClick(event, 1)}
+					selected={selectedIndex === 0}
+					onClick={event => handleListItemClick(event, 0)}
 				>
 					<ListItemIcon>
-						<GrCurrency />
+						<GrDashboard />
 					</ListItemIcon>
-					<ListItemText primary='New Tally' />
-				</ListItem>
-				<ListItem
-					button
-					selected={selectedIndex === 2}
-					onClick={event => handleListItemClick(event, 2)}
-				>
-					<ListItemIcon>
-						<GrCalculator />
-					</ListItemIcon>
-					<ListItemText primary='History' />
-				</ListItem>
+					<ListItemText primary='Dashboard' />
+				</ListItem> */}
+				<ListItemLink
+					to='/home/newtally'
+					primary='New Tally'
+					icon={<GrCurrency />}
+				/>
+				<ListItemLink
+					to='/home/history'
+					primary='History'
+					icon={<GrCalculator />}
+				/>
 			</List>
 			<Divider />
 			<List>
-				<ListItem
-					button
-					selected={selectedIndex === 3}
-					onClick={event => handleListItemClick(event, 3)}
-				>
-					<ListItemIcon>
-						<GrGremlin />
-					</ListItemIcon>
-					<ListItemText primary='Profile' />
-				</ListItem>
-				<ListItem
-					button
-					selected={selectedIndex === 4}
-					onClick={event => handleListItemClick(event, 4)}
-				>
-					<ListItemIcon>
-						<GrDiamond />
-					</ListItemIcon>
-					<ListItemText primary='Premium' />
-				</ListItem>
+				<ListItemLink
+					to='/home/profile'
+					primary='Profile'
+					icon={<GrGremlin />}
+				/>
+				<ListItemLink
+					to='/home/premium'
+					primary='Premium'
+					icon={<GrDiamond />}
+				/>
 			</List>
 		</div>
 	);

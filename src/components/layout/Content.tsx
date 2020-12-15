@@ -1,12 +1,13 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-import { Typography } from '@material-ui/core/';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { drawerWidth } from './Navbar';
 import Dashboard from '../menu/Dashboard';
 import NewTally from '../menu/NewTally';
 import History from '../menu/History';
-import DoughnutChart from '../DoughnutChart';
+import Profile from '../menu/Profile';
+import Premium from '../menu/Premium';
+import NoMatch from '../menu/NoMatch';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -29,18 +30,26 @@ const Content = () => {
 	return (
 		<div className={classes.root}>
 			<div className={classes.toolbar} />
-			<DoughnutChart />
-			{/* <Switch>
-				<Route exact path='/home/dashboard'>
+			<Switch>
+				<Route path='/home/dashboard'>
 					<Dashboard />
 				</Route>
-				<Route exact path='/home/newtally'>
+				<Route path='/home/newtally'>
 					<NewTally />
 				</Route>
-				<Route exact path='/home/history'>
+				<Route path='/home/history'>
 					<History />
 				</Route>
-			</Switch> */}
+				<Route path='/home/profile'>
+					<Profile />
+				</Route>
+				<Route path='/home/premium'>
+					<Premium />
+				</Route>
+				<Route path='*'>
+					<NoMatch />
+				</Route>
+			</Switch>
 		</div>
 	);
 };

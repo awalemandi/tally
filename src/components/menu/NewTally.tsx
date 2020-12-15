@@ -1,7 +1,9 @@
 import React from 'react';
 
 const NewTally = () => {
-	return <div></div>;
+	return <div>
+        <h1>Add a new Tally here!</h1>
+    </div>;
 };
 
 export default NewTally;

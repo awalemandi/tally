@@ -1,9 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container } from '@material-ui/core';
-import {Navbar} from '../layout/Navbar';
-import Content from '../layout/Content';
+import { Navbar } from '../layout/Navbar';
 import Footer from '../layout/Footer';
+import Content from '../layout/Content';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
 		flexDirection: 'column',
 		justifyContent: 'space-between',
 		alignItems: 'center',
-	}
+	},
 }));
 const Home = () => {
 	const classes = useStyles();
