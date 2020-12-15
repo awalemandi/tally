@@ -2,11 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import { drawerWidth } from './Navbar';
-import Dashboard from '../menu/Dashboard';
-import NewTally from '../menu/NewTally';
-import History from '../menu/History';
-import Profile from '../menu/Profile';
-import Premium from '../menu/Premium';
+import Dashboard from '../menu/dashboard/Dashboard';
+import NewTally from '../menu/newTally/NewTally';
+import History from '../menu/history/History';
+import Profile from '../menu/profile/Profile';
+import Premium from '../menu/premium/Premium';
 import NoMatch from '../menu/NoMatch';
 
 const useStyles = makeStyles(theme => ({
