@@ -84,38 +84,43 @@ const useStyles = makeStyles(theme => ({
 	},
 }));
 
-interface ListItemLinkProps {
-	icon?: React.ReactElement;
-	primary: string;
-	to: string;
-}
-
-const ListItemLink = (props: ListItemLinkProps) => {
-	const { icon, primary, to } = props;
-
-	const renderLink = React.useMemo(
-		() =>
-			React.forwardRef<any, Omit<LinkProps, 'to'>>((itemProps, ref) => (
-				<Link to={to} ref={ref} {...itemProps} />
-			)),
-		[to]
-	);
-
-	return (
-		<li>
-			<ListItem button component={renderLink}>
-				{icon ? <ListItemIcon>{icon}</ListItemIcon> : null}
-				<ListItemText primary={primary} />
-			</ListItem>
-		</li>
-	);
-};
-
 export const Navbar = () => {
 	const classes = useStyles();
 	const theme = useTheme();
 	const [mobileOpen, setMobileOpen] = React.useState(false);
 	const [selectedIndex, setSelectedIndex] = React.useState(0);
+
+	interface ListItemLinkProps {
+		icon?: React.ReactElement;
+		primary: string;
+		to: string;
+		listIndex: number;
+	}
+
+	const ListItemLink = (props: ListItemLinkProps) => {
+		const { icon, primary, to, listIndex } = props;
+
+		const renderLink = React.useMemo(
+			() =>
+				React.forwardRef<any, Omit<LinkProps, 'to'>>((itemProps, ref) => (
+					<Link to={to} ref={ref} {...itemProps} />
+				)),
+			[to]
+		);
+
+		return (
+			<li>
+				<ListItem
+					button
+					component={renderLink}
+					selected={listIndex === selectedIndex}
+				>
+					{icon ? <ListItemIcon>{icon}</ListItemIcon> : null}
+					<ListItemText primary={primary} />
+				</ListItem>
+			</li>
+		);
+	};
 
 	const handleListItemClick = (
 		event: React.MouseEvent<HTMLDivElement, MouseEvent>,
@@ -140,6 +145,7 @@ export const Navbar = () => {
 					to='/home/dashboard'
 					primary='Dashboard'
 					icon={<GrDashboard />}
+					listIndex={0}
 				/>
 				{/* <ListItem
 					// component={Link}
@@ -157,11 +163,13 @@ export const Navbar = () => {
 					to='/home/newtally'
 					primary='New Tally'
 					icon={<GrCurrency />}
+					listIndex={1}
 				/>
 				<ListItemLink
 					to='/home/history'
 					primary='History'
 					icon={<GrCalculator />}
+					listIndex={2}
 				/>
 			</List>
 			<Divider />
@@ -170,11 +178,13 @@ export const Navbar = () => {
 					to='/home/profile'
 					primary='Profile'
 					icon={<GrGremlin />}
+					listIndex={3}
 				/>
 				<ListItemLink
 					to='/home/premium'
 					primary='Premium'
 					icon={<GrDiamond />}
+					listIndex={4}
 				/>
 			</List>
 		</div>
