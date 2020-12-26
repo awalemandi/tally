@@ -11,11 +11,12 @@ import NoMatch from '../menu/NoMatch';
 
 const useStyles = makeStyles(theme => ({
 	root: {
+		width: '100%',
 		//to avoid content being covered by open drawer
 		[theme.breakpoints.up('md')]: {
-			marginLeft: drawerWidth,
+			marginLeft: drawerWidth*1.4,
 		},
-		flexGrow: 1,
+		// flexGrow: 1,
 		padding: theme.spacing(1),
 	},
 	// necessary for content to be below app bar
