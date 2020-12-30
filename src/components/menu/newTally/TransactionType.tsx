@@ -10,9 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		width: '100%',
-		display: 'flex',
-		flexDirection: 'column',
+
 	},
 }));
 
@@ -31,17 +29,17 @@ function TransactionType() {
     };
     
 	return (
-		<Container className={classes.root}>
 			<Grid
 				container
 				direction='column'
 				justify='space-between'
                 alignItems='stretch'
-                spacing={4}
+                spacing={3}
 			>
 				<Grid item xs={12}>
 					<TextField
 						autoFocus={true}
+						fullWidth
 						id='transactionType'
 						name='transactionType'
 						placeholder='Tally'
@@ -62,7 +60,6 @@ function TransactionType() {
 					</ButtonGroup>
 				</Grid>
 			</Grid>
-		</Container>
 	);
 }
 

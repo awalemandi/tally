@@ -11,10 +11,12 @@ import NoMatch from '../menu/NoMatch';
 
 const useStyles = makeStyles(theme => ({
 	root: {
+		marginLeft: theme.spacing(15),
+		flexShrink: 1,
 		width: '100%',
 		//to avoid content being covered by open drawer
 		[theme.breakpoints.up('md')]: {
-			marginLeft: drawerWidth*1.4,
+			marginLeft: drawerWidth*3,
 		},
 		// flexGrow: 1,
 		padding: theme.spacing(1),
