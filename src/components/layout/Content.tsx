@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
 			marginLeft: drawerWidth*3,
 		},
 		// flexGrow: 1,
-		padding: theme.spacing(1),
+		padding: theme.spacing(3),
 	},
 	// necessary for content to be below app bar
 	toolbar: theme.mixins.toolbar,

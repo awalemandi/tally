@@ -1,8 +1,9 @@
 import React from 'react';
 import TransactionType from './TransactionType';
 import Amount from './Amount';
-import { Grid, Hidden } from '@material-ui/core';
+import { Grid, Hidden, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import Party from './Party';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -26,7 +27,7 @@ const NewTally = () => {
 				alignItems='stretch'
 			>
 				<Grid item xs={12}>
-					<h1>Add a new Tally</h1>
+					<Typography variant='h3'>Add a new Tally</Typography>
 				</Grid>
 				<Grid item xs={10} sm={8} md={5} lg={3}>
 					<TransactionType />
@@ -36,6 +37,12 @@ const NewTally = () => {
 				</Hidden>
 				<Grid item xs={10} sm={8} md={5} lg={3}>
 					<Amount />
+				</Grid>
+				<Hidden mdDown>
+					<Grid item md={6} lg={9}></Grid>
+				</Hidden>
+				<Grid item xs={10} sm={8} md={5} lg={3}>
+					<Party />
 				</Grid>
 				<Hidden mdDown>
 					<Grid item md={6} lg={9}></Grid>

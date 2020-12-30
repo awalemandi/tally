@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import {
-	TextField,
+	Grid,
+	Typography,
 	FormControl,
 	InputLabel,
-	Input,
+	OutlinedInput,
 	InputAdornment,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
@@ -25,14 +26,29 @@ function Amount() {
 	// };
 
 	return (
-		<FormControl fullWidth>
-			<InputLabel htmlFor='standard-adornment-amount'>Amount</InputLabel>
-			<Input
-				id='amount'
-				type='number'
-				startAdornment={<InputAdornment position='start'>$</InputAdornment>}
-			/>
-		</FormControl>
+		<Grid
+			container
+			direction='column'
+			justify='space-between'
+			alignItems='stretch'
+			spacing={3}
+		>
+			<Grid item xs={12}>
+				<Typography variant='h4' color='primary'>
+					How Much?
+				</Typography>
+			</Grid>
+			<Grid item xs={12}>
+				<FormControl fullWidth variant='outlined'>
+					<InputLabel htmlFor='outlined-adornment-amount'>Amount</InputLabel>
+					<OutlinedInput
+						id='amount'
+						type='number'
+						startAdornment={<InputAdornment position='start'>$</InputAdornment>}
+					/>
+				</FormControl>
+			</Grid>
+		</Grid>
 	);
 }
 
