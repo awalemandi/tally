@@ -6,8 +6,10 @@ import {
 	Select,
 	MenuItem,
 	FormHelperText,
+	Button,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { GrFormAdd } from 'react-icons/gr';
 
 const useStyles = makeStyles(theme => ({
 	root: {},
@@ -35,23 +37,26 @@ function Party() {
 				</Typography>
 			</Grid>
 			<Grid item xs={12}>
-				<FormControl>
-					<Select
-						value={party}
-						autoWidth
-						onChange={handleChange}
-						displayEmpty
-						inputProps={{ 'aria-label': 'Without label' }}
+				<Select
+					labelId='demo-simple-select-label'
+					id='party'
+					value={party}
+					onChange={handleChange}
+					fullWidth
+				>
+					<MenuItem>Tommy Shelby</MenuItem>
+					<MenuItem>Dad</MenuItem>
+					<MenuItem>Westpac</MenuItem>
+					<MenuItem>Some guy</MenuItem>
+					<Button
+						fullWidth
+						variant='text'
+						color='inherit'
+						startIcon={<GrFormAdd />}
 					>
-						<MenuItem value='' disabled>
-							Tommy
-						</MenuItem>
-						<MenuItem value={10}>Dad</MenuItem>
-						<MenuItem value={20}>Benny</MenuItem>
-						<MenuItem value={30}>Bank</MenuItem>
-					</Select>
-					<FormHelperText>Placeholder</FormHelperText>
-				</FormControl>
+						Add new
+					</Button>
+				</Select>
 			</Grid>
 		</Grid>
 	);
