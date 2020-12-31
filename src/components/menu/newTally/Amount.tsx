@@ -6,6 +6,7 @@ import {
 	InputLabel,
 	OutlinedInput,
 	InputAdornment,
+	TextField,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -39,14 +40,16 @@ function Amount() {
 				</Typography>
 			</Grid>
 			<Grid item xs={12}>
-				<FormControl fullWidth variant='outlined'>
-					<InputLabel htmlFor='outlined-adornment-amount'>Amount</InputLabel>
-					<OutlinedInput
-						id='amount'
-						type='number'
-						startAdornment={<InputAdornment position='start'>$</InputAdornment>}
-					/>
-				</FormControl>
+				<TextField
+					fullWidth
+					type='number'
+					label='Amount'
+					id='amount'
+					InputProps={{
+						startAdornment: <InputAdornment position='start'>$</InputAdornment>,
+					}}
+					variant='outlined'
+				/>
 			</Grid>
 		</Grid>
 	);
