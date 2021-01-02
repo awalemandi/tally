@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
 		width: '100%',
 		//to avoid content being covered by open drawer
 		[theme.breakpoints.up('md')]: {
-			marginLeft: drawerWidth*3,
+			marginLeft: drawerWidth*2,
 		},
 		// flexGrow: 1,
 		padding: theme.spacing(3),
