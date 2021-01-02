@@ -4,7 +4,7 @@ import {
 	MuiPickersUtilsProvider,
 	KeyboardDatePicker,
 } from '@material-ui/pickers';
-// import DateFnsUtils from 'date-io/date-fns';
+import DateFnsUtils from 'date-io/date-fns';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
@@ -23,37 +23,35 @@ function Date() {
 	};
 
 	return (
-		<>
-		</>
-		// <MuiPickersUtilsProvider utils={DateFnsUtils}>
-		// 	{/* <Grid
-		// 		container
-		// 		direction='column'
-		// 		justify='space-between'
-		// 		alignItems='stretch'
-		// 		spacing={3}
-		// 	>
-		// 		<Grid item xs={12}>
-		// 			<Typography variant='h4' color='primary'>
-		// 				When?
-		// 			</Typography>
-		// 		</Grid>
-		// 		<Grid item xs={12}>
-		// 			<KeyboardDatePicker
-		// 				disableToolbar
-		// 				variant='inline'
-		// 				format='MM/dd/yyyy'
-		// 				margin='normal'
-		// 				id='date'
-		// 				value=''
-		// 				onChange={handleDateChange}
-		// 				KeyboardButtonProps={{
-		// 					'aria-label': 'change date',
-		// 				}}
-		// 			/>
-		// 		</Grid>
-		// 	</Grid> */}
-		// </MuiPickersUtilsProvider>
+		<MuiPickersUtilsProvider utils={DateFnsUtils}>
+			<Grid
+				container
+				direction='column'
+				justify='space-between'
+				alignItems='stretch'
+				spacing={3}
+			>
+				<Grid item xs={12}>
+					<Typography variant='h4' color='primary'>
+						When?
+					</Typography>
+				</Grid>
+				<Grid item xs={12}>
+					<KeyboardDatePicker
+						disableToolbar
+						variant='inline'
+						format='MM/dd/yyyy'
+						margin='normal'
+						id='date'
+						value=''
+						onChange={handleDateChange}
+						KeyboardButtonProps={{
+							'aria-label': 'change date',
+						}}
+					/>
+				</Grid>
+			</Grid>
+		</MuiPickersUtilsProvider>
 	);
 }
 
