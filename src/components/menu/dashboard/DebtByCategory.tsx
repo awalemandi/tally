@@ -19,7 +19,7 @@ import TabletIcon from '@material-ui/icons/Tablet';
 
 const useStyles = makeStyles(() => ({
 	root: {
-		height: '100%',
+		width: '100%',
 	},
 }));
 

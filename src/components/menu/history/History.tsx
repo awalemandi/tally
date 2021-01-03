@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {
+	Grid,
 	List,
 	ListItem,
 	Divider,
@@ -23,9 +24,19 @@ const useStyles = makeStyles(theme => ({
 const History = () => {
 	const classes = useStyles();
 	return (
-		<div>
+		<Grid
+		className={classes.root}
+				container
+				spacing={4}
+				direction='column'
+				justify='flex-start'
+				alignItems='stretch'>
+			<Grid item xs={12}>
+					<Typography variant='h3'>Your Recent Transactions</Typography>
+				</Grid>
+			<Grid item xs={12}>
 			<Paper>
-				<List className={classes.root}>
+				<List>
 					<ListItem>
 						<ListItemAvatar>
 							<Avatar alt='Remy Sharp' src='/static/images/avatar/1.jpg' />
@@ -54,7 +65,8 @@ const History = () => {
 					</ListItem>
 				</List>
 			</Paper>
-		</div>
+			</Grid>
+		</Grid>
 	);
 };
 
