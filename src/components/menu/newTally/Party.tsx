@@ -9,7 +9,7 @@ import {
 	Button,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { GrFormAdd } from 'react-icons/gr';
+import { TiPlus } from 'react-icons/ti';
 
 const useStyles = makeStyles(theme => ({
 	root: {},
@@ -52,7 +52,7 @@ function Party() {
 						fullWidth
 						variant='text'
 						color='inherit'
-						startIcon={<GrFormAdd />}
+						startIcon={<TiPlus />}
 					>
 						Add new
 					</Button>

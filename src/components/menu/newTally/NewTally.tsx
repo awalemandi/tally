@@ -1,10 +1,11 @@
 import React from 'react';
 import TransactionType from './TransactionType';
 import Amount from './Amount';
-import { Grid, Hidden, Typography } from '@material-ui/core';
+import { Grid, Hidden, Typography, Fab } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Party from './Party';
 import Date from './Date';
+import {TiPlusOutline} from 'react-icons/ti';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -50,6 +51,15 @@ const NewTally = () => {
 				</Hidden>
 				<Grid item xs={10} sm={8} md={5} lg={3}>
 					<Date />
+				</Grid>
+				<Hidden mdDown>
+					<Grid item md={6} lg={9}></Grid>
+				</Hidden>
+				<Grid item xs={10} sm={8} md={5} lg={3}>
+				<Fab variant="extended" color='primary'>
+					<TiPlusOutline />
+        Add Tally
+      </Fab>
 				</Grid>
 				<Hidden mdDown>
 					<Grid item md={6} lg={9}></Grid>
