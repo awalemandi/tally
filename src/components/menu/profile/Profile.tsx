@@ -24,9 +24,13 @@ const Profile = () => {
 			<Grid item xs={12}>
 				<Typography variant='h3'>Your Profile</Typography>
 			</Grid>
-			<Grid item xs={12}>
-				<ProfileCard />
-				<AccountDetails />
+			<Grid container item xs={12} spacing={4} justify='center' alignItems='center'>
+				<Grid item  xs={12} sm={8} md={4}>
+					<ProfileCard />
+				</Grid>
+				<Grid item  xs={12} sm={10} md={8}>
+					<AccountDetails />
+				</Grid>
 			</Grid>
 		</Grid>
 	);
