@@ -5,14 +5,18 @@ import { Grid, Hidden, Typography, Fab } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Party from './Party';
 import Date from './Date';
-import {TiPlusOutline} from 'react-icons/ti';
+import { TiPlusOutline } from 'react-icons/ti';
 
 const useStyles = makeStyles(theme => ({
 	root: {
 		width: '100%',
-		// display: 'flex',
-		// flexDirection: 'column',
-		// justifyContent: 'space-between',
+	},
+	actionButton: {
+		minWidth: '200px',
+		minHeight: '70px',
+	},
+	icon: {
+		marginRight: theme.spacing(1),
 	},
 }));
 
@@ -56,10 +60,14 @@ const NewTally = () => {
 					<Grid item md={6} lg={9}></Grid>
 				</Hidden>
 				<Grid item xs={10} sm={8} md={5} lg={3}>
-				<Fab variant="extended" color='primary'>
-					<TiPlusOutline />
-        Add Tally
-      </Fab>
+					<Fab
+						variant='extended'
+						color='primary'
+						className={classes.actionButton}
+					>
+						<TiPlusOutline className={classes.icon} />
+						Add Tally
+					</Fab>
 				</Grid>
 				<Hidden mdDown>
 					<Grid item md={6} lg={9}></Grid>
