@@ -22,7 +22,7 @@ const Profile = () => {
 			alignItems='stretch'
 		>
 			<Grid item xs={12}>
-				<Typography variant='h3'>Your Profile</Typography>
+				<Typography variant='h3'>My Profile</Typography>
 			</Grid>
 			<Grid container item xs={12} spacing={4} justify='center' alignItems='center'>
 				<Grid item  xs={12} sm={8} md={4}>

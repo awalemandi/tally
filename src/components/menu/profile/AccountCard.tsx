@@ -10,14 +10,13 @@ import {
 	Typography,
 	makeStyles,
 } from '@material-ui/core';
+import profileImage from '../../../images/profile.jpg';
 
 const user = {
-	avatar: '/static/images/avatars/avatar_6.png',
-	city: 'Los Angeles',
-	country: 'USA',
-	jobTitle: 'Senior Developer',
-	name: 'Katarina Smith',
-	timezone: 'GTM-7',
+	avatar: profileImage,
+	firstName: 'Mads',
+	lastName: 'Awale',
+	username: 'cussinstoic'
 };
 
 const useStyles = makeStyles(() => ({
@@ -36,11 +35,11 @@ const ProfileCard = () => {
 			<CardContent>
 				<Box alignItems='center' display='flex' flexDirection='column'>
 					<Avatar className={classes.avatar} src={user.avatar} />
-					<Typography color='textPrimary' gutterBottom variant='h3'>
-						{user.name}
+					<Typography color='textPrimary' gutterBottom variant='h5'>
+						{`${user.firstName} ${user.lastName}`}
 					</Typography>
 					<Typography color='textSecondary' variant='body1'>
-						{`${user.city} ${user.country}`}
+						{`${user.username}`}
 					</Typography>
 				</Box>
 			</CardContent>

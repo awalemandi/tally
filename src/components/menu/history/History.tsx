@@ -32,7 +32,7 @@ const History = () => {
 				justify='flex-start'
 				alignItems='stretch'>
 			<Grid item xs={12}>
-					<Typography variant='h3'>Your Recent Transactions</Typography>
+					<Typography variant='h3'>Recent Transactions</Typography>
 				</Grid>
 			<Grid item xs={12}>
 			<Paper>

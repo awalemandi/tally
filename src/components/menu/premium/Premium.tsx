@@ -19,7 +19,7 @@ const Premium = () => {
 				justify='flex-start'
 				alignItems='stretch'>
 					<Grid item xs={12}>
-					<Typography variant='h3'>Join Premium for more features</Typography>
+					<Typography variant='h3'>Premium features</Typography>
 					</Grid>
 					<Grid item xs={12}>
 
