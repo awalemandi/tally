@@ -15,7 +15,10 @@ const useStyles = makeStyles(theme => ({
 	},
 	heroButtons: {
 		marginTop: theme.spacing(4),
-	},
+    },
+    terms: {
+        marginTop: theme.spacing(3)
+    }
 }));
 
 const Banner = () => {
@@ -29,7 +32,7 @@ const Banner = () => {
 						component='h1'
 						variant='h3'
 						align='left'
-						color='textPrimary'
+						color='primary'
 						gutterBottom
 					>
 						Try Premium free for 1 month
@@ -43,7 +46,7 @@ const Banner = () => {
 						Just $11.99/month after. Cancel anytime.
 					</Typography>
 					<div className={classes.heroButtons}>
-						<Grid container spacing={2} justify='center'>
+						<Grid container spacing={2} justify='flex-start'>
 							<Grid item>
 								<Button variant='contained' color='primary'>
 									Get Started
@@ -56,6 +59,15 @@ const Banner = () => {
 							</Grid>
 						</Grid>
 					</div>
+                    <Typography
+						variant='subtitle2'
+						align='left'
+						color='textSecondary'
+                        paragraph
+                        className={classes.terms}
+					>
+						<u>Terms and conditions apply</u>. 1 month free not available for users who have already tried Premium.
+					</Typography>
 				</Container>
 			</div>
 		</>

@@ -28,9 +28,7 @@ const useStyles = makeStyles(theme => ({
 	},
 	cardHeader: {
 		backgroundColor:
-			theme.palette.type === 'light'
-				? theme.palette.grey[200]
-				: theme.palette.grey[700],
+			theme.palette.primary.light
 	},
 	cardPricing: {
 		display: 'flex',
@@ -125,7 +123,7 @@ const Plans = () => {
 					Pick your Premium
 				</Typography>
 				<Typography
-					variant='h5'
+					variant='h6'
 					align='left'
 					color='textSecondary'
 					component='p'
@@ -136,7 +134,7 @@ const Plans = () => {
 			</Container>
 			{/* End hero unit */}
 			<Container maxWidth='md' component='main'>
-				<Grid container spacing={5} alignItems='flex-end'>
+				<Grid container spacing={5} alignItems='flex-start'justify='flex-start'>
 					{tiers.map(tier => (
 						// Enterprise card is full width at sm breakpoint
 						<Grid
