@@ -11,16 +11,13 @@ import {
 	colors,
 } from '@material-ui/core';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+import {IoCaretDown, IoCaretUp} from 'react-icons/io5';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme)=> ({
 	root: {
 		height: '100%',
-		width: 'auto'
-	},
-	avatar: {
-		backgroundColor: colors.indigo[600],
-		// height: 56,
-		// width: 56,
+		width: 'auto',
+		padding: theme.spacing(1)
 	},
 }));
 
@@ -30,19 +27,22 @@ const TotalDebt = () => {
 	return (
 		<Card className={clsx(classes.root)}>
 			<CardContent>
-				<Grid container justify='space-between' spacing={3}>
+				<Grid container direction='column' justify='center' alignItems='center' spacing={1}>
 					<Grid item>
-						<Typography color='textSecondary' gutterBottom variant='h6'>
-							Outstanding Amount
+						<Typography color='textSecondary' gutterBottom variant='button'>
+							TOTAL DEBT
 						</Typography>
+						</Grid>
+						<Grid item>
 						<Typography color='textPrimary' variant='h4'>
 							$23,200
 						</Typography>
 					</Grid>
 					<Grid item>
-						<Avatar className={classes.avatar}>
-							<AttachMoneyIcon />
-						</Avatar>
+						
+						<Typography variant='h6'color='primary'>
+						<IoCaretDown /> 12.5%
+						</Typography>
 					</Grid>
 				</Grid>
 			</CardContent>
