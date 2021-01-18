@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Doughnut } from 'react-chartjs-2';
 import {
 	Box,
+	Grid,
 	Card,
 	CardContent,
 	CardHeader,
@@ -12,14 +13,29 @@ import {
 	colors,
 	makeStyles,
 	useTheme,
+	ThemeProvider,
 } from '@material-ui/core';
 import LaptopMacIcon from '@material-ui/icons/LaptopMac';
 import PhoneIcon from '@material-ui/icons/Phone';
 import TabletIcon from '@material-ui/icons/Tablet';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({
 	root: {
 		width: '100%',
+		display: 'flex',
+		flexFlow: 'column nowrap',
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+	content: {
+		flexGrow: 2,
+		flexShirk: 1,
+	},
+	chart: {
+		marginBot: theme.spacing(1),
+	},
+	category: {
+		textAlign: 'center',
 	},
 }));
 
@@ -88,23 +104,23 @@ const DebtByCategory = () => {
 		<Card className={clsx(classes.root)}>
 			<CardHeader title='Debt by Category' />
 			<Divider />
-			<CardContent>
-				<Box height={300} position='relative'>
+			<CardContent className={classes.content}>
+				<Box className={classes.chart}>
 					<Doughnut data={data} options={options} />
 				</Box>
-				<Box display='flex' justifyContent='center' mt={2}>
+				<Grid container justify='center' alignItems='center'>
 					{devices.map(({ color, icon: Icon, title, value }) => (
-						<Box key={title} p={1} textAlign='center'>
+						<Grid item xs={4} key={title} className={classes.category}>
 							<Icon color='action' />
 							<Typography color='textPrimary' variant='body1'>
 								{title}
 							</Typography>
-							<Typography style={{ color }} variant='h2'>
+							<Typography style={{ color }} variant='h6'>
 								{value}%
 							</Typography>
-						</Box>
+						</Grid>
 					))}
-				</Box>
+				</Grid>
 			</CardContent>
 		</Card>
 	);

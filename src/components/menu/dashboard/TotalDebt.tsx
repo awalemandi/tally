@@ -15,11 +15,12 @@ import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 const useStyles = makeStyles(() => ({
 	root: {
 		height: '100%',
+		width: 'auto'
 	},
 	avatar: {
 		backgroundColor: colors.indigo[600],
-		height: 56,
-		width: 56,
+		// height: 56,
+		// width: 56,
 	},
 }));
 
@@ -34,7 +35,7 @@ const TotalDebt = () => {
 						<Typography color='textSecondary' gutterBottom variant='h6'>
 							Outstanding Amount
 						</Typography>
-						<Typography color='textPrimary' variant='h3'>
+						<Typography color='textPrimary' variant='h4'>
 							$23,200
 						</Typography>
 					</Grid>
