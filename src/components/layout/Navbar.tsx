@@ -28,7 +28,7 @@ import { Omit } from '@material-ui/types';
 
 import Logo from '../../images/tally.png';
 
-export const drawerWidth: number = 210;
+export const drawerWidth: number = 250;
 
 const useStyles = makeStyles(theme => ({
 	drawer: {
