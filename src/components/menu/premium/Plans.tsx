@@ -27,8 +27,7 @@ const useStyles = makeStyles(theme => ({
 		padding: theme.spacing(8, 0, 6),
 	},
 	cardHeader: {
-		backgroundColor:
-			theme.palette.primary.light
+		backgroundColor: theme.palette.primary.light,
 	},
 	cardPricing: {
 		display: 'flex',
@@ -43,67 +42,41 @@ const tiers = [
 		title: 'Free',
 		price: '0',
 		description: [
-			'10 users included',
-			'2 GB of storage',
-			'Help center access',
-			'Email support',
+			'1 user',
+			'Basic financial metrics',
+			'Single device login',
+			'Single theme',
 		],
-		buttonText: 'Sign up for free',
+		buttonText: 'Invite friends',
 		buttonVariant: 'outlined',
 	},
 	{
-		title: 'Pro',
-		subheader: 'Most popular',
-		price: '15',
+		title: 'Individual',
+		price: '11.99',
 		description: [
-			'20 users included',
-			'10 GB of storage',
-			'Help center access',
-			'Priority email support',
+			'1 user',
+			'Bonus financial metrics',
+			'Multiple device support',
+			'Data export (.xls, .csv)',
+			'Personalized insights',
+			'15+ custom themes',
 		],
 		buttonText: 'Get started',
 		buttonVariant: 'contained',
 	},
 	{
-		title: 'Enterprise',
-		price: '30',
+		title: 'Duo',
+		price: '16.99',
 		description: [
-			'50 users included',
-			'30 GB of storage',
-			'Help center access',
-			'Phone & email support',
+			'2 users',
+			'Bonus financial metrics',
+			'Multiple device support',
+			'Data export (.xls, .csv)',
+			'Personalized insights',
+			'15+ custom themes',
 		],
 		buttonText: 'Contact us',
 		buttonVariant: 'outlined',
-	},
-];
-const footers = [
-	{
-		title: 'Company',
-		description: ['Team', 'History', 'Contact us', 'Locations'],
-	},
-	{
-		title: 'Features',
-		description: [
-			'Cool stuff',
-			'Random feature',
-			'Team feature',
-			'Developer stuff',
-			'Another one',
-		],
-	},
-	{
-		title: 'Resources',
-		description: [
-			'Resource',
-			'Resource name',
-			'Another resource',
-			'Final resource',
-		],
-	},
-	{
-		title: 'Legal',
-		description: ['Privacy policy', 'Terms of use'],
 	},
 ];
 
@@ -134,20 +107,23 @@ const Plans = () => {
 			</Container>
 			{/* End hero unit */}
 			<Container maxWidth='md' component='main'>
-				<Grid container spacing={5} alignItems='flex-start'justify='flex-start'>
+				<Grid
+					container
+					spacing={5}
+					alignItems='flex-start'
+					justify='flex-start'
+				>
 					{tiers.map(tier => (
-						// Enterprise card is full width at sm breakpoint
 						<Grid
 							item
 							key={tier.title}
 							xs={12}
-							sm={tier.title === 'Enterprise' ? 12 : 6}
+							sm={6}
 							md={4}
 						>
 							<Card>
 								<CardHeader
 									title={tier.title}
-									subheader={tier.subheader}
 									titleTypographyProps={{ align: 'center' }}
 									subheaderTypographyProps={{ align: 'center' }}
 									action={null}
