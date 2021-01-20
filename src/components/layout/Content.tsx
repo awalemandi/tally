@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import { drawerWidth } from './Navbar';
+import { drawerWidth } from '../layout/Navbar';
 import Dashboard from '../menu/dashboard/Dashboard';
 import NewTally from '../menu/newTally/NewTally';
 import History from '../menu/history/History';
@@ -11,14 +11,15 @@ import NoMatch from '../menu/NoMatch';
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		marginLeft: theme.spacing(15),
-		flexShrink: 3,
+		// marginLeft: drawerWidth,
+		flexShrink: 1,
 		width: '100%',
+		backgroundColor: theme.palette.secondary.main,
 		//to avoid content being covered by open drawer
-		[theme.breakpoints.up('md')]: {
-			marginLeft: drawerWidth+200,
+		[theme.breakpoints.down('sm')]: {
+			marginLeft: 0,
+			width: '100%'
 		},
-		// flexGrow: 1,
 		padding: theme.spacing(3),
 	},
 	// necessary for content to be below app bar
