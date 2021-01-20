@@ -102,7 +102,7 @@ const DebtByCategory = () => {
 
 	return (
 		<Card className={clsx(classes.root)}>
-			<CardHeader title='Debt by Category' />
+			<CardHeader title='BY CATEGORY' />
 			<Divider />
 			<CardContent className={classes.content}>
 				<Box className={classes.chart}>

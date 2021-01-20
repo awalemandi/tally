@@ -9,6 +9,7 @@ import {
 	makeStyles,
 } from '@material-ui/core';
 import { IoCaretDown, IoCaretUp } from 'react-icons/io5';
+import { BiDollar } from 'react-icons/bi';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -19,13 +20,13 @@ const useStyles = makeStyles(theme => ({
 }));
 
 type CardProps = {
-	name: string,
-	stat: any,
-	improved: boolean,
-	change: number
-  }
+	name: string;
+	stat: any;
+	improved: boolean;
+	change: number;
+};
 
-const StatCard = ({name, stat, improved, change}: CardProps) => {
+const StatCard = ({ name, stat, improved, change }: CardProps) => {
 	const classes = useStyles();
 
 	return (
@@ -45,11 +46,14 @@ const StatCard = ({name, stat, improved, change}: CardProps) => {
 					</Grid>
 					<Grid item>
 						<Typography color='textPrimary' variant='h4'>
-							{stat}
+							$ {stat}
 						</Typography>
 					</Grid>
 					<Grid item>
-						<Typography variant='h6' style={improved ? {color: 'green'} : {color: 'red'}}>
+						<Typography
+							variant='h6'
+							style={improved ? { color: 'green' } : { color: 'red' }}
+						>
 							{improved ? <IoCaretUp /> : <IoCaretDown />} {change}%
 						</Typography>
 					</Grid>

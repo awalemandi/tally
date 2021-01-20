@@ -29,9 +29,9 @@ const Dashboard = () => {
 				<Grid item lg={3} sm={6} xl={3} xs={12}>
 					<StatCard name='total debt' stat='23,000' improved={false} change={12.4} />
 				</Grid>
-				<Grid item lg={3} sm={6} xl={3} xs={12}><StatCard name='total debt' stat='23,000' improved={false} change={12.4} /></Grid>
-				<Grid item lg={3} sm={6} xl={3} xs={12}><StatCard name='total debt' stat='23,000' improved={true} change={12.4} /></Grid>
-				<Grid item lg={3} sm={6} xl={3} xs={12}><StatCard name='total debt' stat='23,000' improved={false} change={12.4} /></Grid>
+				<Grid item lg={3} sm={6} xl={3} xs={12}><StatCard name='total debt' stat='23,789' improved={false} change={12.4} /></Grid>
+				<Grid item lg={3} sm={6} xl={3} xs={12}><StatCard name='total debt' stat='23,445' improved={true} change={12.4} /></Grid>
+				<Grid item lg={3} sm={6} xl={3} xs={12}><StatCard name='total debt' stat='5,548' improved={false} change={12.4} /></Grid>
 				<Grid item lg={8} md={12} xl={9} xs={12}><StatCard name='total debt' stat='23,000' improved={false} change={12.4} /></Grid>
 				<Grid item lg={4} md={6} xl={3} xs={12}>
 					<DebtByCategory />

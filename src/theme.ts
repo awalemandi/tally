@@ -9,6 +9,9 @@ const lightTheme = createMuiTheme({
 			main: '#A8DADC',
 		},
 	},
+	typography: {
+		fontFamily: ['Open Sans', 'Roboto'].join(','),
+	},
 });
 
 const darkTheme = createMuiTheme({
