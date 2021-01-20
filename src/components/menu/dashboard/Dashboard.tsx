@@ -1,13 +1,14 @@
 import React from 'react';
 import { Typography, Grid, makeStyles } from '@material-ui/core';
-import TotalDebt from './TotalDebt';
+import StatCard from './StatCard';
 import DebtByCategory from './DebtByCategory';
 
 const useStyles = makeStyles(theme => ({
 	root: {
-backgroundColor: theme.palette.secondary.main
+		backgroundColor: theme.palette.secondary.main,
 	},
 }));
+
 
 const Dashboard = () => {
 	const classes = useStyles();
@@ -26,29 +27,17 @@ const Dashboard = () => {
 			</Grid>
 			<Grid container item spacing={3}>
 				<Grid item lg={3} sm={6} xl={3} xs={12}>
-					<TotalDebt />
+					<StatCard name='total debt' stat='23,000' improved={false} change={12.4} />
 				</Grid>
-				<Grid item lg={3} sm={6} xl={3} xs={12}>
-					<TotalDebt />
-				</Grid>
-				<Grid item lg={3} sm={6} xl={3} xs={12}>
-					<TotalDebt />
-				</Grid>
-				<Grid item lg={3} sm={6} xl={3} xs={12}>
-					<TotalDebt />
-				</Grid>
-				<Grid item lg={8} md={12} xl={9} xs={12}>
-					<TotalDebt />
-				</Grid>
+				<Grid item lg={3} sm={6} xl={3} xs={12}><StatCard name='total debt' stat='23,000' improved={false} change={12.4} /></Grid>
+				<Grid item lg={3} sm={6} xl={3} xs={12}><StatCard name='total debt' stat='23,000' improved={true} change={12.4} /></Grid>
+				<Grid item lg={3} sm={6} xl={3} xs={12}><StatCard name='total debt' stat='23,000' improved={false} change={12.4} /></Grid>
+				<Grid item lg={8} md={12} xl={9} xs={12}><StatCard name='total debt' stat='23,000' improved={false} change={12.4} /></Grid>
 				<Grid item lg={4} md={6} xl={3} xs={12}>
 					<DebtByCategory />
 				</Grid>
-				<Grid item lg={4} md={6} xl={3} xs={12}>
-					<TotalDebt />
-				</Grid>
-				<Grid item lg={8} md={12} xl={9} xs={12}>
-					<TotalDebt />
-				</Grid>
+				<Grid item lg={4} md={6} xl={3} xs={12}><StatCard name='total debt' stat='23,000' improved={true} change={12.4} /></Grid>
+				<Grid item lg={8} md={12} xl={9} xs={12}><StatCard name='total debt' stat='23,000' improved={true} change={12.4} /></Grid>
 			</Grid>
 		</Grid>
 	);
