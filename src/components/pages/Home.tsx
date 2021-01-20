@@ -9,18 +9,23 @@ import { drawerWidth } from '../layout/Navbar';
 const useStyles = makeStyles(theme => ({
 	root: {
 		marginLeft: drawerWidth,
-		width: '100%',
+		width: 'auto',
 		minHeight: '100vh',
+		display: 'flex',
+		flexDirection: 'column',
 		//to avoid content being covered by open drawer
 		[theme.breakpoints.down('sm')]: {
 			marginLeft: 0,
-			width: '100%'
+			width: '100%',
 		},
-		display: 'flex',
-		flexDirection: 'column',
-		justifyContent: 'space-between',
-		alignItems: 'stretch',
-		backgroundColor: theme.palette.primary.main
+	},
+	content: {
+		flexGrow: 1,
+		flexShrink: 0,
+		flexBasis: 'auto',
+	},
+	footer: {
+		flexShrink: 0 /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */,
 	},
 }));
 const Home = () => {
@@ -30,10 +35,10 @@ const Home = () => {
 			<header>
 				<Navbar />
 			</header>
-			<body>
+			<body className={classes.content}>
 				<Content />
 			</body>
-			<footer>
+			<footer className={classes.footer}>
 				<Footer />
 			</footer>
 		</Container>

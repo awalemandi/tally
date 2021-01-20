@@ -11,16 +11,11 @@ import NoMatch from '../menu/NoMatch';
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		// marginLeft: drawerWidth,
-		flexShrink: 1,
-		width: '100%',
-		backgroundColor: theme.palette.secondary.main,
-		//to avoid content being covered by open drawer
-		[theme.breakpoints.down('sm')]: {
-			marginLeft: 0,
-			width: '100%'
-		},
-		padding: theme.spacing(3),
+		// //to avoid content being covered by open drawer
+		// [theme.breakpoints.down('sm')]: {
+		// 	marginLeft: 0,
+		// 	width: '100%'
+		// },
 	},
 	// necessary for content to be below app bar
 	toolbar: theme.mixins.toolbar,

@@ -5,7 +5,7 @@ import DebtByCategory from './DebtByCategory';
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		width: '100%',
+backgroundColor: theme.palette.secondary.main
 	},
 }));
 
