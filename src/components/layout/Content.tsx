@@ -11,6 +11,7 @@ import NoMatch from '../menu/NoMatch';
 
 const useStyles = makeStyles(theme => ({
 	root: {
+		
 		// //to avoid content being covered by open drawer
 		// [theme.breakpoints.down('sm')]: {
 		// 	marginLeft: 0,

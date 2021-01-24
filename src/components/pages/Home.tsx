@@ -9,10 +9,12 @@ import { drawerWidth } from '../layout/Navbar';
 const useStyles = makeStyles(theme => ({
 	root: {
 		marginLeft: drawerWidth,
+		padding: theme.spacing(2),
 		width: 'auto',
-		minHeight: '100vh',
+		minHeight: '100vh',	
 		display: 'flex',
 		flexDirection: 'column',
+		overflow: 'hidden',
 		//to avoid content being covered by open drawer
 		[theme.breakpoints.down('sm')]: {
 			marginLeft: 0,
@@ -20,9 +22,12 @@ const useStyles = makeStyles(theme => ({
 		},
 	},
 	content: {
-		flexGrow: 1,
-		flexShrink: 0,
-		flexBasis: 'auto',
+		padding: 0,
+		margin: 0,
+		width: '100%',
+		// flexGrow: 1,
+		// flexShrink: 0,
+		// flexBasis: 'auto',
 	},
 	footer: {
 		flexShrink: 0 /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */,
