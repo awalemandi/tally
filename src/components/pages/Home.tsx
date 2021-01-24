@@ -15,6 +15,7 @@ const useStyles = makeStyles(theme => ({
 		display: 'flex',
 		flexDirection: 'column',
 		overflow: 'hidden',
+		backgroundColor: theme.palette.primary.main,
 		//to avoid content being covered by open drawer
 		[theme.breakpoints.down('sm')]: {
 			marginLeft: 0,
@@ -25,9 +26,10 @@ const useStyles = makeStyles(theme => ({
 		padding: 0,
 		margin: 0,
 		width: '100%',
-		// flexGrow: 1,
-		// flexShrink: 0,
-		// flexBasis: 'auto',
+		flexGrow: 1,
+		flexShrink: 0,
+		flexBasis: 'auto',
+		background: 'transparent'
 	},
 	footer: {
 		flexShrink: 0 /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */,
