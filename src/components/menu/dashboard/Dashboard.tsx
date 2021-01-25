@@ -1,5 +1,7 @@
 import React from 'react';
 import { Typography, Grid, makeStyles } from '@material-ui/core';
+
+import Savings from './Savings';
 import StatCard from './StatCard';
 import DebtByCategory from './DebtByCategory';
 
@@ -42,12 +44,7 @@ const Dashboard = () => {
 					/>
 				</Grid>
 				<Grid item lg={3} sm={6} xl={3} xs={12}>
-					<StatCard
-						name='total debt'
-						stat='23,445'
-						improved={true}
-						change={12.4}
-					/>
+					<Savings />
 				</Grid>
 				<Grid item lg={3} sm={6} xl={3} xs={12}>
 					<StatCard

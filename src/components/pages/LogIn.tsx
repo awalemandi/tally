@@ -12,7 +12,7 @@ import {
 	Grid,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Copyright from '../Copyright';
+import Copyright from '../common/Copyright';
 import Logo from '../../images/tally.png';
 import LoginImage from '../../images/login.jpg';
 

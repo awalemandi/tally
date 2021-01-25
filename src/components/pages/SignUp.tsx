@@ -13,7 +13,7 @@ import {
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import Logo from '../../images/tally.png';
-import Copyright from '../Copyright';
+import Copyright from '../common/Copyright';
 
 const useStyles = makeStyles(theme => ({
 	paper: {
