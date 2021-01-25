@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
 		display: 'flex',
 		flexDirection: 'column',
 		overflow: 'hidden',
-		backgroundColor: theme.palette.primary.main,
+		backgroundColor: theme.palette.secondary.light,
 		//to avoid content being covered by open drawer
 		[theme.breakpoints.down('sm')]: {
 			marginLeft: 0,

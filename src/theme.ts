@@ -6,6 +6,7 @@ const lightTheme = createMuiTheme({
 			main: '#E63946',
 		},
 		secondary: {
+			light: '#EEEEEE',
 			main: '#A8DADC',
 		},
 	},

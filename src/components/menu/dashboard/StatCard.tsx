@@ -30,7 +30,7 @@ const StatCard = ({ name, stat, improved, change }: CardProps) => {
 	const classes = useStyles();
 
 	return (
-		<Card className={clsx(classes.root)}>
+		<Card className={clsx(classes.root)} raised={true}>
 			<CardContent>
 				<Grid
 					container
