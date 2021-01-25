@@ -2,6 +2,7 @@ import React from 'react';
 import { Typography, Grid, makeStyles } from '@material-ui/core';
 
 import Savings from './Savings';
+import Performance from './Performace';
 import StatCard from './StatCard';
 import DebtByCategory from './DebtByCategory';
 
@@ -55,12 +56,7 @@ const Dashboard = () => {
 					/>
 				</Grid>
 				<Grid item lg={8} md={12} xl={9} xs={12}>
-					<StatCard
-						name='total debt'
-						stat='23,000'
-						improved={false}
-						change={12.4}
-					/>
+					<Performance />
 				</Grid>
 				<Grid item lg={4} md={6} xl={3} xs={12}>
 					<DebtByCategory />
