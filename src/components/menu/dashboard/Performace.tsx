@@ -32,7 +32,7 @@ const loadData = {
 	datasets: [
 		{
 			label: 'Net Worth',
-			backgroundColor: '#16e6a8',
+			backgroundColor: 'rgb(24, 228, 167, 0.7)',
 			// borderColor: 'rgba(0,0,0,1)',
 			borderWidth: 2,
 			data: [6500, 5900, 5000, 6000, 5600, -3000, -4200, 2000],

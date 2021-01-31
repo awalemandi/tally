@@ -26,7 +26,7 @@ const loadData = {
 			label: 'First dataset',
 			data: [33, 53, 85, 41, 44, 65],
 			fill: false,
-			backgroundColor: '#ec747a',
+			backgroundColor: 'rgb(236, 116, 122, 0.1)',
 			borderColor: '#ee757f',
 		},
 		{

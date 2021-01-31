@@ -1,133 +1,82 @@
 import React from 'react';
 import clsx from 'clsx';
-import PropTypes from 'prop-types';
-import { Doughnut } from 'react-chartjs-2';
 import {
-	Box,
-	Grid,
 	Card,
 	CardContent,
-	CardHeader,
-	Divider,
+	Grid,
 	Typography,
-	colors,
 	makeStyles,
-	useTheme,
-	ThemeProvider,
 } from '@material-ui/core';
-import LaptopMacIcon from '@material-ui/icons/LaptopMac';
-import PhoneIcon from '@material-ui/icons/Phone';
-import TabletIcon from '@material-ui/icons/Tablet';
+import DoughnutChart from '../../common/DoughnutChart';
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		width: '100%',
-		display: 'flex',
-		flexFlow: 'column nowrap',
-		justifyContent: 'center',
-		alignItems: 'center',
-	},
-	content: {
-		flexGrow: 2,
-		flexShirk: 1,
-	},
-	chart: {
-		marginBot: theme.spacing(1),
-	},
-	category: {
-		textAlign: 'center',
+		height: '100%',
+		width: 'auto',
+		padding: theme.spacing(2),
+		margin: 0,
 	},
 }));
 
+const loadData = {
+	datasets: [
+		{
+			data: [63, 15, 22],
+			backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+			hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+			borderWidth: 8,
+		},
+	],
+	labels: ['Family', 'Friends', 'Bank'],
+};
+
+const loadOptions = {
+	...{
+		responsive: true,
+		
+		legend: {
+			position: 'bottom',
+			labels: {
+				padding: 25,
+				boxWidth: 20,
+			},
+		},
+		cutoutPercentage: 0,
+		tooltips: {
+			custom: false,
+			mode: 'index',
+			position: 'nearest',
+		},
+	},
+};
+
 const DebtByCategory = () => {
 	const classes = useStyles();
-	const theme = useTheme();
-
-	const data = {
-		datasets: [
-			{
-				data: [63, 15, 22],
-				backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-				hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-				borderWidth: 8,
-				borderColor: colors.common.white,
-				hoverBorderColor: colors.common.white,
-			},
-		],
-		labels: ['Family', 'Friends', 'Bank'],
-	};
-
-	const options = {
-		animation: false,
-		cutoutPercentage: 80,
-		layout: { padding: 0 },
-		legend: {
-			display: false,
-		},
-		maintainAspectRatio: false,
-		responsive: true,
-		tooltips: {
-			backgroundColor: theme.palette.background.default,
-			bodyFontColor: theme.palette.text.secondary,
-			borderColor: theme.palette.divider,
-			borderWidth: 1,
-			enabled: true,
-			footerFontColor: theme.palette.text.secondary,
-			intersect: false,
-			mode: 'index',
-			titleFontColor: theme.palette.text.primary,
-		},
-	};
-
-	const devices = [
-		{
-			title: 'Family',
-			value: 63,
-			icon: LaptopMacIcon,
-			color: colors.indigo[500],
-		},
-		{
-			title: 'Friends',
-			value: 15,
-			icon: TabletIcon,
-			color: colors.red[600],
-		},
-		{
-			title: 'Bank',
-			value: 23,
-			icon: PhoneIcon,
-			color: colors.orange[600],
-		},
-	];
 
 	return (
 		<Card className={clsx(classes.root)} raised={true}>
-			<CardHeader title='BY CATEGORY' />
-			<Divider />
-			<CardContent className={classes.content}>
-				<Box className={classes.chart}>
-					<Doughnut data={data} options={options} />
-				</Box>
-				<Grid container justify='center' alignItems='center'>
-					{devices.map(({ color, icon: Icon, title, value }) => (
-						<Grid item xs={4} key={title} className={classes.category}>
-							<Icon color='action' />
-							<Typography color='textPrimary' variant='body1'>
-								{title}
-							</Typography>
-							<Typography style={{ color }} variant='h6'>
-								{value}%
-							</Typography>
-						</Grid>
-					))}
+			<CardContent style={{ margin: 0, padding: 0 }}>
+				<Grid container direction='column' justify='center' alignItems='center'>
+					<Grid item>
+						<Typography color='textSecondary' gutterBottom variant='button'>
+							Debt By Category
+						</Typography>
+					</Grid>
+					<Grid
+						container
+						direction='row'
+						justify='center'
+						alignItems='center'
+						item
+						xs={12}
+						style={{ maxWidth: '70%' }}
+					>
+						<DoughnutChart data={loadData} options={loadOptions} />
+					</Grid>
 				</Grid>
 			</CardContent>
 		</Card>
 	);
-};
-
-DebtByCategory.propTypes = {
-	className: PropTypes.string,
 };
 
 export default DebtByCategory;
