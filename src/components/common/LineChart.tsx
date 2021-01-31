@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useEffect } from 'react';
 
 import { Line } from 'react-chartjs-2';
 
@@ -21,19 +22,23 @@ const data = {
 	],
 };
 
-const chartOptions = {
+const options = {
 	...{
+		maintainAspectRatio: false,
 		responsive: true,
 		legend: {
-			position: 'top',
+			display: false,
+		},
+		tooltips: {
+			enabled: false,
+			custom: false,
 		},
 		elements: {
-			line: {
-				// A higher value makes the line look skewed at this ratio.
-				tension: 0.3,
-			},
 			point: {
 				radius: 0,
+			},
+			line: {
+				tension: 0.33,
 			},
 		},
 		scales: {
@@ -41,44 +46,36 @@ const chartOptions = {
 				{
 					gridLines: false,
 					ticks: {
-						callback(tick: any, index: number) {
-							// Jump every 7 values on the X axis labels to avoid clutter.
-							return index % 7 !== 0 ? '' : tick;
-						},
+						display: false,
 					},
 				},
 			],
 			yAxes: [
 				{
+					gridLines: false,
+					scaleLabel: false,
 					ticks: {
-						suggestedMax: 45,
-						callback(tick: number) {
-							if (tick === 0) {
-								return tick;
-							}
-							// Format the amounts using Ks for thousands.
-							return tick > 999 ? `${(tick / 1000).toFixed(1)}K` : tick;
-						},
+						display: false,
+						isplay: false,
 					},
 				},
 			],
-		},
-		hover: {
-			mode: 'nearest',
-			intersect: false,
-		},
-		tooltips: {
-			custom: false,
-			mode: 'nearest',
-			intersect: false,
 		},
 	},
 };
 
 function LineChart() {
+	const [chartData, setChartData] = useState({});
+	const [chartOptions, setChartOptions] = useState({});
+
+	useEffect(() => {
+		setChartData(data);
+		setChartOptions(options);
+	}, []);
+
 	return (
 		<>
-			<Line data={data} options={chartOptions} />
+			<Line data={chartData} options={chartOptions} />
 		</>
 	);
 }

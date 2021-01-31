@@ -14,7 +14,8 @@ const useStyles = makeStyles(theme => ({
 	root: {
 		height: '100%',
 		width: 'auto',
-		padding: theme.spacing(1),
+		padding: 0,
+		margin: 0,
 	},
 }));
 
@@ -30,24 +31,16 @@ const Savings = () => {
 
 	return (
 		<Card className={clsx(classes.root)} raised={true}>
-			<CardContent>
+			<CardContent style={{margin: 0, padding: 0}}>
 				<Grid
 					container
-					direction='column'
+					direction='row'
 					justify='center'
 					alignItems='center'
-					spacing={1}
+					
 				>
-					<Grid item>
-						<Typography color='textSecondary' gutterBottom variant='button'>
-							Your Savings
-						</Typography>
-					</Grid>
-					<Grid item>
+					<Grid item xs={12}>
 						<LineChart />
-					</Grid>
-					<Grid item>
-						<Typography variant='h6'></Typography>
 					</Grid>
 				</Grid>
 			</CardContent>

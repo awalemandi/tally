@@ -101,7 +101,7 @@ const DebtByCategory = () => {
 	];
 
 	return (
-		<Card className={clsx(classes.root)}>
+		<Card className={clsx(classes.root)} raised={true}>
 			<CardHeader title='BY CATEGORY' />
 			<Divider />
 			<CardContent className={classes.content}>
