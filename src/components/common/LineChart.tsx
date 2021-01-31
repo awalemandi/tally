@@ -1,7 +1,6 @@
-import { Typography } from '@material-ui/core';
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
+import { Typography } from '@material-ui/core';
 import { Line } from 'react-chartjs-2';
 
 interface ChartConfig {

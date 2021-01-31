@@ -19,13 +19,6 @@ const useStyles = makeStyles(theme => ({
 	},
 }));
 
-type CardProps = {
-	name: string;
-	stat: any;
-	improved: boolean;
-	change: number;
-};
-
 const loadData = {
 	labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
 	datasets: [
