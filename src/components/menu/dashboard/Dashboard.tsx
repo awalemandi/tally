@@ -5,6 +5,7 @@ import Savings from './Savings';
 import Performance from './Performace';
 import StatCard from './StatCard';
 import DebtByCategory from './DebtByCategory';
+import DebitCreditRatio from './DebitCreditRatio';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -37,12 +38,7 @@ const Dashboard = () => {
 					/>
 				</Grid>
 				<Grid item lg={3} sm={6} xl={3} xs={12}>
-					<StatCard
-						name='total debt'
-						stat='23,789'
-						improved={false}
-						change={12.4}
-					/>
+					<DebitCreditRatio />
 				</Grid>
 				<Grid item lg={3} sm={6} xl={3} xs={12}>
 					<Savings />

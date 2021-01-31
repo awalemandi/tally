@@ -7,7 +7,8 @@ import {
 	Typography,
 	makeStyles,
 } from '@material-ui/core';
-import RadarChart from '../../common/RadarChart';
+import DoughnutChart from '../../common/DoughnutChart';
+import { Doughnut } from 'react-chartjs-2';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -21,21 +22,21 @@ const useStyles = makeStyles(theme => ({
 const loadData = {
 	datasets: [
 		{
-			data: [63, 15, 22],
+			data: [63, 37],
 			backgroundColor: [
+				'rgb(114, 224, 182, 0.9)',
 				'rgb(255, 99, 132, 0.9)',
-				'rgb(54, 162, 235, 0.9)',
-				'rgb(255, 206, 86, 0.9)',
+				// 'rgb(255, 206, 86, 0.9)',
 			],
 			hoverBackgroundColor: [
+				'rgb(114, 224, 182)',
 				'rgb(255, 99, 132)',
-				'rgb(54, 162, 235)',
-				'rgb(255, 206, 86)',
+				// 'rgb(255, 206, 86)',
 			],
 			borderWidth: 1,
 		},
 	],
-	labels: ['Family', 'Friends', 'Bank'],
+	labels: ['Credit', 'Debit'],
 };
 
 const loadOptions = {
@@ -57,7 +58,7 @@ const loadOptions = {
 	},
 };
 
-const DebtByCategory = () => {
+const DebitCreditRatio = () => {
 	const classes = useStyles();
 
 	return (
@@ -72,7 +73,7 @@ const DebtByCategory = () => {
 				>
 					<Grid item xs={12}>
 						<Typography color='textSecondary' gutterBottom variant='button'>
-							Debt By Category
+							Debit to Credit Ratio
 						</Typography>
 					</Grid>
 					<Grid
@@ -82,9 +83,8 @@ const DebtByCategory = () => {
 						alignItems='center'
 						item
 						xs={12}
-						style={{ maxHeight: '80%' }}
 					>
-						<RadarChart data={loadData} options={loadOptions} />
+						<DoughnutChart data={loadData} options={loadOptions} />
 					</Grid>
 				</Grid>
 			</CardContent>
@@ -92,4 +92,4 @@ const DebtByCategory = () => {
 	);
 };
 
-export default DebtByCategory;
+export default DebitCreditRatio;
