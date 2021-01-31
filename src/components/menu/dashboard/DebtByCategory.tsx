@@ -8,13 +8,14 @@ import {
 	makeStyles,
 } from '@material-ui/core';
 import DoughnutChart from '../../common/DoughnutChart';
+import { Doughnut } from 'react-chartjs-2';
 
 const useStyles = makeStyles(theme => ({
 	root: {
 		height: '100%',
 		width: 'auto',
-		padding: theme.spacing(2),
 		margin: 0,
+		padding: 0,
 	},
 }));
 
@@ -24,7 +25,7 @@ const loadData = {
 			data: [63, 15, 22],
 			backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
 			hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-			borderWidth: 8,
+			borderWidth: 1,
 		},
 	],
 	labels: ['Family', 'Friends', 'Bank'],
@@ -33,7 +34,6 @@ const loadData = {
 const loadOptions = {
 	...{
 		responsive: true,
-		
 		legend: {
 			position: 'bottom',
 			labels: {
@@ -41,7 +41,7 @@ const loadOptions = {
 				boxWidth: 20,
 			},
 		},
-		cutoutPercentage: 0,
+		cutoutPercentage: 70,
 		tooltips: {
 			custom: false,
 			mode: 'index',
@@ -56,8 +56,14 @@ const DebtByCategory = () => {
 	return (
 		<Card className={clsx(classes.root)} raised={true}>
 			<CardContent style={{ margin: 0, padding: 0 }}>
-				<Grid container direction='column' justify='center' alignItems='center'>
-					<Grid item>
+				<Grid
+					container
+					direction='column'
+					justify='center'
+					alignItems='center'
+					spacing={6}
+				>
+					<Grid item xs={12}>
 						<Typography color='textSecondary' gutterBottom variant='button'>
 							Debt By Category
 						</Typography>
@@ -69,7 +75,7 @@ const DebtByCategory = () => {
 						alignItems='center'
 						item
 						xs={12}
-						style={{ maxWidth: '70%' }}
+						style={{ maxHeight: '80%' }}
 					>
 						<DoughnutChart data={loadData} options={loadOptions} />
 					</Grid>

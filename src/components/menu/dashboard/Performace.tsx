@@ -114,7 +114,7 @@ const Performance = () => {
 						alignItems='center'
 						item
 						xs={12}
-						style={{ maxWidth: '70%' }}
+						style={{ maxWidth: '60%' }}
 					>
 						<BarChart data={loadData} options={loadOptions} />
 					</Grid>
