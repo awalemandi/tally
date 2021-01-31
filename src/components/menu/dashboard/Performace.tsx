@@ -40,7 +40,7 @@ const Performance = () => {
 				>
 					<Grid item>
 						<Typography color='textSecondary' gutterBottom variant='button'>
-							Your Savings
+							Performance
 						</Typography>
 					</Grid>
 					<Grid item>
