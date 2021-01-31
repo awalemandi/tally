@@ -23,17 +23,17 @@ const loadData = {
 	labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
 	datasets: [
 		{
-			label: 'First dataset',
-			data: [33, 53, 85, 41, 44, 65],
+			label: 'Debt',
+			data: [55, 53, 47, 41, 44, 26],
 			fill: false,
 			backgroundColor: 'rgb(236, 116, 122, 0.1)',
 			borderColor: '#ee757f',
 		},
 		{
-			label: 'Second dataset',
+			label: 'Savings',
 			data: [33, 25, 35, 51, 54, 76],
 			fill: false,
-			borderColor: '#11bcff',
+			borderColor: 'rgb(25, 198, 241)',
 		},
 	],
 };
@@ -43,7 +43,12 @@ const loadOptions = {
 		maintainAspectRatio: false,
 		responsive: true,
 		legend: {
-			display: false,
+			display: true,
+			position: 'bottom',
+			labels: {
+				padding: 25,
+				boxWidth: 20,
+			},
 		},
 		tooltips: {
 			enabled: false,

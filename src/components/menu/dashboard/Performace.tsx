@@ -57,7 +57,11 @@ const loadOptions = {
 		responsive: true,
 		maintainAspectRatio: false,
 		legend: {
-			position: 'top',
+			position: 'left',
+			labels: {
+				padding: 25,
+				boxWidth: 20,
+			},
 		},
 		elements: {
 			line: {

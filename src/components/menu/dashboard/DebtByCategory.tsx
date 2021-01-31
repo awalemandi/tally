@@ -19,40 +19,37 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const loadData = {
+	labels: ['Family', 'Friends', 'Credit Card', 'Education', 'Mortgage'],
 	datasets: [
 		{
-			data: [63, 15, 22],
-			backgroundColor: [
-				'rgb(255, 99, 132, 0.9)',
-				'rgb(54, 162, 235, 0.9)',
-				'rgb(255, 206, 86, 0.9)',
-			],
-			hoverBackgroundColor: [
-				'rgb(255, 99, 132)',
-				'rgb(54, 162, 235)',
-				'rgb(255, 206, 86)',
-			],
-			borderWidth: 1,
+			backgroundColor: 'rgb(250, 97, 110, 0.5)',
+			data: [20, 15, 36, 55, 87],
 		},
 	],
-	labels: ['Family', 'Friends', 'Bank'],
 };
 
 const loadOptions = {
 	...{
 		responsive: true,
-		legend: {
-			position: 'bottom',
-			labels: {
-				padding: 25,
-				boxWidth: 20,
+		scale: {
+			ticks: {
+				beginAtZero: true,
+				min: 0,
+				max: 100,
+				stepSize: 20,
+			},
+			pointLabels: {
+				fontSize: 12,
 			},
 		},
-		cutoutPercentage: 70,
-		tooltips: {
-			custom: false,
-			mode: 'index',
-			position: 'nearest',
+		elements: {
+			line: {
+				tension: 0.2,
+			},
+		},
+		legend: {
+			position: 'left',
+			display: false,
 		},
 	},
 };
