@@ -32,8 +32,8 @@ const loadData = {
 	datasets: [
 		{
 			label: 'Net Worth',
-			backgroundColor: '#16e6a7',
-			borderColor: 'rgba(0,0,0,1)',
+			backgroundColor: '#16e6a8',
+			// borderColor: 'rgba(0,0,0,1)',
 			borderWidth: 2,
 			data: [6500, 5900, 5000, 6000, 5600, -3000, -4200, 2000],
 		},
@@ -114,7 +114,7 @@ const Performance = () => {
 						alignItems='center'
 						item
 						xs={12}
-						style={{ maxWidth: '80%' }}
+						style={{ maxWidth: '70%' }}
 					>
 						<BarChart data={loadData} options={loadOptions} />
 					</Grid>

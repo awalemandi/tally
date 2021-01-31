@@ -7,7 +7,7 @@ interface ChartConfig {
 	options: object;
 }
 
-function LineChart({ data, options }: ChartConfig) {
+function BarChart({ data, options }: ChartConfig) {
 	const [chartData, setChartData] = useState({});
 	const [chartOptions, setChartOptions] = useState({});
 
@@ -23,4 +23,4 @@ function LineChart({ data, options }: ChartConfig) {
 	);
 }
 
-export default LineChart;
+export default BarChart;

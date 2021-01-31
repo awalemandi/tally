@@ -1,24 +1,26 @@
+import React, { useState, useEffect } from 'react';
+
 import { Doughnut } from 'react-chartjs-2';
-import React from 'react';
 
-const data = {
-	labels: ['Friends', 'Family', 'Mortgage'],
-	datasets: [
-		{
-			data: [300, 50, 100],
-			backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-			hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-		},
-	],
-};
+interface ChartConfig {
+	data: object;
+	options: object;
+}
 
-const DoughnutChart = () => {
+function DoughnutChart({ data, options }: ChartConfig) {
+	const [chartData, setChartData] = useState({});
+	const [chartOptions, setChartOptions] = useState({});
+
+	useEffect(() => {
+		setChartData(data);
+		setChartOptions(options);
+	}, []);
+
 	return (
-		<div>
-			<h2>Amounts by category: </h2>
-			<Doughnut data={data} />
-		</div>
+		<>
+			<Doughnut data={chartData} options={chartOptions} />
+		</>
 	);
-};
+}
 
 export default DoughnutChart;
