@@ -16,6 +16,18 @@ const useStyles = makeStyles(theme => ({
 		padding: theme.spacing(2),
 		margin: 0,
 	},
+	chart: {
+		maxWidth: '60%',
+		[theme.breakpoints.down('md')]: {
+			maxWidth: '70%',
+		},
+		[theme.breakpoints.down('sm')]: {
+			maxWidth: '80%',
+		},
+		[theme.breakpoints.down('xs')]: {
+			maxWidth: '100%',
+		},
+	},
 }));
 
 const loadData = {
@@ -114,7 +126,7 @@ const Performance = () => {
 						alignItems='center'
 						item
 						xs={12}
-						style={{ maxWidth: '60%' }}
+						className={classes.chart}
 					>
 						<BarChart data={loadData} options={loadOptions} />
 					</Grid>

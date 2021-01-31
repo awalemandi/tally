@@ -23,8 +23,16 @@ const loadData = {
 	datasets: [
 		{
 			data: [63, 15, 22],
-			backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-			hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+			backgroundColor: [
+				'rgb(255, 99, 132, 0.9)',
+				'rgb(54, 162, 235, 0.9)',
+				'rgb(255, 206, 86, 0.9)',
+			],
+			hoverBackgroundColor: [
+				'rgb(255, 99, 132)',
+				'rgb(54, 162, 235)',
+				'rgb(255, 206, 86)',
+			],
 			borderWidth: 1,
 		},
 	],

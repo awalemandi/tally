@@ -10,6 +10,7 @@ import { TiPlusOutline } from 'react-icons/ti';
 const useStyles = makeStyles(theme => ({
 	root: {
 		width: '100%',
+		marginLeft: '10%',
 	},
 	actionButton: {
 		minWidth: '200px',
