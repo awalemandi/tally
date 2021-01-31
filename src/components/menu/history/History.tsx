@@ -13,10 +13,15 @@ import {
 	Paper,
 } from '@material-ui/core';
 import { HiTrendingUp, HiTrendingDown } from 'react-icons/hi';
+import { RiEmotionHappyLine, RiEmotionUnhappyLine } from 'react-icons/ri';
 
 const useStyles = makeStyles(theme => ({
 	root: {
 		width: '100%',
+		[theme.breakpoints.down('md')]: {
+			justifyContent: 'center',
+			alignItems: 'center',
+		},
 	},
 	inline: {
 		display: 'inline',
@@ -49,7 +54,7 @@ const History = () => {
 						<ListItem>
 							<ListItemAvatar>
 								<Avatar className={classes.down}>
-									<HiTrendingDown />
+									<RiEmotionUnhappyLine />
 								</Avatar>
 							</ListItemAvatar>
 							<ListItemText primary='You lent to Katy, $300 for trip to Canberra on 10/12/20.' />
@@ -58,7 +63,7 @@ const History = () => {
 						<ListItem>
 							<ListItemAvatar>
 								<Avatar className={classes.up}>
-									<HiTrendingUp />
+									<RiEmotionHappyLine />
 								</Avatar>
 							</ListItemAvatar>
 							<ListItemText primary='You borrowed from Dad, $10,000 for startup capital on 04/11/20.' />
@@ -67,7 +72,7 @@ const History = () => {
 						<ListItem>
 							<ListItemAvatar>
 								<Avatar className={classes.down}>
-									<HiTrendingDown />
+									<RiEmotionUnhappyLine />
 								</Avatar>
 							</ListItemAvatar>
 							<ListItemText primary='You lent Katy $300 for trip to Canberra on 10/12/20.' />

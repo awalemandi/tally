@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
 		marginLeft: drawerWidth,
 		padding: theme.spacing(2),
 		width: 'auto',
-		minHeight: '100vh',	
+		minHeight: '100vh',
 		display: 'flex',
 		flexDirection: 'column',
 		overflow: 'hidden',
@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
 		flexGrow: 1,
 		flexShrink: 0,
 		flexBasis: 'auto',
-		background: 'transparent'
+		background: 'transparent',
 	},
 	footer: {
 		flexShrink: 0 /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */,
