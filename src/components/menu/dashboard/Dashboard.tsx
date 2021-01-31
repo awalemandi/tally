@@ -51,10 +51,10 @@ const Dashboard = () => {
 						change={12.4}
 					/>
 				</Grid>
-				<Grid item lg={8} md={12} xl={9} xs={12}>
+				<Grid item lg={7} md={12} xl={8} xs={12}>
 					<Performance />
 				</Grid>
-				<Grid item lg={4} md={6} xl={3} xs={12}>
+				<Grid item lg={5} md={6} xl={4} xs={12}>
 					<DebtByCategory />
 				</Grid>
 				<Grid item lg={4} md={6} xl={3} xs={12}>

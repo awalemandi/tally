@@ -17,9 +17,9 @@ const useStyles = makeStyles(theme => ({
 		margin: 0,
 	},
 	chart: {
-		maxWidth: '60%',
+		maxWidth: '70%',
 		[theme.breakpoints.down('md')]: {
-			maxWidth: '70%',
+			maxWidth: '65%',
 		},
 		[theme.breakpoints.down('sm')]: {
 			maxWidth: '80%',
@@ -117,7 +117,13 @@ const Performance = () => {
 	return (
 		<Card className={clsx(classes.root)} raised={true}>
 			<CardContent style={{ margin: 0, padding: 0 }}>
-				<Grid container direction='column' justify='center' alignItems='center'>
+				<Grid
+					container
+					direction='column'
+					justify='center'
+					alignItems='center'
+					spacing={1}
+				>
 					<Grid item>
 						<Typography color='textSecondary' gutterBottom variant='button'>
 							Performance

@@ -59,7 +59,7 @@ const loadOptions = {
 				radius: 0,
 			},
 			line: {
-				tension: 0.33,
+				tension: 0.5,
 			},
 		},
 		scales: {
@@ -91,7 +91,13 @@ const Savings = () => {
 	return (
 		<Card className={clsx(classes.root)} raised={true}>
 			<CardContent style={{ margin: 0, padding: 0 }}>
-				<Grid container direction='column' justify='center' alignItems='center'>
+				<Grid
+					container
+					direction='column'
+					justify='center'
+					alignItems='center'
+					spacing={1}
+				>
 					<Grid item>
 						<Typography color='textSecondary' gutterBottom variant='button'>
 							Your Savings

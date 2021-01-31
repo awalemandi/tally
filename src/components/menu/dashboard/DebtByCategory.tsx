@@ -34,8 +34,7 @@ const loadOptions = {
 		scale: {
 			ticks: {
 				beginAtZero: true,
-				min: 0,
-				max: 100,
+				display: false,
 				stepSize: 20,
 			},
 			pointLabels: {
@@ -65,7 +64,7 @@ const DebtByCategory = () => {
 					direction='column'
 					justify='center'
 					alignItems='center'
-					spacing={6}
+					spacing={1}
 				>
 					<Grid item xs={12}>
 						<Typography color='textSecondary' gutterBottom variant='button'>

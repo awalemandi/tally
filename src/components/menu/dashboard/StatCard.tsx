@@ -1,6 +1,5 @@
 import React from 'react';
 import clsx from 'clsx';
-import PropTypes from 'prop-types';
 import {
 	Card,
 	CardContent,
@@ -9,7 +8,6 @@ import {
 	makeStyles,
 } from '@material-ui/core';
 import { IoCaretDown, IoCaretUp } from 'react-icons/io5';
-import { BiDollar } from 'react-icons/bi';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -19,12 +17,12 @@ const useStyles = makeStyles(theme => ({
 	},
 }));
 
-type CardProps = {
+interface CardProps {
 	name: string;
 	stat: any;
 	improved: boolean;
 	change: number;
-};
+}
 
 const StatCard = ({ name, stat, improved, change }: CardProps) => {
 	const classes = useStyles();

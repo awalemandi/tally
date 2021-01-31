@@ -69,7 +69,7 @@ const DebitCreditRatio = () => {
 					direction='column'
 					justify='center'
 					alignItems='center'
-					spacing={6}
+					spacing={1}
 				>
 					<Grid item xs={12}>
 						<Typography color='textSecondary' gutterBottom variant='button'>
