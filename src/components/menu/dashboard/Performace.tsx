@@ -18,15 +18,6 @@ const useStyles = makeStyles(theme => ({
 	},
 	chart: {
 		maxWidth: '100%',
-		// [theme.breakpoints.down('md')]: {
-		// 	maxWidth: '65%',
-		// },
-		// [theme.breakpoints.down('sm')]: {
-		// 	maxWidth: '80%',
-		// },
-		// [theme.breakpoints.down('xs')]: {
-		// 	maxWidth: '100%',
-		// },
 	},
 }));
 
