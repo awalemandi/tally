@@ -13,21 +13,28 @@ const useStyles = makeStyles(theme => ({
 	},
 }));
 
-const loadData = {
+const outstandingAmountData = {
+	labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+	datasets: [
+		{
+			label: 'Outstanding',
+			data: [34, 44, 30, 47, 41, 40, 34],
+			fill: true,
+			backgroundColor: 'rgb(171, 215, 245, 0.3)',
+			borderColor: 'rgb(107, 221, 236)',
+		},
+	],
+};
+
+const totalDebtData = {
 	labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
 	datasets: [
 		{
 			label: 'Debt',
-			data: [55, 53, 47, 41, 44, 26],
-			fill: false,
+			data: [34, 44, 30, 47, 41, 40, 34],
+			fill: true,
 			backgroundColor: 'rgb(236, 116, 122, 0.1)',
 			borderColor: '#ee757f',
-		},
-		{
-			label: 'Savings',
-			data: [33, 25, 35, 51, 54, 76],
-			fill: false,
-			borderColor: 'rgb(25, 198, 241)',
 		},
 	],
 };
@@ -37,7 +44,7 @@ const loadOptions = {
 		maintainAspectRatio: false,
 		responsive: true,
 		legend: {
-			display: true,
+			display: false,
 			position: 'bottom',
 			labels: {
 				padding: 25,
@@ -53,7 +60,7 @@ const loadOptions = {
 				radius: 0,
 			},
 			line: {
-				tension: 0.5,
+				tension: 0.33,
 			},
 		},
 		scales: {
@@ -101,7 +108,7 @@ const Dashboard = () => {
 						stat='23,000'
 						improved={false}
 						change={12.4}
-						chartData={loadData}
+						chartData={totalDebtData}
 						chartOptions={loadOptions}
 					/>
 				</Grid>
@@ -117,6 +124,8 @@ const Dashboard = () => {
 						stat='5,548'
 						improved={false}
 						change={12.4}
+						chartData={outstandingAmountData}
+						chartOptions={loadOptions}
 					/>
 				</Grid>
 				<Grid item lg={7} md={12} xl={8} xs={12}>

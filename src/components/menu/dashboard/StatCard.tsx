@@ -14,10 +14,25 @@ const useStyles = makeStyles(theme => ({
 	root: {
 		height: '100%',
 		width: 'auto',
-		padding: theme.spacing(1),
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'space-evenly',
+		alignItems: 'center',
 	},
-	content: {},
-	chart: {},
+	content: {
+		position: 'absolute',
+		zIndex: 1,
+		backgroundColor: 'transparent',
+		textAlign: 'center',
+	},
+	chart: {
+		position: 'relative',
+		zIndex: 0,
+		width: '100%',
+		height: '100%',
+		margin: 0,
+		padding: 0,
+	},
 }));
 
 interface CardProps {
@@ -41,37 +56,25 @@ const StatCard = ({
 
 	return (
 		<Card className={clsx(classes.root)} raised={true}>
+			<CardContent className={classes.content}>
+				<Typography color='textSecondary' gutterBottom variant='button'>
+					{name}
+				</Typography>
+
+				<Typography color='textPrimary' variant='h4'>
+					$ {stat}
+				</Typography>
+
+				<Typography
+					variant='h6'
+					style={improved ? { color: 'green' } : { color: 'red' }}
+				>
+					{improved ? <IoCaretUp /> : <IoCaretDown />} {change}%
+				</Typography>
+			</CardContent>
 			<div className={classes.chart}>
 				<LineChart data={chartData} options={chartOptions} />
 			</div>
-			<CardContent className={classes.content}>
-				<Grid
-					container
-					direction='column'
-					justify='center'
-					alignItems='center'
-					spacing={1}
-				>
-					<Grid item>
-						<Typography color='textSecondary' gutterBottom variant='button'>
-							{name}
-						</Typography>
-					</Grid>
-					<Grid item>
-						<Typography color='textPrimary' variant='h4'>
-							$ {stat}
-						</Typography>
-					</Grid>
-					<Grid item>
-						<Typography
-							variant='h6'
-							style={improved ? { color: 'green' } : { color: 'red' }}
-						>
-							{improved ? <IoCaretUp /> : <IoCaretDown />} {change}%
-						</Typography>
-					</Grid>
-				</Grid>
-			</CardContent>
 		</Card>
 	);
 };
