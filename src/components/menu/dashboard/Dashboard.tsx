@@ -20,8 +20,8 @@ const outstandingAmountData = {
 			label: 'Outstanding',
 			data: [34, 44, 30, 47, 41, 40, 34],
 			fill: true,
-			backgroundColor: 'rgb(171, 215, 245, 0.3)',
-			borderColor: 'rgb(107, 221, 236)',
+			backgroundColor: 'rgb(146, 230, 209, 0.3)',
+			borderColor: 'rgb(146, 230, 209)',
 		},
 	],
 };
@@ -104,11 +104,11 @@ const Dashboard = () => {
 			<Grid container item spacing={3}>
 				<Grid item lg={3} sm={6} xl={3} xs={12}>
 					<StatCard
-						name='total debt'
+						name='Outstanding Amount'
 						stat='23,000'
-						improved={false}
-						change={12.4}
-						chartData={totalDebtData}
+						improved={true}
+						change={3.5}
+						chartData={outstandingAmountData}
 						chartOptions={loadOptions}
 					/>
 				</Grid>
@@ -124,7 +124,7 @@ const Dashboard = () => {
 						stat='5,548'
 						improved={false}
 						change={12.4}
-						chartData={outstandingAmountData}
+						chartData={totalDebtData}
 						chartOptions={loadOptions}
 					/>
 				</Grid>
@@ -137,17 +137,21 @@ const Dashboard = () => {
 				<Grid item lg={4} md={6} xl={3} xs={12}>
 					<StatCard
 						name='total debt'
-						stat='23,000'
-						improved={true}
+						stat='5,548'
+						improved={false}
 						change={12.4}
+						chartData={outstandingAmountData}
+						chartOptions={loadOptions}
 					/>
 				</Grid>
 				<Grid item lg={8} md={12} xl={9} xs={12}>
 					<StatCard
 						name='total debt'
-						stat='23,000'
-						improved={true}
+						stat='5,548'
+						improved={false}
 						change={12.4}
+						chartData={outstandingAmountData}
+						chartOptions={loadOptions}
 					/>
 				</Grid>
 			</Grid>

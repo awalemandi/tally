@@ -6,6 +6,7 @@ import {
 	Grid,
 	Typography,
 	makeStyles,
+	Divider,
 } from '@material-ui/core';
 import DoughnutChart from '../../common/DoughnutChart';
 import { Doughnut } from 'react-chartjs-2';
@@ -16,6 +17,13 @@ const useStyles = makeStyles(theme => ({
 		width: 'auto',
 		margin: 0,
 		padding: 0,
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'space-between',
+		alignItems: 'center',
+	},
+	content: {
+		textAlign: 'center',
 	},
 }));
 
@@ -60,31 +68,12 @@ const DebitCreditRatio = () => {
 
 	return (
 		<Card className={clsx(classes.root)} raised={true}>
-			<CardContent style={{ margin: 0, padding: 0 }}>
-				<Grid
-					container
-					direction='column'
-					justify='center'
-					alignItems='center'
-					spacing={1}
-				>
-					<Grid item xs={12}>
-						<Typography color='textSecondary' gutterBottom variant='button'>
-							Debit to Credit Ratio
-						</Typography>
-					</Grid>
-					<Grid
-						container
-						direction='row'
-						justify='center'
-						alignItems='center'
-						item
-						xs={12}
-						style={{ height: '100%' }}
-					>
-						<DoughnutChart data={loadData} options={loadOptions} />
-					</Grid>
-				</Grid>
+			<CardContent className={classes.content}>
+				<Typography color='textSecondary' gutterBottom variant='button'>
+					Debit to Credit Ratio
+				</Typography>
+				<Divider variant='fullWidth'/>
+				<DoughnutChart data={loadData} options={loadOptions} />
 			</CardContent>
 		</Card>
 	);

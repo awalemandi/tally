@@ -1,12 +1,12 @@
 import React from 'react';
 import clsx from 'clsx';
-import PropTypes from 'prop-types';
 import {
 	Card,
 	CardContent,
 	Grid,
 	Typography,
 	makeStyles,
+	Divider,
 } from '@material-ui/core';
 import LineChart from '../../common/LineChart';
 
@@ -14,8 +14,15 @@ const useStyles = makeStyles(theme => ({
 	root: {
 		height: '100%',
 		width: 'auto',
-		padding: 0,
 		margin: 0,
+		padding: 0,
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'space-between',
+		alignItems: 'center',
+	},
+	content: {
+		textAlign: 'center',
 	},
 }));
 
@@ -90,30 +97,12 @@ const Savings = () => {
 
 	return (
 		<Card className={clsx(classes.root)} raised={true}>
-			<CardContent style={{ margin: 0, padding: 0 }}>
-				<Grid
-					container
-					direction='column'
-					justify='center'
-					alignItems='center'
-					spacing={1}
-				>
-					<Grid item>
-						<Typography color='textSecondary' gutterBottom variant='button'>
-							Your Savings
-						</Typography>
-					</Grid>
-					<Grid
-						container
-						direction='row'
-						justify='center'
-						alignItems='center'
-						item
-						xs={12}
-					>
-						<LineChart data={loadData} options={loadOptions} />
-					</Grid>
-				</Grid>
+			<CardContent className={classes.content}>
+				<Typography color='textSecondary' gutterBottom variant='button'>
+					Savings
+				</Typography>
+				<Divider variant='fullWidth' />
+				<LineChart data={loadData} options={loadOptions} />
 			</CardContent>
 		</Card>
 	);

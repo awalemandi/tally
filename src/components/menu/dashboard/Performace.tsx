@@ -6,6 +6,7 @@ import {
 	Grid,
 	Typography,
 	makeStyles,
+	Divider,
 } from '@material-ui/core';
 import BarChart from '../../common/BarChart';
 
@@ -117,11 +118,12 @@ const Performance = () => {
 					alignItems='center'
 					spacing={1}
 				>
-					<Grid item>
+		
 						<Typography color='textSecondary' gutterBottom variant='button'>
 							Performance
 						</Typography>
-					</Grid>
+
+					<Divider variant='fullWidth'/>
 					<Grid
 						container
 						direction='row'
