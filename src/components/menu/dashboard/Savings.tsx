@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import {
 	Card,
 	CardContent,
-	Grid,
 	Typography,
 	makeStyles,
 	Divider,
@@ -40,14 +39,14 @@ const loadData = {
 	datasets: [
 		{
 			label: 'Debt',
-			data: [55, 53, 47, 41, 44, 26],
-			fill: false,
-			backgroundColor: 'rgb(236, 116, 122, 0.1)',
-			borderColor: '#ee757f',
+			data: [120, 94, 55, 25, 62, 32, 55, 25],
+			fill: true,
+			backgroundColor: 'rgb(231, 118, 241, 0.1)',
+			borderColor: 'rgb(235, 164, 241)',
 		},
 		{
 			label: 'Savings',
-			data: [33, 25, 35, 51, 54, 76],
+			data: [77, 64, 100, 84, 98, 150],
 			fill: false,
 			borderColor: 'rgb(25, 198, 241)',
 		},
@@ -60,7 +59,7 @@ const loadOptions = {
 		responsive: true,
 		legend: {
 			display: true,
-			position: 'bottom',
+			position: 'top',
 			labels: {
 				padding: 25,
 				boxWidth: 20,
