@@ -23,6 +23,14 @@ const useStyles = makeStyles(theme => ({
 	},
 	content: {
 		textAlign: 'center',
+		margin: 0,
+		padding: 0,
+	},
+	chart: {
+		width: '100%',
+		height: '100%',
+		marginTop: theme.spacing(2),
+		padding: 0,
 	},
 }));
 
@@ -102,8 +110,10 @@ const Savings = () => {
 					Savings
 				</Typography>
 				<Divider variant='fullWidth' />
-				<LineChart data={loadData} options={loadOptions} />
 			</CardContent>
+			<div className={classes.chart}>
+				<LineChart data={loadData} options={loadOptions} />
+			</div>
 		</Card>
 	);
 };

@@ -14,11 +14,23 @@ const useStyles = makeStyles(theme => ({
 	root: {
 		height: '100%',
 		width: 'auto',
-		padding: theme.spacing(2),
 		margin: 0,
+		padding: 0,
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'space-between',
+		alignItems: 'center',
+	},
+	content: {
+		textAlign: 'center',
+		margin: 0,
+		padding: 0,
 	},
 	chart: {
-		maxWidth: '100%',
+		width: '100%',
+		height: '100%',
+		marginTop: theme.spacing(2),
+		padding: 0,
 	},
 }));
 
@@ -110,33 +122,15 @@ const Performance = () => {
 
 	return (
 		<Card className={clsx(classes.root)} raised={true}>
-			<CardContent style={{ margin: 0, padding: 0 }}>
-				<Grid
-					container
-					direction='column'
-					justify='center'
-					alignItems='center'
-					spacing={1}
-				>
-		
-						<Typography color='textSecondary' gutterBottom variant='button'>
-							Performance
-						</Typography>
-
-					<Divider variant='fullWidth'/>
-					<Grid
-						container
-						direction='row'
-						justify='center'
-						alignItems='center'
-						item
-						xs={12}
-						className={classes.chart}
-					>
-						<BarChart data={loadData} options={loadOptions} />
-					</Grid>
-				</Grid>
+			<CardContent className={classes.content}>
+				<Typography color='textSecondary' gutterBottom variant='button'>
+					Debit to Credit Ratio
+				</Typography>
+				<Divider variant='fullWidth' />
 			</CardContent>
+			<div className={classes.chart}>
+				<BarChart data={loadData} options={loadOptions} />
+			</div>
 		</Card>
 	);
 };

@@ -8,12 +8,28 @@ import {
 	makeStyles,
 } from '@material-ui/core';
 import RadarChart from '../../common/RadarChart';
+import { Divider } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
 	root: {
 		height: '100%',
 		width: 'auto',
 		margin: 0,
+		padding: 0,
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'space-between',
+		alignItems: 'center',
+	},
+	content: {
+		textAlign: 'center',
+		margin: 0,
+		padding: 0,
+	},
+	chart: {
+		width: '100%',
+		height: '100%',
+		marginTop: theme.spacing(2),
 		padding: 0,
 	},
 }));
@@ -58,32 +74,15 @@ const DebtByCategory = () => {
 
 	return (
 		<Card className={clsx(classes.root)} raised={true}>
-			<CardContent style={{ margin: 0, padding: 0 }}>
-				<Grid
-					container
-					direction='column'
-					justify='center'
-					alignItems='center'
-					spacing={1}
-				>
-					<Grid item xs={12}>
-						<Typography color='textSecondary' gutterBottom variant='button'>
-							Debt By Category
-						</Typography>
-					</Grid>
-					<Grid
-						container
-						direction='row'
-						justify='center'
-						alignItems='center'
-						item
-						xs={12}
-						style={{ maxHeight: '80%' }}
-					>
-						<RadarChart data={loadData} options={loadOptions} />
-					</Grid>
-				</Grid>
+			<CardContent className={classes.content}>
+				<Typography color='textSecondary' gutterBottom variant='button'>
+					Debit to Credit Ratio
+				</Typography>
+				<Divider variant='fullWidth' />
 			</CardContent>
+			<div className={classes.chart}>
+				<RadarChart data={loadData} options={loadOptions} />
+			</div>
 		</Card>
 	);
 };
