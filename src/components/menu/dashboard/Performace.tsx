@@ -17,16 +17,16 @@ const useStyles = makeStyles(theme => ({
 		margin: 0,
 	},
 	chart: {
-		maxWidth: '70%',
-		[theme.breakpoints.down('md')]: {
-			maxWidth: '65%',
-		},
-		[theme.breakpoints.down('sm')]: {
-			maxWidth: '80%',
-		},
-		[theme.breakpoints.down('xs')]: {
-			maxWidth: '100%',
-		},
+		maxWidth: '100%',
+		// [theme.breakpoints.down('md')]: {
+		// 	maxWidth: '65%',
+		// },
+		// [theme.breakpoints.down('sm')]: {
+		// 	maxWidth: '80%',
+		// },
+		// [theme.breakpoints.down('xs')]: {
+		// 	maxWidth: '100%',
+		// },
 	},
 }));
 
@@ -46,7 +46,8 @@ const loadData = {
 			label: 'Net Worth',
 			backgroundColor: 'rgb(24, 228, 167, 0.7)',
 			// borderColor: 'rgba(0,0,0,1)',
-			borderWidth: 2,
+			borderWidth: 1,
+			maxBarThickness: 35,
 			data: [6500, 5900, 5000, 6000, 5600, -3000, -4200, 2000],
 		},
 	],
@@ -55,9 +56,10 @@ const loadData = {
 const loadOptions = {
 	...{
 		responsive: true,
-		maintainAspectRatio: false,
+		maintainAspectRatio: true,
+		barThickness: 100,
 		legend: {
-			position: 'left',
+			position: 'top',
 			labels: {
 				padding: 25,
 				boxWidth: 20,
