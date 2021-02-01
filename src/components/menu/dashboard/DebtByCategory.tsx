@@ -1,12 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import {
-	Card,
-	CardContent,
-	Grid,
-	Typography,
-	makeStyles,
-} from '@material-ui/core';
+import { Card, CardContent, Typography, makeStyles } from '@material-ui/core';
 import RadarChart from '../../common/RadarChart';
 import { Divider } from '@material-ui/core';
 
@@ -22,6 +16,7 @@ const useStyles = makeStyles(theme => ({
 		alignItems: 'center',
 	},
 	content: {
+		width: '100%',
 		textAlign: 'center',
 		margin: 0,
 		padding: 0,
@@ -38,8 +33,9 @@ const loadData = {
 	labels: ['Family', 'Friends', 'Credit Card', 'Education', 'Mortgage'],
 	datasets: [
 		{
-			backgroundColor: 'rgb(250, 97, 110, 0.5)',
-			data: [20, 15, 36, 55, 87],
+			borderColor: 'rgb(236, 192, 111)',
+			backgroundColor: 'rgb(236, 192, 111, 0.5)',
+			data: [32, 44, 36, 55, 87],
 		},
 	],
 };
@@ -59,7 +55,7 @@ const loadOptions = {
 		},
 		elements: {
 			line: {
-				tension: 0.2,
+				tension: 0.33,
 			},
 		},
 		legend: {

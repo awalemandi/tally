@@ -23,6 +23,7 @@ const useStyles = makeStyles(theme => ({
 		alignItems: 'center',
 	},
 	content: {
+		width: '100%',
 		textAlign: 'center',
 		margin: 0,
 		padding: 0,
