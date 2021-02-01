@@ -23,11 +23,7 @@ const loadData = {
 	datasets: [
 		{
 			data: [63, 37],
-			backgroundColor: [
-				'rgb(114, 224, 182, 0.9)',
-				'rgb(255, 99, 132, 0.9)',
-				// 'rgb(255, 206, 86, 0.9)',
-			],
+			backgroundColor: ['rgb(114, 224, 182, 0.8)', 'rgb(255, 99, 132, 0.8)'],
 			hoverBackgroundColor: [
 				'rgb(114, 224, 182)',
 				'rgb(255, 99, 132)',
@@ -42,6 +38,7 @@ const loadData = {
 const loadOptions = {
 	...{
 		responsive: true,
+		maintainAspectRatio: false,
 		legend: {
 			position: 'bottom',
 			labels: {
@@ -83,6 +80,7 @@ const DebitCreditRatio = () => {
 						alignItems='center'
 						item
 						xs={12}
+						style={{ height: '100%' }}
 					>
 						<DoughnutChart data={loadData} options={loadOptions} />
 					</Grid>
