@@ -13,6 +13,72 @@ const useStyles = makeStyles(theme => ({
 	},
 }));
 
+const loadData = {
+	labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+	datasets: [
+		{
+			label: 'Debt',
+			data: [55, 53, 47, 41, 44, 26],
+			fill: false,
+			backgroundColor: 'rgb(236, 116, 122, 0.1)',
+			borderColor: '#ee757f',
+		},
+		{
+			label: 'Savings',
+			data: [33, 25, 35, 51, 54, 76],
+			fill: false,
+			borderColor: 'rgb(25, 198, 241)',
+		},
+	],
+};
+
+const loadOptions = {
+	...{
+		maintainAspectRatio: false,
+		responsive: true,
+		legend: {
+			display: true,
+			position: 'bottom',
+			labels: {
+				padding: 25,
+				boxWidth: 20,
+			},
+		},
+		tooltips: {
+			enabled: false,
+			custom: false,
+		},
+		elements: {
+			point: {
+				radius: 0,
+			},
+			line: {
+				tension: 0.5,
+			},
+		},
+		scales: {
+			xAxes: [
+				{
+					gridLines: false,
+					ticks: {
+						display: false,
+					},
+				},
+			],
+			yAxes: [
+				{
+					gridLines: false,
+					scaleLabel: false,
+					ticks: {
+						display: false,
+						isplay: false,
+					},
+				},
+			],
+		},
+	},
+};
+
 const Dashboard = () => {
 	const classes = useStyles();
 
@@ -35,6 +101,8 @@ const Dashboard = () => {
 						stat='23,000'
 						improved={false}
 						change={12.4}
+						chartData={loadData}
+						chartOptions={loadOptions}
 					/>
 				</Grid>
 				<Grid item lg={3} sm={6} xl={3} xs={12}>

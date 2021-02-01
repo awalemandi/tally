@@ -8,6 +8,7 @@ import {
 	makeStyles,
 } from '@material-ui/core';
 import { IoCaretDown, IoCaretUp } from 'react-icons/io5';
+import LineChart from '../../common/LineChart';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -15,6 +16,8 @@ const useStyles = makeStyles(theme => ({
 		width: 'auto',
 		padding: theme.spacing(1),
 	},
+	content: {},
+	chart: {},
 }));
 
 interface CardProps {
@@ -22,14 +25,26 @@ interface CardProps {
 	stat: any;
 	improved: boolean;
 	change: number;
+	chartData?: object;
+	chartOptions?: object;
 }
 
-const StatCard = ({ name, stat, improved, change }: CardProps) => {
+const StatCard = ({
+	name,
+	stat,
+	improved,
+	change,
+	chartData,
+	chartOptions,
+}: CardProps) => {
 	const classes = useStyles();
 
 	return (
 		<Card className={clsx(classes.root)} raised={true}>
-			<CardContent>
+			<div className={classes.chart}>
+				<LineChart data={chartData} options={chartOptions} />
+			</div>
+			<CardContent className={classes.content}>
 				<Grid
 					container
 					direction='column'
