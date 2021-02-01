@@ -43,6 +43,7 @@ const loadData = {
 const loadOptions = {
 	...{
 		responsive: true,
+		maintainAspectRatio: true,
 		scale: {
 			ticks: {
 				beginAtZero: true,
