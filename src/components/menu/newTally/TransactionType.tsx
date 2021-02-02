@@ -42,7 +42,7 @@ function TransactionType() {
 						fullWidth
 						id='transactionType'
 						name='transactionType'
-						placeholder='Tally'
+						placeholder='Select Tally type'
 						value={transactionType}
                         size='medium'
 						color='primary'

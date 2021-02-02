@@ -3,15 +3,19 @@ import TransactionType from './TransactionType';
 import Amount from './Amount';
 import { Grid, Hidden, Typography, Fab } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
 import Party from './Party';
 import Date from './Date';
 import { TiPlusOutline } from 'react-icons/ti';
 import Category from './Category';
 
 const useStyles = makeStyles(theme => ({
+	form: {
+	},
 	root: {
 		width: '100%',
-		marginLeft: '10%',
+		marginTop: '1rem',
+		padding: 0,
 	},
 	actionButton: {
 		minWidth: '200px',
@@ -25,18 +29,16 @@ const useStyles = makeStyles(theme => ({
 const NewTally = () => {
 	const classes = useStyles();
 	return (
-		<form noValidate autoComplete='off'>
+		<form noValidate autoComplete='off' className={classes.form}>
+			<Typography variant='h3'>Add a new Tally</Typography>
 			<Grid
 				className={classes.root}
 				container
-				spacing={4}
+				spacing={5}
 				direction='column'
 				justify='flex-start'
 				alignItems='stretch'
 			>
-				<Grid item xs={12}>
-					<Typography variant='h3'>Add a new Tally</Typography>
-				</Grid>
 				<Grid item xs={10} sm={8} md={5} lg={3}>
 					<TransactionType />
 				</Grid>

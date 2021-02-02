@@ -51,10 +51,10 @@ function Category() {
 					<Button
 						fullWidth
 						variant='text'
-						color='inherit'
+						color='primary'
 						startIcon={<TiPlus />}
 					>
-						Add new
+						Add
 					</Button>
 				</Select>
 			</Grid>
