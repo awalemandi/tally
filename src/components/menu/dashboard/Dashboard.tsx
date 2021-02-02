@@ -20,8 +20,9 @@ const outstandingAmountData = {
 			label: 'Outstanding',
 			data: [34, 44, 30, 47, 41, 40, 34],
 			fill: true,
+			borderWidth: 1,
 			backgroundColor: 'rgb(146, 230, 209, 0.3)',
-			borderColor: 'rgb(146, 230, 209)',
+			borderColor: 'rgb(82, 212, 169)',
 		},
 	],
 };
@@ -33,8 +34,9 @@ const totalDebtData = {
 			label: 'Debt',
 			data: [34, 44, 30, 47, 41, 40, 34],
 			fill: true,
+			borderWidth: 1,
 			backgroundColor: 'rgb(236, 116, 122, 0.1)',
-			borderColor: '#ee757f',
+			borderColor: '#f08089',
 		},
 	],
 };
@@ -133,26 +135,6 @@ const Dashboard = () => {
 				</Grid>
 				<Grid item lg={5} md={6} xl={4} xs={12}>
 					<DebtByCategory />
-				</Grid>
-				<Grid item lg={4} md={6} xl={3} xs={12}>
-					<StatCard
-						name='total debt'
-						stat='5,548'
-						improved={false}
-						change={12.4}
-						chartData={outstandingAmountData}
-						chartOptions={loadOptions}
-					/>
-				</Grid>
-				<Grid item lg={8} md={12} xl={9} xs={12}>
-					<StatCard
-						name='total debt'
-						stat='5,548'
-						improved={false}
-						change={12.4}
-						chartData={outstandingAmountData}
-						chartOptions={loadOptions}
-					/>
 				</Grid>
 			</Grid>
 		</Grid>

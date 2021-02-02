@@ -30,12 +30,13 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const loadData = {
-	labels: ['Family', 'Friends', 'Credit Card', 'Education', 'Mortgage'],
+	labels: ['Family', 'Friends', 'Business', 'Credit Card', 'Education', 'Mortgage'],
 	datasets: [
 		{
+			borderWidth: 1,
 			borderColor: 'rgb(236, 192, 111)',
 			backgroundColor: 'rgb(236, 192, 111, 0.5)',
-			data: [32, 44, 36, 55, 87],
+			data: [32, 44, 67, 36, 55, 92],
 		},
 	],
 };
@@ -73,7 +74,7 @@ const DebtByCategory = () => {
 		<Card className={clsx(classes.root)} raised={true}>
 			<CardContent className={classes.content}>
 				<Typography color='textSecondary' gutterBottom variant='button'>
-					Debit to Credit Ratio
+					Your Debt by Category
 				</Typography>
 				<Divider variant='fullWidth' />
 			</CardContent>

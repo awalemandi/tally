@@ -35,20 +35,22 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const loadData = {
-	labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+	labels: ['Jan', 'Feb', 'Mar', 'Apr'],
 	datasets: [
 		{
-			label: 'Debt',
-			data: [120, 94, 55, 25, 62, 32, 55, 25],
+			label: 'Borrowed',
+			data: [108, 72, 97, 53],
 			fill: true,
-			backgroundColor: 'rgb(231, 118, 241, 0.1)',
-			borderColor: 'rgb(235, 164, 241)',
+			backgroundColor: 'rgb(251, 130, 48, 0.1)',
+			borderColor: 'rgb(241, 168, 119)',
+			borderWidth: 1,
 		},
 		{
-			label: 'Savings',
-			data: [77, 64, 100, 84, 98, 150],
-			fill: false,
-			borderColor: 'rgb(25, 198, 241)',
+			label: 'Lent',
+			data: [66, 64, 84, 92],
+			fill: true,
+			borderColor: 'rgb(224, 132, 233)',
+			borderWidth: 1,
 		},
 	],
 };
@@ -74,7 +76,7 @@ const loadOptions = {
 				radius: 0,
 			},
 			line: {
-				tension: 0.5,
+				tension: 0.33,
 			},
 		},
 		scales: {
@@ -107,7 +109,7 @@ const Savings = () => {
 		<Card className={clsx(classes.root)} raised={true}>
 			<CardContent className={classes.content}>
 				<Typography color='textSecondary' gutterBottom variant='button'>
-					Savings
+					Your Trend
 				</Typography>
 				<Divider variant='fullWidth' />
 			</CardContent>

@@ -40,16 +40,16 @@ const loadData = {
 	datasets: [
 		{
 			data: [63, 37],
-			backgroundColor: ['rgb(114, 224, 182, 0.8)', 'rgb(255, 99, 132, 0.8)'],
+			backgroundColor: ['rgb(108, 180, 108, 0.7)', 'rgb(255, 99, 132, 0.7)'],
 			hoverBackgroundColor: [
-				'rgb(114, 224, 182)',
+				'rgb(108, 180, 108)',
 				'rgb(255, 99, 132)',
 				// 'rgb(255, 206, 86)',
 			],
 			borderWidth: 1,
 		},
 	],
-	labels: ['Credit', 'Debit'],
+	labels: ['You\'re Owed', 'You Owe'],
 };
 
 const loadOptions = {
@@ -63,7 +63,7 @@ const loadOptions = {
 				boxWidth: 20,
 			},
 		},
-		cutoutPercentage: 70,
+		cutoutPercentage: 65,
 		tooltips: {
 			custom: false,
 			mode: 'index',

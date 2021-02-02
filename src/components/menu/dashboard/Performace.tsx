@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import {
 	Card,
 	CardContent,
-	Grid,
 	Typography,
 	makeStyles,
 	Divider,
@@ -48,7 +47,7 @@ const loadData = {
 	],
 	datasets: [
 		{
-			label: 'Net Worth',
+			label: 'Amount',
 			backgroundColor: 'rgb(22, 135, 167, 0.4)',
 			borderColor: 'rgba(0,0,0,1, 0.2)',
 			borderWidth: 1,
@@ -125,7 +124,7 @@ const Performance = () => {
 		<Card className={clsx(classes.root)} raised={true}>
 			<CardContent className={classes.content}>
 				<Typography color='textSecondary' gutterBottom variant='button'>
-					Debit to Credit Ratio
+					Past Performance
 				</Typography>
 				<Divider variant='fullWidth' />
 			</CardContent>
