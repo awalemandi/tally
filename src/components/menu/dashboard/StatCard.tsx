@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import {
 	Card,
 	CardContent,
-	Grid,
 	Typography,
 	makeStyles,
 } from '@material-ui/core';
@@ -13,6 +12,7 @@ import LineChart from '../../common/LineChart';
 const useStyles = makeStyles(theme => ({
 	root: {
 		height: '100%',
+		minHeight: '10rem',
 		width: 'auto',
 		display: 'flex',
 		flexDirection: 'column',
