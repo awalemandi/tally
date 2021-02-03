@@ -4,11 +4,9 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import { lightTheme, darkTheme } from './theme';
 import './index.css';
 import App from './App';
-import { createStore } from 'redux';
-import rootReducer from './redux/reducers/rootReducer';
 import { Provider } from 'react-redux';
+import store from './redux/store';
 
-const store = createStore(rootReducer);
 ReactDOM.render(
 	<React.StrictMode>
 		<Provider store={store}>
