@@ -88,8 +88,8 @@ export default function LandingPage() {
 				</AppBar>
 			</HideOnScroll>
 			<Toolbar />
-			<Container className={classes.root}>
-				<LandingSection />
+			<div className={classes.root}>
+				<LandingSection bgPrimary={true} />
 				{/* <Box my={2}>
 					{[...new Array(12)]
 						.map(
@@ -107,7 +107,7 @@ export default function LandingPage() {
 						.join('\n')}
 				</Box> */}
 				<Footer />
-			</Container>
+			</div>
 		</>
 	);
 }
