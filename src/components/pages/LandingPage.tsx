@@ -1,18 +1,10 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import Box from '@material-ui/core/Box';
-import Container from '@material-ui/core/Container';
-import Slide from '@material-ui/core/Slide';
-import { makeStyles } from '@material-ui/core/styles';
-import { Button } from '@material-ui/core';
-import Footer from '../layout/Footer';
 import { Link } from 'react-router-dom';
+import {AppBar, Toolbar, Typography, CssBaseline, useScrollTrigger, Box, Container, Slide, makeStyles, Button} from '@material-ui/core';
 
+import Footer from '../layout/Footer';
 import Logo from '../../images/tally.png';
+import LandingSection from '../common/landingSection/LandingSection';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -97,7 +89,8 @@ export default function LandingPage() {
 			</HideOnScroll>
 			<Toolbar />
 			<Container className={classes.root}>
-				<Box my={2}>
+				<LandingSection />
+				{/* <Box my={2}>
 					{[...new Array(12)]
 						.map(
 							() =>
@@ -112,47 +105,7 @@ export default function LandingPage() {
 								`This is the landing page. It's what users will see when they first get on the webiste.`
 						)
 						.join('\n')}
-				</Box>
-				<Box my={2}>
-					{[...new Array(12)]
-						.map(
-							() =>
-								`This is the landing page. It's what users will see when they first get on the webiste.`
-						)
-						.join('\n')}
-				</Box>
-				<Box my={2}>
-					{[...new Array(12)]
-						.map(
-							() =>
-								`This is the landing page. It's what users will see when they first get on the webiste.`
-						)
-						.join('\n')}
-				</Box>
-				<Box my={2}>
-					{[...new Array(12)]
-						.map(
-							() =>
-								`This is the landing page. It's what users will see when they first get on the webiste.`
-						)
-						.join('\n')}
-				</Box>
-				<Box my={2}>
-					{[...new Array(12)]
-						.map(
-							() =>
-								`This is the landing page. It's what users will see when they first get on the webiste.`
-						)
-						.join('\n')}
-				</Box>
-				<Box my={2}>
-					{[...new Array(12)]
-						.map(
-							() =>
-								`This is the landing page. It's what users will see when they first get on the webiste.`
-						)
-						.join('\n')}
-				</Box>
+				</Box> */}
 				<Footer />
 			</Container>
 		</>

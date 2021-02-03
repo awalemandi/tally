@@ -7,7 +7,7 @@ import {
 	makeStyles,
 	Divider,
 } from '@material-ui/core';
-import LineChart from '../../common/LineChart';
+import LineChart from '../../common/charts/LineChart';
 
 const useStyles = makeStyles(theme => ({
 	root: {

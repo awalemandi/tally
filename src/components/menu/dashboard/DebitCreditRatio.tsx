@@ -8,7 +8,7 @@ import {
 	makeStyles,
 	Divider,
 } from '@material-ui/core';
-import DoughnutChart from '../../common/DoughnutChart';
+import DoughnutChart from '../../common/charts/DoughnutChart';
 import { Doughnut } from 'react-chartjs-2';
 
 const useStyles = makeStyles(theme => ({

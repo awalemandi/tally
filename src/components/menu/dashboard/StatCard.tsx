@@ -7,7 +7,7 @@ import {
 	makeStyles,
 } from '@material-ui/core';
 import { IoCaretDown, IoCaretUp } from 'react-icons/io5';
-import LineChart from '../../common/LineChart';
+import LineChart from '../../common/charts/LineChart';
 
 const useStyles = makeStyles(theme => ({
 	root: {

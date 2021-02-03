@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import { Card, CardContent, Typography, makeStyles } from '@material-ui/core';
-import RadarChart from '../../common/RadarChart';
+import RadarChart from '../../common/charts/RadarChart';
 import { Divider } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({

@@ -7,7 +7,7 @@ import {
 	makeStyles,
 	Divider,
 } from '@material-ui/core';
-import BarChart from '../../common/BarChart';
+import BarChart from '../../common/charts/BarChart';
 
 const useStyles = makeStyles(theme => ({
 	root: {
