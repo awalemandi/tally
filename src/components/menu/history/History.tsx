@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, fade } from '@material-ui/core/styles';
 import {
 	Grid,
 	List,
@@ -20,10 +20,10 @@ const useStyles = makeStyles(theme => ({
 		padding: 0
 	},
 	up: {
-		backgroundColor: ' rgb(106, 192, 121, 0.8)',
+		backgroundColor: fade(theme.palette.secondary.main, 0.9), //rgb(106, 192, 121, 0.8)
 	},
 	down: {
-		backgroundColor: 'rgb(235, 69, 69, 0.8)',
+		backgroundColor: fade(theme.palette.primary.main, 0.7)//'rgb(235, 69, 69, 0.8)',
 	},
 }));
 
