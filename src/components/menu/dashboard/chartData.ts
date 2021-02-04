@@ -106,12 +106,20 @@ export const performanceData = {
 	],
 	datasets: [
 		{
-			label: 'Amount',
+			label: 'Credit',
 			backgroundColor: 'rgb(22, 135, 167, 0.4)',
 			borderColor: 'rgba(0,0,0,1, 0.2)',
 			borderWidth: 1,
 			maxBarThickness: 35,
-			data: [6500, 5900, 5000, 6000, 5600, -3000, -4200, 2000],
+			data: [6500, 5900, 5000, 6000, 5600, 0, 0, 0],
+        },
+        {
+			label: 'Debit',
+			backgroundColor: 'rgb(233, 73, 87, 0.4)',
+			borderColor: 'rgba(0,0,0,1, 0.2)',
+			borderWidth: 1,
+			maxBarThickness: 35,
+			data: [0, 0, 0, 0, 0, -3000, -4200, -2000],
 		},
 	],
 };
