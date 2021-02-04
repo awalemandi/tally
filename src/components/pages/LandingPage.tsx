@@ -5,6 +5,7 @@ import {AppBar, Toolbar, Typography, CssBaseline, useScrollTrigger, Box, Contain
 import Footer from '../layout/Footer';
 import Logo from '../../images/tally.png';
 import LandingSection from '../common/landingSection/LandingSection';
+import {sectionOne, sectionTwo, sectionThree, sectionFour, sectionFive, sectionSix} from '../common/landingSection/Data';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -24,10 +25,10 @@ const useStyles = makeStyles(theme => ({
 		marginLeft: '5px',
 		flexShrink: 1,
 		float: 'left',
-		height: '130px',
+		height: 110,
 		alignSelf: 'center',
 		[theme.breakpoints.down('sm')]: {
-			height: '110px',
+			height: 100,
 		},
 	},
 	buttonContainer: {
@@ -90,9 +91,13 @@ export default function LandingPage() {
 			</HideOnScroll>
 			<Toolbar />
 			<div className={classes.root}>
-				<LandingSection bgLight={true} />
-				<LandingSection bgLight={true} />
-				<LandingSection bgLight={true} />
+				<LandingSection {...sectionOne}/>
+				<LandingSection {...sectionTwo}/>
+				<LandingSection {...sectionThree}/>
+				<LandingSection {...sectionFour}/>
+				<LandingSection {...sectionFive}/>
+				<LandingSection {...sectionSix}/>
+
 				{/* <Box my={2}>
 					{[...new Array(12)]
 						.map(

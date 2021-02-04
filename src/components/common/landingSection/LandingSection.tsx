@@ -7,10 +7,15 @@ import image1 from '../../../images/transfer.svg';
 // import video from '../../../videos/piggyVideo.mp4';
 
 interface SectionProps {
-	bgLight: boolean;
+    id?: string;
+    bgLight: boolean;
+    header: string;
+    description: string;
+    image: string;
+    alt: string;
 }
 
-function LandingSection({ bgLight }: SectionProps) {
+function LandingSection({ id, bgLight, header, description, image, alt }: SectionProps) {
 	const useStyles = makeStyles(theme => ({
 		sectionContainer: {
 			width: '100%',
@@ -47,26 +52,24 @@ function LandingSection({ bgLight }: SectionProps) {
 			container
 			justify='space-evenly'
 			alignItems='stretch'
-			className={classes.sectionContainer}
+            className={classes.sectionContainer}
+            id={id}
 		>
 			<Grid item xs={12} sm={6}>
 				<div className={classes.contentWrapper}>
 					<div className={classes.textWrapper}>
                     <Typography variant='h3' color={bgLight ? 'primary' : 'secondary'} className={classes.header}>
-						Header Text Goes Here
+						{header}
 					</Typography>
 					<Typography variant='body1' color={bgLight ? 'primary' : 'secondary'} className={classes.description}>
-						Body text paragraph.Body text paragraph.Body text paragraph. Body
-						text paragraph.Body text paragraph.Body text paragraph.Body text
-						paragraph.Body text paragraph.Body text paragraph. Body text
-						paragraph.Body text paragraph.Body text paragraph.
+					{description}
 					</Typography>
                     </div>
 				</div>
 			</Grid>
 			<Grid item xs={12} sm={6}>
 				<div className={classes.contentWrapper}>
-                    <img src={image1} className = {classes.image}/>
+                    <img src={image} className = {classes.image} alt={alt}/>
 				</div>
 			</Grid>
 		</Grid>
