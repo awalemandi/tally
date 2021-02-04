@@ -10,14 +10,14 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
 	heroContent: {
-		backgroundColor: theme.palette.background.paper,
-		padding: theme.spacing(8, 0, 6),
+		backgroundColor: theme.palette.secondary.light,
+		padding: theme.spacing(2, 0, 2, 0),
 	},
 	heroButtons: {
-		marginTop: theme.spacing(4),
+		marginTop: theme.spacing(2),
     },
     terms: {
-        marginTop: theme.spacing(3)
+        marginTop: theme.spacing(2)
     }
 }));
 
@@ -29,7 +29,6 @@ const Banner = () => {
 			<div className={classes.heroContent}>
 				<Container maxWidth='md'>
 					<Typography
-						component='h1'
 						variant='h3'
 						align='left'
 						color='primary'

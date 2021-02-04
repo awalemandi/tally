@@ -11,6 +11,7 @@ import {
 	CardActions,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import {FaRegHandPointRight} from 'react-icons/fa';
 
 const useStyles = makeStyles(theme => ({
 	'@global': {
@@ -139,13 +140,14 @@ const Plans = () => {
 										</Typography>
 									</div>
 									<ul>
+										
 										{tier.description.map(line => (
 											<Typography
 												component='li'
 												variant='subtitle1'
 												align='center'
 												key={line}
-											>
+											><FaRegHandPointRight style={{marginRight: 7}}/>
 												{line}
 											</Typography>
 										))}
