@@ -16,7 +16,7 @@ function LandingSection({ id, bgLight, header, description, image, alt }: Sectio
 	const useStyles = makeStyles(theme => ({
 		sectionContainer: {
 			width: '100%',
-			height: 590,
+			height: 600,
 			backgroundColor: bgLight
 				? theme.palette.secondary.light
 				: theme.palette.primary.main,
@@ -50,13 +50,17 @@ function LandingSection({ id, bgLight, header, description, image, alt }: Sectio
             }
         },
         header: {
-
+			color: bgLight? theme.palette.primary.dark : theme.palette.secondary.light
         },
         description: {
-            marginTop: theme.spacing(2)
+			marginTop: theme.spacing(2),
+			color: bgLight? theme.palette.primary.dark : theme.palette.secondary.light
         },
         image: {
-            width: '50%',
+			width: '50%',
+			[theme.breakpoints.down('xs')]: {
+				width: '65%'
+			}
         }
 	}));
 	const classes = useStyles();
@@ -71,10 +75,10 @@ function LandingSection({ id, bgLight, header, description, image, alt }: Sectio
 			<Grid item xs={12} md={6}>
 				<div className={classes.textContainer}>
 					<div className={classes.textWrapper}>
-                    <Typography variant='h3' color={bgLight ? 'primary' : 'textSecondary'} className={classes.header}>
+                    <Typography variant='h3' className={classes.header}>
 						{header}
 					</Typography>
-					<Typography variant='body1' color='inherit' className={classes.description}>
+					<Typography variant='body1' className={classes.description}>
 					{description}
 					</Typography>
                     </div>

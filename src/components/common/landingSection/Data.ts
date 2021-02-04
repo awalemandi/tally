@@ -10,7 +10,7 @@ export const sectionOne = {
     id: `transfer`,
     bgLight: true,
     header: `Keep track of your IOUs`,
-    description: `Never forget who you owe or more importantly, who owes you! 🤑 `, 
+    description: `Never forget who you owe or more importantly, who owes you!`, 
     image: transfer,
     alt: `Digital transfer`
 }
@@ -19,7 +19,7 @@ export const sectionTwo = {
     id: `dashboard`,
     bgLight: false,
     header: `Ditch the Spreadsheet`,
-    description: `Time to keep up with the times and stop entering numbers on a spreadsheet.`,
+    description: `Entering numbers on a spreadsheet? Aint nobody got time for that!`,
     image: dashboard,
     alt: `Modern dashboard`
 }
@@ -28,7 +28,7 @@ export const sectionThree = {
     id: `sync`,
     bgLight: true,
     header: `All your data synced`,
-    description: `With the latest and greatest cloud technology powering the Tally platform, you can access your data on any device at any time securely.`,
+    description: `With the latest and greatest cloud technology powering the Tally platform, you can access your data on any device at any time, backed up and secure.`,
     image: sync,
     alt: `Cloud synced devices`
 }
@@ -45,7 +45,7 @@ export const sectionFour = {
 export const sectionFive = {
     id: `decision`,
     bgLight: true,
-    header: `Make Data-driven Decisions`,
+    header: `Make data driven decisions`,
     description: `Get personalized insights from your past transactions and make the best analytical decisions.`,
     image: decision,
     alt: `Decision making`
