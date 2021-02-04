@@ -5,12 +5,14 @@ import Copyright from '../common/Copyright';
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		marginTop: '3rem',
-		height: '3rem',
+		marginTop: 'auto',
+		height: '5rem',
 		display: 'flex',
 		flexDirection: 'column',
-		justifyContent: 'space-between',
-		alignItems: 'center',
+		justifyContent: 'center',
+		alignItems: 'flex-end',
+		background: `linear-gradient(45deg, ${theme.palette.secondary.light} 20%, ${theme.palette.secondary.main} 80%)`,
+
 	},
 }));
 

@@ -8,7 +8,7 @@ import LandingSection from '../common/landingSection/LandingSection';
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		height: '100vh',
+		height: '100%',
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'space-between',
@@ -90,7 +90,9 @@ export default function LandingPage() {
 			</HideOnScroll>
 			<Toolbar />
 			<div className={classes.root}>
-				<LandingSection bgPrimary={true} />
+				<LandingSection bgLight={true} />
+				<LandingSection bgLight={true} />
+				<LandingSection bgLight={true} />
 				{/* <Box my={2}>
 					{[...new Array(12)]
 						.map(

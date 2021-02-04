@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
 		background: 'transparent',
 	},
 	footer: {
-		flexShrink: 0 /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */,
+		// background: `linear-gradient(45deg, ${theme.palette.secondary.main} 20%, ${theme.palette.secondary.light} 80%)`,
 	},
 }));
 const Home = () => {
