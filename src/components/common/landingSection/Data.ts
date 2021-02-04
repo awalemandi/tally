@@ -17,7 +17,7 @@ export const sectionOne = {
 
 export const sectionTwo = {
     id: `dashboard`,
-    bgLight: true,
+    bgLight: false,
     header: `Ditch the Spreadsheet`,
     description: `Time to keep up with the times and stop entering numbers on a spreadsheet.`,
     image: dashboard,
@@ -35,7 +35,7 @@ export const sectionThree = {
 
 export const sectionFour = {
     id: `savings`,
-    bgLight: true,
+    bgLight: false,
     header: `Save more with Tally`,
     description: `Understand your spending habits and save more by learning about your trends.`,
     image: savings,
@@ -53,7 +53,7 @@ export const sectionFive = {
 
 export const sectionSix = {
     id: `couple`,
-    bgLight: true,
+    bgLight: false,
     header: `Make the most of Tally with new Duo`,
     description: `Be the financial power couple by sharing Tally premium.`,
     image: couple,

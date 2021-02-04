@@ -3,9 +3,6 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core';
 
-import image1 from '../../../images/transfer.svg';
-// import video from '../../../videos/piggyVideo.mp4';
-
 interface SectionProps {
     id?: string;
     bgLight: boolean;
@@ -63,10 +60,10 @@ function LandingSection({ id, bgLight, header, description, image, alt }: Sectio
 			<Grid item xs={12} sm={6}>
 				<div className={classes.contentWrapper}>
 					<div className={classes.textWrapper}>
-                    <Typography variant='h3' color={bgLight ? 'primary' : 'secondary'} className={classes.header}>
+                    <Typography variant='h3' color={bgLight ? 'primary' : 'textSecondary'} className={classes.header}>
 						{header}
 					</Typography>
-					<Typography variant='body1' color={bgLight ? 'primary' : 'secondary'} className={classes.description}>
+					<Typography variant='body1' color='inherit' className={classes.description}>
 					{description}
 					</Typography>
                     </div>
