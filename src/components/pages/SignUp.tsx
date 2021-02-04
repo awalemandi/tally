@@ -16,8 +16,12 @@ import Logo from '../../images/tally.png';
 import Copyright from '../common/Copyright';
 
 const useStyles = makeStyles(theme => ({
+	root: {
+		height: '100vh',
+		paddingTop: theme.spacing(8),
+		backgroundColor: theme.palette.secondary.light
+	},
 	paper: {
-		marginTop: theme.spacing(8),
 		display: 'flex',
 		flexDirection: 'column',
 		alignItems: 'center',
@@ -86,6 +90,7 @@ export const SignUp = () => {
 	};
 
 	return (
+		<div className={classes.root}>
 			<Container component='main' maxWidth='xs'>
 				<CssBaseline />
 				<div className={classes.paper}>
@@ -188,5 +193,6 @@ export const SignUp = () => {
 					<Copyright />
 				</Box>
 			</Container>
+			</div>
 	);
 };

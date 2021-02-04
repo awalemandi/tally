@@ -14,11 +14,12 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 import Copyright from '../common/Copyright';
 import Logo from '../../images/tally.png';
-import LoginImage from '../../images/login.jpg';
+import LoginImage from '../../images/playfulcat.svg';
 
 const useStyles = makeStyles(theme => ({
 	root: {
 		height: '100vh',
+		background: theme.palette.secondary.light,
 	},
 	logo: {
 		height: '10rem',
@@ -27,6 +28,8 @@ const useStyles = makeStyles(theme => ({
 		},
 	},
 	imageContainer: {
+		width: '100%',
+		background: 'transparent',
 		display: 'flex',
 		justifyContent: 'center',
 		alignItems: 'center',
@@ -35,8 +38,7 @@ const useStyles = makeStyles(theme => ({
 		},
 	},
 	image: {
-		flexGrow: 1,
-		width: '900px',
+		width: '25rem'
 	},
 	paper: {
 		margin: theme.spacing(8, 4),
@@ -108,7 +110,16 @@ export default function LogIn() {
 			<Grid item xs={false} sm={4} md={6} className={classes.imageContainer}>
 				<img src={LoginImage} className={classes.image} />
 			</Grid>
-			<Grid item xs={12} sm={8} md={6} component={Paper} elevation={6} square className={classes.formContainer}>
+			<Grid
+				item
+				xs={12}
+				sm={8}
+				md={6}
+				component={Paper}
+				elevation={6}
+				square
+				className={classes.formContainer}
+			>
 				<div className={classes.paper}>
 					<Link href='/'>
 						<img src={Logo} className={classes.logo} />
