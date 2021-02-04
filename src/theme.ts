@@ -3,11 +3,14 @@ import { createMuiTheme, colors } from '@material-ui/core/';
 const lightTheme = createMuiTheme({
 	palette: {
 		primary: {
-			main: '#E63946',
+			light: '#EB5C68', //fiery rose
+			main: '#E94957', //sizzling red
+			dark: '#E63946', //imperial red
 		},
 		secondary: {
-			light: '#EEEEEE',
-			main: '#A8DADC',
+			light: '#F0FFF0', //honeydew
+			main: '#A8DADC', //powder blue
+			dark: '#F5F5F5', //cultured
 		},
 	},
 	typography: {
@@ -15,10 +18,11 @@ const lightTheme = createMuiTheme({
 	},
 });
 
+
 const darkTheme = createMuiTheme({
 	palette: {
 		type: 'dark',
 	},
 });
 
-export { lightTheme, darkTheme };
+export { lightTheme, darkTheme};

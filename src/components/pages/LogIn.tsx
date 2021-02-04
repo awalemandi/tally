@@ -50,6 +50,9 @@ const useStyles = makeStyles(theme => ({
 			alignSelf: 'center',
 		},
 	},
+	formContainer: {
+		background: `linear-gradient(45deg, ${theme.palette.secondary.light} 20%, ${theme.palette.secondary.main} 80%)`,
+	},
 	form: {
 		width: '60%', // Fix IE 11 issue.
 		marginTop: theme.spacing(1),
@@ -104,7 +107,7 @@ export default function LogIn() {
 			<Grid item xs={false} sm={4} md={6} className={classes.imageContainer}>
 				<img src={LoginImage} className={classes.image} />
 			</Grid>
-			<Grid item xs={12} sm={8} md={6} component={Paper} elevation={6} square>
+			<Grid item xs={12} sm={8} md={6} component={Paper} elevation={6} square className={classes.formContainer}>
 				<div className={classes.paper}>
 					<Link href='/'>
 						<img src={Logo} className={classes.logo} />

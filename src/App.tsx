@@ -11,7 +11,7 @@ function App() {
 	return (
 		<MuiPickersUtilsProvider utils={DateFnsUtils}>
 			<Router>
-			<div className='App'>
+			<div className='App' style={{background: 'linear-gradient(45deg, "#F0FFF0" 20%, "#A8DADC" 80%)'}}>
 				<Switch>
 					<Route exact path='/'>
 						<LandingPage />

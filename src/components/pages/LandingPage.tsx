@@ -14,6 +14,7 @@ const useStyles = makeStyles(theme => ({
 		justifyContent: 'space-between',
 	},
 	navbar: {
+		background: `linear-gradient(45deg, ${theme.palette.secondary.light} 20%, ${theme.palette.secondary.main} 80%)`,
 		height: '4rem',
 		display: 'flex',
 		justifyContent: 'space-between',
