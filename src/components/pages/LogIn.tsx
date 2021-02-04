@@ -51,7 +51,8 @@ const useStyles = makeStyles(theme => ({
 		},
 	},
 	formContainer: {
-		background: `linear-gradient(45deg, ${theme.palette.secondary.light} 20%, ${theme.palette.secondary.main} 80%)`,
+		background: theme.palette.secondary.light,
+		// background: `linear-gradient(45deg, ${theme.palette.secondary.light} 20%, ${theme.palette.secondary.main} 80%)`,
 	},
 	form: {
 		width: '60%', // Fix IE 11 issue.

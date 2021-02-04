@@ -38,7 +38,8 @@ const useStyles = makeStyles(theme => ({
 		},
 	},
 	appBar: {
-		background: `linear-gradient(45deg, ${theme.palette.secondary.light} 20%, ${theme.palette.secondary.main} 80%)`,
+		background: theme.palette.secondary.light,
+		// background: `linear-gradient(45deg, ${theme.palette.secondary.light} 20%, ${theme.palette.secondary.main} 80%)`,
 		[theme.breakpoints.up('md')]: {
 			width: `calc(100% - ${drawerWidth}px)`,
 			marginLeft: drawerWidth,
@@ -54,7 +55,8 @@ const useStyles = makeStyles(theme => ({
 	toolbar: theme.mixins.toolbar,
 	drawerPaper: {
 		width: drawerWidth,
-		background: `linear-gradient(45deg, ${theme.palette.secondary.main} 20%, ${theme.palette.secondary.light} 80%)`,
+		background: theme.palette.secondary.light
+		// background: `linear-gradient(45deg, ${theme.palette.secondary.main} 20%, ${theme.palette.secondary.light} 80%)`,
 	},
 	content: {
 		flexGrow: 1,

@@ -21,7 +21,18 @@ function LandingSection({ id, bgLight, header, description, image, alt }: Sectio
 				? theme.palette.secondary.light
 				: theme.palette.primary.main,
 		},
-		contentWrapper: {
+		textContainer: {
+			width: '100%',
+			height: '100%',
+			display: 'flex',
+			flexDirection: 'column',
+			justifyContent: 'center',
+			alignItems: 'flex-end',
+			[theme.breakpoints.down('md')]:{
+				alignItems: 'center'
+            }
+		},
+		imageContainer: {
 			width: '100%',
 			height: '100%',
 			display: 'flex',
@@ -32,7 +43,7 @@ function LandingSection({ id, bgLight, header, description, image, alt }: Sectio
         textWrapper: {
             width: '80%',
             margin: theme.spacing(2),
-            padding: theme.spacing(5),
+            padding: theme.spacing(5, 0, 5, 5),
             [theme.breakpoints.down('sm')]:{
                 margin: theme.spacing(1),
                 padding: theme.spacing(1)
@@ -58,7 +69,7 @@ function LandingSection({ id, bgLight, header, description, image, alt }: Sectio
             id={id}
 		>
 			<Grid item xs={12} sm={6}>
-				<div className={classes.contentWrapper}>
+				<div className={classes.textContainer}>
 					<div className={classes.textWrapper}>
                     <Typography variant='h3' color={bgLight ? 'primary' : 'textSecondary'} className={classes.header}>
 						{header}
@@ -70,7 +81,7 @@ function LandingSection({ id, bgLight, header, description, image, alt }: Sectio
 				</div>
 			</Grid>
 			<Grid item xs={12} sm={6}>
-				<div className={classes.contentWrapper}>
+				<div className={classes.imageContainer}>
                     <img src={image} className = {classes.image} alt={alt}/>
 				</div>
 			</Grid>
