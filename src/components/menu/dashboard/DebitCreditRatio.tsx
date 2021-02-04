@@ -3,13 +3,12 @@ import clsx from 'clsx';
 import {
 	Card,
 	CardContent,
-	Grid,
 	Typography,
 	makeStyles,
 	Divider,
 } from '@material-ui/core';
 import DoughnutChart from '../../common/charts/DoughnutChart';
-import { Doughnut } from 'react-chartjs-2';
+import {debitCreditData, doughnutOptions} from './chartData';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -36,41 +35,7 @@ const useStyles = makeStyles(theme => ({
 	},
 }));
 
-const loadData = {
-	datasets: [
-		{
-			data: [63, 37],
-			backgroundColor: ['rgb(108, 180, 108, 0.7)', 'rgb(255, 99, 132, 0.7)'],
-			hoverBackgroundColor: [
-				'rgb(108, 180, 108)',
-				'rgb(255, 99, 132)',
-				// 'rgb(255, 206, 86)',
-			],
-			borderWidth: 1,
-		},
-	],
-	labels: ['You\'re Owed', 'You Owe'],
-};
 
-const loadOptions = {
-	...{
-		responsive: true,
-		maintainAspectRatio: false,
-		legend: {
-			position: 'bottom',
-			labels: {
-				padding: 25,
-				boxWidth: 20,
-			},
-		},
-		cutoutPercentage: 65,
-		tooltips: {
-			custom: false,
-			mode: 'index',
-			position: 'nearest',
-		},
-	},
-};
 
 const DebitCreditRatio = () => {
 	const classes = useStyles();
@@ -84,7 +49,7 @@ const DebitCreditRatio = () => {
 				<Divider variant='fullWidth' />
 			</CardContent>
 			<div className={classes.chart}>
-				<DoughnutChart data={loadData} options={loadOptions} />
+				<DoughnutChart data={debitCreditData} options={doughnutOptions} />
 			</div>
 		</Card>
 	);

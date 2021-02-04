@@ -1,4 +1,4 @@
-//dummy data for stat cards
+//dummy data
 export const outstandingAmountData = {
 	labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
 	datasets: [
@@ -26,6 +26,36 @@ export const totalDebtData = {
 		},
 	],
 };
+
+export const debitCreditData = {
+	datasets: [
+		{
+			data: [63, 37],
+			backgroundColor: ['rgb(147, 215, 218, 0.7)', 'rgb(233, 73, 87, 0.7)'],
+			hoverBackgroundColor: [
+				'rgb(132, 207, 211)',
+				'rgb(233, 73, 87)',
+				// 'rgb(235, 216, 169)',
+			],
+			borderWidth: 1,
+		},
+	],
+	labels: ['You\'re Owed', 'You Owe'],
+};
+
+export const debtByCategoryData = {
+	labels: ['Family', 'Friends', 'Business', 'Credit Card', 'Education', 'Mortgage'],
+	datasets: [
+		{
+			borderWidth: 1,
+			borderColor: 'rgb(207, 143, 100)',
+			backgroundColor: 'rgb(236, 192, 111, 0.5)',
+			data: [32, 44, 67, 36, 55, 92],
+		},
+	],
+};
+
+//chart options
 
 export const statCardOptions = {
 	...{
@@ -70,6 +100,52 @@ export const statCardOptions = {
 					},
 				},
 			],
+		},
+	},
+};
+
+export const doughnutOptions = {
+	...{
+		responsive: true,
+		maintainAspectRatio: false,
+		legend: {
+			position: 'bottom',
+			labels: {
+				padding: 25,
+				boxWidth: 20,
+			},
+		},
+		cutoutPercentage: 65,
+		tooltips: {
+			custom: false,
+			mode: 'index',
+			position: 'nearest',
+		},
+	},
+};
+
+export const radarOptions = {
+	...{
+		responsive: true,
+		maintainAspectRatio: true,
+		scale: {
+			ticks: {
+				beginAtZero: true,
+				display: false,
+				stepSize: 20,
+			},
+			pointLabels: {
+				fontSize: 12,
+			},
+		},
+		elements: {
+			line: {
+				tension: 0.33,
+			},
+		},
+		legend: {
+			position: 'left',
+			display: false,
 		},
 	},
 };

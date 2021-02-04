@@ -1,8 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
-import { Card, CardContent, Typography, makeStyles } from '@material-ui/core';
+import { Card, CardContent, Typography, makeStyles, Divider } from '@material-ui/core';
 import RadarChart from '../../common/charts/RadarChart';
-import { Divider } from '@material-ui/core';
+import { debtByCategoryData, radarOptions} from './chartData';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -29,43 +29,6 @@ const useStyles = makeStyles(theme => ({
 	},
 }));
 
-const loadData = {
-	labels: ['Family', 'Friends', 'Business', 'Credit Card', 'Education', 'Mortgage'],
-	datasets: [
-		{
-			borderWidth: 1,
-			borderColor: 'rgb(236, 192, 111)',
-			backgroundColor: 'rgb(236, 192, 111, 0.5)',
-			data: [32, 44, 67, 36, 55, 92],
-		},
-	],
-};
-
-const loadOptions = {
-	...{
-		responsive: true,
-		maintainAspectRatio: true,
-		scale: {
-			ticks: {
-				beginAtZero: true,
-				display: false,
-				stepSize: 20,
-			},
-			pointLabels: {
-				fontSize: 12,
-			},
-		},
-		elements: {
-			line: {
-				tension: 0.33,
-			},
-		},
-		legend: {
-			position: 'left',
-			display: false,
-		},
-	},
-};
 
 const DebtByCategory = () => {
 	const classes = useStyles();
@@ -79,7 +42,7 @@ const DebtByCategory = () => {
 				<Divider variant='fullWidth' />
 			</CardContent>
 			<div className={classes.chart}>
-				<RadarChart data={loadData} options={loadOptions} />
+				<RadarChart data={debtByCategoryData} options={radarOptions} />
 			</div>
 		</Card>
 	);
