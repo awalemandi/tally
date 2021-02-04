@@ -5,7 +5,7 @@ import Copyright from '../common/Copyright';
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		marginTop: 'auto',
+		marginTop: theme.spacing(3),
 		height: '5rem',
 		display: 'flex',
 		flexDirection: 'column',
