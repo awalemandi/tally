@@ -44,7 +44,7 @@ function LandingSection({ id, bgLight, header, description, image, alt }: Sectio
             width: '80%',
             margin: theme.spacing(2),
             padding: theme.spacing(5, 0, 5, 5),
-            [theme.breakpoints.down('sm')]:{
+            [theme.breakpoints.down('md')]:{
                 margin: theme.spacing(1),
                 padding: theme.spacing(1)
             }
@@ -56,7 +56,7 @@ function LandingSection({ id, bgLight, header, description, image, alt }: Sectio
             marginTop: theme.spacing(2)
         },
         image: {
-            width: '20rem',
+            width: '50%',
         }
 	}));
 	const classes = useStyles();
@@ -68,7 +68,7 @@ function LandingSection({ id, bgLight, header, description, image, alt }: Sectio
             className={classes.sectionContainer}
             id={id}
 		>
-			<Grid item xs={12} sm={6}>
+			<Grid item xs={12} md={6}>
 				<div className={classes.textContainer}>
 					<div className={classes.textWrapper}>
                     <Typography variant='h3' color={bgLight ? 'primary' : 'textSecondary'} className={classes.header}>
@@ -80,7 +80,7 @@ function LandingSection({ id, bgLight, header, description, image, alt }: Sectio
                     </div>
 				</div>
 			</Grid>
-			<Grid item xs={12} sm={6}>
+			<Grid item xs={12} md={6}>
 				<div className={classes.imageContainer}>
                     <img src={image} className = {classes.image} alt={alt}/>
 				</div>
