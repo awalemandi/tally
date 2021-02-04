@@ -27,7 +27,7 @@ export const sectionTwo = {
 export const sectionThree = {
     id: `sync`,
     bgLight: true,
-    header: `All your data synced for you on the go`,
+    header: `All your data synced`,
     description: `With the latest and greatest cloud technology powering the Tally platform, you can access your data on any device at any time securely.`,
     image: sync,
     alt: `Cloud synced devices`

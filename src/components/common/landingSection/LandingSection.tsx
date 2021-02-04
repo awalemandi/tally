@@ -19,7 +19,7 @@ function LandingSection({ id, bgLight, header, description, image, alt }: Sectio
 	const useStyles = makeStyles(theme => ({
 		sectionContainer: {
 			width: '100%',
-			height: 600,
+			height: 590,
 			backgroundColor: bgLight
 				? theme.palette.secondary.light
 				: theme.palette.primary.main,
@@ -33,8 +33,13 @@ function LandingSection({ id, bgLight, header, description, image, alt }: Sectio
 			alignItems: 'center',
         },
         textWrapper: {
+            width: '80%',
             margin: theme.spacing(2),
-            padding: theme.spacing(2),
+            padding: theme.spacing(5),
+            [theme.breakpoints.down('sm')]:{
+                margin: theme.spacing(1),
+                padding: theme.spacing(1)
+            }
         },
         header: {
 

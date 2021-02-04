@@ -97,23 +97,6 @@ export default function LandingPage() {
 				<LandingSection {...sectionFour}/>
 				<LandingSection {...sectionFive}/>
 				<LandingSection {...sectionSix}/>
-
-				{/* <Box my={2}>
-					{[...new Array(12)]
-						.map(
-							() =>
-								`This is the landing page. It's what users will see when they first get on the webiste.`
-						)
-						.join('\n')}
-				</Box>
-				<Box my={2}>
-					{[...new Array(12)]
-						.map(
-							() =>
-								`This is the landing page. It's what users will see when they first get on the webiste.`
-						)
-						.join('\n')}
-				</Box> */}
 				<Footer />
 			</div>
 		</>
