@@ -11,7 +11,7 @@ import NoMatch from '../menu/NoMatch';
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		
+		paddingBottom: theme.spacing(5)
 	},
 	// necessary for content to be below app bar
 	toolbar: theme.mixins.toolbar,

@@ -1,13 +1,12 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Container } from '@material-ui/core';
 import Copyright from '../common/Copyright';
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		marginTop: theme.spacing(3),
+		marginTop: 'auto',
 		padding: theme.spacing(2),
-		height: '5rem',
+		height: '7rem',
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'center',
