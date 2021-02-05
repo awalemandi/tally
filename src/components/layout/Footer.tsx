@@ -11,7 +11,8 @@ const useStyles = makeStyles(theme => ({
 		flexDirection: 'column',
 		justifyContent: 'center',
 		alignItems: 'flex-end',
-		background: `linear-gradient(45deg, ${theme.palette.secondary.light} 20%, ${theme.palette.secondary.main} 80%)`,
+		background: theme.palette.secondary.light,
+		// background: `linear-gradient(45deg, ${theme.palette.secondary.light} 20%, ${theme.palette.secondary.main} 80%)`,
 	},
 }));
 
