@@ -8,9 +8,9 @@ const lightTheme = createMuiTheme({
 			dark: '#E63946', //imperial red
 		},
 		secondary: {
-			light: '#F0FFF0', //honeydew
+			light: '#f8f9fa', //cultured
 			main: '#A8DADC', //powder blue
-			dark: '#F5F5F5', //cultured
+			dark: '#E9ECEF', //cultured dark
 		},
 	},
 	typography: {
@@ -18,11 +18,10 @@ const lightTheme = createMuiTheme({
 	},
 });
 
-
 const darkTheme = createMuiTheme({
 	palette: {
 		type: 'dark',
 	},
 });
 
-export { lightTheme, darkTheme};
+export { lightTheme, darkTheme };
