@@ -70,7 +70,7 @@ const useStyles = makeStyles(theme => ({
 		alignItems: 'center',
 	},
 	logo: {
-		marginLeft: '5px',
+		marginLeft: 15,
 		flexShrink: 1,
 		float: 'left',
 		height: '110px',
