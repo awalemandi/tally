@@ -12,7 +12,7 @@ import {
 	Paper,
 } from '@material-ui/core';
 import { RiEmotionHappyLine, RiEmotionUnhappyLine } from 'react-icons/ri';
-import {transactions} from './data';
+import { transactions } from './data';
 
 // interface transactionData {
 //     transactionType: 'LENT' | 'BORROWED';
@@ -53,36 +53,37 @@ const History = () => {
 				<Grid item xs={12}>
 					<Paper>
 						<List>
-							{transactions.map(transaction => <>
-								<ListItem>
-								<ListItemAvatar>
-									<Avatar className={transaction.transactionType == 'LENT'? classes.lentIcon : classes.borrowedIcon}>
-										{ transaction.transactionType == 'LENT' ? <RiEmotionHappyLine /> : <RiEmotionUnhappyLine />}
-									</Avatar>
-								</ListItemAvatar>
-								<ListItemText
-									primary={`You ${transaction.transactionType == 'LENT'? 'lent to' : 'borrowed from'} ${transaction.party}, $${transaction.amount} for ${transaction.reason} on ${transaction.date}.`}
-								/>
-							</ListItem>
-							<Divider variant='inset' component='li' />
-							</>)}
-							{/* <ListItem>
-								<ListItemAvatar>
-									<Avatar className={classes.up}>
-										<RiEmotionHappyLine />
-									</Avatar>
-								</ListItemAvatar>
-								<ListItemText primary='You borrowed from Dad, $10,000 for startup capital on 04/11/20.' />
-							</ListItem>
-							<Divider variant='inset' component='li' />
-							<ListItem>
-								<ListItemAvatar>
-									<Avatar className={classes.down}>
-										<RiEmotionUnhappyLine />
-									</Avatar>
-								</ListItemAvatar>
-								<ListItemText primary='You lent Katy $300 for trip to Canberra on 10/12/20.' />
-							</ListItem> */}
+							{transactions.map(transaction => (
+								<>
+									<ListItem>
+										<ListItemAvatar>
+											<Avatar
+												className={
+													transaction.transactionType == 'LENT'
+														? classes.lentIcon
+														: classes.borrowedIcon
+												}
+											>
+												{transaction.transactionType == 'LENT' ? (
+													<RiEmotionHappyLine />
+												) : (
+													<RiEmotionUnhappyLine />
+												)}
+											</Avatar>
+										</ListItemAvatar>
+										<ListItemText
+											primary={`You ${
+												transaction.transactionType == 'LENT'
+													? 'lent to'
+													: 'borrowed from'
+											} ${transaction.party}, $${transaction.amount} for ${
+												transaction.reason
+											} on ${transaction.date}.`}
+										/>
+									</ListItem>
+									<Divider variant='inset' component='li' />
+								</>
+							))}
 						</List>
 					</Paper>
 				</Grid>

@@ -1,11 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {AppBar, Toolbar, Typography, CssBaseline, useScrollTrigger, Box, Container, Slide, makeStyles, Button} from '@material-ui/core';
+import {
+	AppBar,
+	Toolbar,
+	Typography,
+	CssBaseline,
+	useScrollTrigger,
+	Box,
+	Container,
+	Slide,
+	makeStyles,
+	Button,
+} from '@material-ui/core';
 
 import Footer from '../layout/Footer';
 import Logo from '../../images/tally.png';
 import LandingSection from '../common/landingSection/LandingSection';
-import {sectionOne, sectionTwo, sectionThree, sectionFour, sectionFive, sectionSix} from '../common/landingSection/Data';
+import { landingPageData } from '../common/landingSection/data';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -91,12 +102,16 @@ export default function LandingPage() {
 			</HideOnScroll>
 			<Toolbar />
 			<div className={classes.root}>
-				<LandingSection {...sectionOne}/>
-				<LandingSection {...sectionTwo}/>
-				<LandingSection {...sectionThree}/>
-				<LandingSection {...sectionFour}/>
-				<LandingSection {...sectionFive}/>
-				<LandingSection {...sectionSix}/>
+				{landingPageData.map(section => (
+					<LandingSection
+						id={section.id}
+						bgLight={section.bgLight}
+						header={section.header}
+						description={section.description}
+						image={section.image}
+						alt={section.alt}
+					/>
+				))}
 				<Footer />
 			</div>
 		</>
