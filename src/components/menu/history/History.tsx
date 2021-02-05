@@ -17,13 +17,13 @@ const useStyles = makeStyles(theme => ({
 	root: {
 		width: '100%',
 		marginTop: '1rem',
-		padding: 0
+		padding: 0,
 	},
 	up: {
 		backgroundColor: fade(theme.palette.secondary.main, 0.9), //rgb(106, 192, 121, 0.8)
 	},
 	down: {
-		backgroundColor: fade(theme.palette.primary.main, 0.7)//'rgb(235, 69, 69, 0.8)',
+		backgroundColor: fade(theme.palette.primary.main, 0.7), //'rgb(235, 69, 69, 0.8)',
 	},
 }));
 
@@ -49,7 +49,9 @@ const History = () => {
 										<RiEmotionUnhappyLine />
 									</Avatar>
 								</ListItemAvatar>
-								<ListItemText primary='You lent to Katy, $300 for trip to Canberra on 10/12/20.' />
+								<ListItemText
+									primary={`You ${`lent to`} ${`Katy`}, ${`300`} for ${`trip to Canberra`} on ${`10/12/20`}.`}
+								/>
 							</ListItem>
 							<Divider variant='inset' component='li' />
 							<ListItem>

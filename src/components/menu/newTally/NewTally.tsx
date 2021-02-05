@@ -1,6 +1,7 @@
 import React from 'react';
 import TransactionType from './TransactionType';
 import Amount from './Amount';
+import Reason from './Reason';
 import { Grid, Hidden, Typography, Fab } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
@@ -47,6 +48,12 @@ const NewTally = () => {
 				</Hidden>
 				<Grid item xs={10} sm={8} md={5} lg={3}>
 					<Amount />
+				</Grid>
+				<Hidden mdDown>
+					<Grid item md={6} lg={9}></Grid>
+				</Hidden>
+				<Grid item xs={10} sm={8} md={5} lg={3}>
+					<Reason />
 				</Grid>
 				<Hidden mdDown>
 					<Grid item md={6} lg={9}></Grid>
