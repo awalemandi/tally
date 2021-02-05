@@ -12,6 +12,16 @@ import {
 	Paper,
 } from '@material-ui/core';
 import { RiEmotionHappyLine, RiEmotionUnhappyLine } from 'react-icons/ri';
+import {transactions} from './data';
+
+// interface transactionData {
+//     transactionType: 'LENT' | 'BORROWED';
+//     amount: string;
+//     reason: string;
+//     party: string;
+//     date: string;
+//     category: string;
+// };
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -19,10 +29,10 @@ const useStyles = makeStyles(theme => ({
 		marginTop: '1rem',
 		padding: 0,
 	},
-	up: {
+	lentIcon: {
 		backgroundColor: fade(theme.palette.secondary.main, 0.9), //rgb(106, 192, 121, 0.8)
 	},
-	down: {
+	borrowedIcon: {
 		backgroundColor: fade(theme.palette.primary.main, 0.7), //'rgb(235, 69, 69, 0.8)',
 	},
 }));
@@ -43,18 +53,20 @@ const History = () => {
 				<Grid item xs={12}>
 					<Paper>
 						<List>
-							<ListItem>
+							{transactions.map(transaction => <>
+								<ListItem>
 								<ListItemAvatar>
-									<Avatar className={classes.down}>
-										<RiEmotionUnhappyLine />
+									<Avatar className={transaction.transactionType == 'LENT'? classes.lentIcon : classes.borrowedIcon}>
+										{ transaction.transactionType == 'LENT' ? <RiEmotionHappyLine /> : <RiEmotionUnhappyLine />}
 									</Avatar>
 								</ListItemAvatar>
 								<ListItemText
-									primary={`You ${`lent to`} ${`Katy`}, ${`300`} for ${`trip to Canberra`} on ${`10/12/20`}.`}
+									primary={`You ${transaction.transactionType == 'LENT'? 'lent to' : 'borrowed from'} ${transaction.party}, $${transaction.amount} for ${transaction.reason} on ${transaction.date}.`}
 								/>
 							</ListItem>
 							<Divider variant='inset' component='li' />
-							<ListItem>
+							</>)}
+							{/* <ListItem>
 								<ListItemAvatar>
 									<Avatar className={classes.up}>
 										<RiEmotionHappyLine />
@@ -70,7 +82,7 @@ const History = () => {
 									</Avatar>
 								</ListItemAvatar>
 								<ListItemText primary='You lent Katy $300 for trip to Canberra on 10/12/20.' />
-							</ListItem>
+							</ListItem> */}
 						</List>
 					</Paper>
 				</Grid>
