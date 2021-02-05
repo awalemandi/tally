@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
 			width: '40%'
 		},
 		[theme.breakpoints.down('xs')]: {
-			width: '70%'
+			width: '80%'
 		}
 	},
 	actionButton: {
