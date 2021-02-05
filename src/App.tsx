@@ -6,6 +6,7 @@ import Home from './components/pages/Home';
 import LogIn from './components/pages/LogIn';
 import LandingPage from './components/pages/LandingPage';
 import { SignUp } from './components/pages/SignUp';
+import NoMatch from './components/menu/NoMatch';
 
 function App() {
 	return (
@@ -25,6 +26,9 @@ function App() {
 					<Route path='/home'>
 						<Home />
 					</Route>
+					<Route path='*'>
+					<NoMatch />
+				</Route>
 				</Switch>
 			</div>
 		</Router>

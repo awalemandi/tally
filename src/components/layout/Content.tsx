@@ -41,9 +41,9 @@ const Content = () => {
 				<Route path='/home/premium'>
 					<Premium />
 				</Route>
-				<Route path='*'>
-					<NoMatch />
-				</Route>
+											<Route path='*'>
+												<NoMatch />
+											</Route>
 			</Switch>
 		</div>
 	);
