@@ -6,8 +6,7 @@ const useStyles = makeStyles(theme => ({
 	heroContainer: {
 		width: '100%',
 		height: 600,
-        position: 'relative',
-        // willChange: 'width, height, left, top'
+		// willChange: 'width, height, left, top'
 	},
 }));
 
@@ -54,10 +53,8 @@ function HeroSection() {
 		},
 	});
 	return (
-		<div>
-			<animated.div className={classes.heroContainer} style={props}>
-				<h1>SOme awesome text</h1>
-			</animated.div>
+		<div className={classes.heroContainer}>
+			<animated.div style={props} />
 		</div>
 	);
 }
