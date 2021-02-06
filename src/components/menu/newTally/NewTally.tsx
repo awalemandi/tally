@@ -14,10 +14,11 @@ const useStyles = makeStyles(theme => ({
 	form: {
 
 	},
-	root: {
+	inputContainer: {
 		width: '70%',
 		height: 'auto',
 		marginTop: theme.spacing(4),
+		padding: theme.spacing(4, 2),
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'center',
@@ -62,7 +63,7 @@ const NewTally = () => {
 	return (
 		<form noValidate autoComplete='off' className={classes.form}>
 			<Typography variant='h3'>Add a new Tally</Typography>
-			<div className={classes.root}>
+			<div className={classes.inputContainer}>
 				<div className={classes.inputWrapper}>
 					<TransactionType />
 				</div>
@@ -90,64 +91,6 @@ const NewTally = () => {
 					Add Tally
 				</Fab>
 			</div>
-			{/* <Grid
-				className={classes.root}
-				container
-				spacing={5}
-				direction='column'
-				justify='center'
-				alignItems='center'
-			>
-				<Grid item xs={10} sm={8} md={5} >
-					<TransactionType />
-				</Grid>
-				<Hidden mdDown>
-					<Grid item md={6} ></Grid>
-				</Hidden>
-				<Grid item xs={10} sm={8} md={5} lg={3}>
-					<Amount />
-				</Grid>
-				<Hidden mdDown>
-					<Grid item md={6} lg={9}></Grid>
-				</Hidden>
-				<Grid item xs={10} sm={8} md={5} lg={3}>
-					<Reason />
-				</Grid>
-				<Hidden mdDown>
-					<Grid item md={6} lg={9}></Grid>
-				</Hidden>
-				<Grid item xs={10} sm={8} md={5} lg={3}>
-					<Party />
-				</Grid>
-				<Hidden mdDown>
-					<Grid item md={6} lg={9}></Grid>
-				</Hidden>
-				<Grid item xs={10} sm={8} md={5} lg={3}>
-					<Date />
-				</Grid>
-				<Hidden mdDown>
-					<Grid item md={6} lg={9}></Grid>
-				</Hidden>
-				<Grid item xs={10} sm={8} md={5} lg={3}>
-					<Category />
-				</Grid>
-				<Hidden mdDown>
-					<Grid item md={6} lg={9}></Grid>
-				</Hidden>
-				<Grid item xs={10} sm={8} md={5} lg={3}>
-					<Fab
-						variant='extended'
-						color='primary'
-						className={classes.actionButton}
-					>
-						<TiPlusOutline className={classes.icon} />
-						Add Tally
-					</Fab>
-				</Grid>
-				<Hidden mdDown>
-					<Grid item md={6} lg={9}></Grid>
-				</Hidden>
-			</Grid> */}
 		</form>
 	);
 };

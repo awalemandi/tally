@@ -7,12 +7,16 @@ import {
 	MenuItem,
 	FormHelperText,
 	Button,
+	Paper,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { TiPlus } from 'react-icons/ti';
 
 const useStyles = makeStyles(theme => ({
-	root: {},
+	root: {
+		padding: theme.spacing(1),
+		marginBottom: theme.spacing(1),
+	},
 }));
 
 function Party() {
@@ -30,6 +34,8 @@ function Party() {
 			justify='space-between'
 			alignItems='stretch'
 			spacing={3}
+			component={Paper}
+			className={classes.root}
 		>
 			<Grid item xs={12}>
 				<Typography variant='h4' color='primary'>

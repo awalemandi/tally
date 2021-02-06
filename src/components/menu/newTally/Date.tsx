@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography, Paper } from '@material-ui/core';
 import { KeyboardDatePicker } from '@material-ui/pickers';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
 	root: {
-		width: '100%',
-		display: 'flex',
-		flexDirection: 'column',
+		padding: theme.spacing(1),
+		marginBottom: theme.spacing(1)
 	},
 }));
 
@@ -27,6 +26,8 @@ function Date() {
 			justify='space-between'
 			alignItems='stretch'
 			spacing={3}
+			component={Paper}
+			className={classes.root}
 		>
 			<Grid item xs={12}>
 				<Typography variant='h4' color='primary'>
