@@ -17,6 +17,7 @@ import Footer from '../layout/Footer';
 import Logo from '../../images/tally.png';
 import LandingSection from '../common/landingSection/LandingSection';
 import { landingPageData } from '../common/landingSection/data';
+import HeroSection from '../common/heroSection/HeroSection';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -102,6 +103,7 @@ export default function LandingPage() {
 			</HideOnScroll>
 			<Toolbar />
 			<div className={classes.root}>
+				<HeroSection />
 				{landingPageData.map(section => (
 					<LandingSection
 						id={section.id}
