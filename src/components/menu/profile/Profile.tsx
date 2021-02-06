@@ -7,18 +7,20 @@ import AccountDetails from './AccountDetails';
 const useStyles = makeStyles(theme => ({
 	root: {
 		width: '100%',
-		marginTop: '1rem',
 	},
+	grid: {
+		marginTop: theme.spacing(2)
+	}
 }));
 
 const Profile = () => {
 	const classes = useStyles();
 	return (
-		<>
+		<div 				className={classes.root}>
 			<Typography variant='h3'>Profile</Typography>
 			<Grid
 				container
-				className={classes.root}
+				className={classes.grid}
 				spacing={4}
 				justify='center'
 				alignItems='center'
@@ -30,7 +32,7 @@ const Profile = () => {
 					<AccountDetails />
 				</Grid>
 			</Grid>
-		</>
+		</div>
 	);
 };
 

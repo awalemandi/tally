@@ -7,17 +7,19 @@ import Plans from './Plans';
 const useStyles = makeStyles(theme => ({
 	root: {
 		width: '100%',
-		marginTop: '1rem'
 	},
+	grid: {
+		marginTop: theme.spacing(2)
+	}
 }));
 
 const Premium = () => {
 	const classes = useStyles();
 	return (
-		<>
+		<div className={classes.root}>
 			<Typography variant='h3'>Tally Premium</Typography>
 			<Grid
-				className={classes.root}
+				className={classes.grid}
 				container
 				spacing={4}
 				direction='column'
@@ -29,7 +31,7 @@ const Premium = () => {
 					<Plans />
 				</Grid>
 			</Grid>
-		</>
+		</div>
 	);
 };
 
