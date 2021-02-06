@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSpring, animated } from 'react-spring';
 import { makeStyles } from '@material-ui/core/styles';
+import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
 	heroContainer: {
@@ -55,6 +56,9 @@ function HeroSection() {
 	return (
 		<div className={classes.heroContainer}>
 			<animated.div style={props} />
+			<Typography variant='h1' color='primary'>
+				Tally Up
+			</Typography>
 		</div>
 	);
 }
