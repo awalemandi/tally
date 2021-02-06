@@ -26,8 +26,9 @@ import { transactions } from './data';
 const useStyles = makeStyles(theme => ({
 	root: {
 		width: '100%',
-		marginTop: '1rem',
-		padding: 0,
+	},
+	grid: {
+		marginTop: theme.spacing(2)
 	},
 	lentIcon: {
 		backgroundColor: fade(theme.palette.secondary.main, 0.9), //rgb(106, 192, 121, 0.8)
@@ -40,15 +41,15 @@ const useStyles = makeStyles(theme => ({
 const History = () => {
 	const classes = useStyles();
 	return (
-		<>
+		<div className={classes.root}>
 			<Typography variant='h3'>Recent Transactions</Typography>
 			<Grid
-				className={classes.root}
 				container
 				spacing={4}
 				direction='column'
 				justify='center'
 				alignItems='stretch'
+				className={classes.grid}
 			>
 				<Grid item xs={12}>
 					<Paper>
@@ -88,7 +89,7 @@ const History = () => {
 					</Paper>
 				</Grid>
 			</Grid>
-		</>
+		</div>
 	);
 };
 
