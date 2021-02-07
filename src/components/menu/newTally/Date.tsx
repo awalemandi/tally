@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(theme => ({
 	root: {
 		padding: theme.spacing(1),
-		marginBottom: theme.spacing(1)
+		marginBottom: theme.spacing(1),
 	},
 }));
 
@@ -37,6 +37,7 @@ function Date() {
 			<Grid item xs={12}>
 				<KeyboardDatePicker
 					disableToolbar
+					fullWidth
 					variant='inline'
 					format='dd/MM/yyyy'
 					margin='normal'
