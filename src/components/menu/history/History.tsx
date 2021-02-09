@@ -12,7 +12,7 @@ import {
 	Paper,
 } from '@material-ui/core';
 import { RiEmotionHappyLine, RiEmotionUnhappyLine } from 'react-icons/ri';
-import { transactions } from './data';
+import { transactions } from './Data';
 
 // interface transactionData {
 //     transactionType: 'LENT' | 'BORROWED';
@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
 		width: '100%',
 	},
 	grid: {
-		marginTop: theme.spacing(2)
+		marginTop: theme.spacing(2),
 	},
 	lentIcon: {
 		backgroundColor: fade(theme.palette.secondary.main, 0.9), //rgb(106, 192, 121, 0.8)
