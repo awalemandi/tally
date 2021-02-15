@@ -1,6 +1,6 @@
-import { AuthActionTypes } from "../constants";
+import { ActionTypes } from "../constants";
 
 export const setUsers = (users: any) => ({
-	type: AuthActionTypes.SET_USERS,
+	type: ActionTypes.SET_USERS,
 	payload: users,
 });
