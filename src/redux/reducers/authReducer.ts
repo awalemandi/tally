@@ -1,4 +1,6 @@
-const initState = {};
+const initState = {
+	users: 'Mads was here!'
+};
 
 const authReducer = (state = initState, action: any) => {
 	switch (action.type) {
