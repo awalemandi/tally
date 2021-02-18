@@ -1,7 +1,7 @@
 import React from 'react';
-import { makeSelectUsers } from '../../../redux/selectors';
-import { createSelector } from 'reselect';
-import { useSelector } from 'react-redux';
+// import { makeSelectUsers } from '../../../redux/selectors';
+// import { createSelector } from 'reselect';
+// import { useSelector } from 'react-redux';
 
 import {
 	Avatar,
@@ -16,9 +16,9 @@ import {
 } from '@material-ui/core';
 import profileImage from '../../../images/profile.jpg';
 
-const stateSelector = createSelector(makeSelectUsers, (users) => ({
-	users
-}))
+// const stateSelector = createSelector(makeSelectUsers, (users) => ({
+// 	users
+// }))
 
 const user = {
 	avatar: profileImage,
@@ -37,7 +37,7 @@ const useStyles = makeStyles(() => ({
 
 const ProfileCard = () => {
 	const classes = useStyles();
-	const {users} = useSelector(stateSelector);
+	// const {users} = useSelector(stateSelector);
 
 	return (
 		<Card>
@@ -58,7 +58,6 @@ const ProfileCard = () => {
 					Upload picture
 				</Button>
 			</CardActions>
-			{console.log(users)}
 		</Card>
 	);
 };

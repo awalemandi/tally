@@ -1,6 +1,6 @@
-import { ActionTypes } from "../constants";
+// import { ActionTypes } from "../types";
 
-export const setUsers = (users: any) => ({
-	type: ActionTypes.SET_USERS,
-	payload: users,
-});
+// export const setUsers = (users: any) => ({
+// 	type: ActionTypes.SET_USERS,
+// 	payload: users,
+// });
