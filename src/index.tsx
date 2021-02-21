@@ -10,9 +10,9 @@ import store from './redux/store';
 ReactDOM.render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<ThemeProvider theme={lightTheme}>
-				<App />
-			</ThemeProvider>
+				<ThemeProvider theme={lightTheme}>
+					<App />
+				</ThemeProvider>
 		</Provider>
 	</React.StrictMode>,
 	document.getElementById('root')

@@ -16,7 +16,7 @@ import {
 import Footer from '../layout/Footer';
 import Logo from '../../images/tally.png';
 import LandingSection from '../common/landingSection/LandingSection';
-import { landingPageData } from '../common/landingSection/data';
+import { landingPageData } from '../common/landingSection/Data';
 import HeroSection from '../common/heroSection/HeroSection';
 
 const useStyles = makeStyles(theme => ({
