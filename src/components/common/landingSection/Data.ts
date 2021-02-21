@@ -6,7 +6,7 @@ import savings from '../../../images/savings.svg';
 import decision from '../../../images/decision.svg';
 import couple from '../../../images/couple.svg';
 
-export const landingPageData = [
+const landingPageData = [
 	{
 		id: `transfer`,
 		bgLight: true,
@@ -56,3 +56,5 @@ export const landingPageData = [
 		alt: `Couple cards`,
 	},
 ];
+
+export default landingPageData;
