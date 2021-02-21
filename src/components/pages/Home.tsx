@@ -4,7 +4,7 @@ import { Container } from '@material-ui/core';
 import { Navbar } from '../layout/Navbar';
 import Footer from '../layout/Footer';
 import Content from '../layout/Content';
-import { drawerWidth } from '../layout/Navbar';
+import { drawerWidth } from '../layout/SideDrawer';
 
 const useStyles = makeStyles(theme => ({
 	root: {

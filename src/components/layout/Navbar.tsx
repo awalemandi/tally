@@ -2,34 +2,21 @@ import React from 'react';
 import {
 	AppBar,
 	CssBaseline,
-	Divider,
 	Drawer,
 	Hidden,
 	IconButton,
-	List,
-	ListItem,
-	ListItemIcon,
-	ListItemText,
 	Toolbar,
 	Box,
 	Button,
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import { Link, LinkProps } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import {
-	GrDashboard,
-	GrCurrency,
-	GrCalculator,
-	GrGremlin,
-	GrDiamond,
-} from 'react-icons/gr';
-import { Omit } from '@material-ui/types';
 
 import Logo from '../../images/tally.png';
+import SideDrawer, { drawerWidth } from './SideDrawer';
 
-export const drawerWidth: number = 250;
-
+//styling
 const useStyles = makeStyles(theme => ({
 	drawer: {
 		[theme.breakpoints.up('sm')]: {
@@ -55,7 +42,7 @@ const useStyles = makeStyles(theme => ({
 	toolbar: theme.mixins.toolbar,
 	drawerPaper: {
 		width: drawerWidth,
-		background: theme.palette.secondary.light
+		background: theme.palette.secondary.light,
 		// background: `linear-gradient(45deg, ${theme.palette.secondary.main} 20%, ${theme.palette.secondary.light} 80%)`,
 	},
 	content: {
@@ -92,92 +79,9 @@ export const Navbar = () => {
 	const classes = useStyles();
 	const theme = useTheme();
 	const [mobileOpen, setMobileOpen] = React.useState(false);
-	const [selectedIndex, setSelectedIndex] = React.useState(0);
-
-	const handleListItemClick = (event: any, index: number) => {
-		setSelectedIndex(index);
-	};
-
 	const handleDrawerToggle = () => {
 		setMobileOpen(!mobileOpen);
 	};
-	interface ListItemLinkProps {
-		icon?: React.ReactElement;
-		primary: string;
-		to: string;
-		listIndex: number;
-	}
-
-	const ListItemLink = (props: ListItemLinkProps) => {
-		const { icon, primary, to, listIndex } = props;
-
-		const renderLink = React.useMemo(
-			() =>
-				React.forwardRef<any, Omit<LinkProps, 'to'>>((itemProps, ref) => (
-					<Link to={to} ref={ref} {...itemProps} />
-				)),
-			[to]
-		);
-
-		return (
-			<li>
-				<ListItem
-					button
-					component={renderLink}
-					selected={listIndex === selectedIndex}
-					onClick={(event: any) => handleListItemClick(event, listIndex)}
-				>
-					{icon ? <ListItemIcon>{icon}</ListItemIcon> : null}
-					<ListItemText primary={primary} />
-				</ListItem>
-			</li>
-		);
-	};
-
-	const drawer = (
-		<div>
-			{/* <div className={classes.toolbar} /> */}
-			<Link to='/'>
-				<img src={Logo} className={classes.logo} />
-			</Link>
-			<Divider />
-			<List>
-				<ListItemLink
-					to='/home/dashboard'
-					primary='Dashboard'
-					icon={<GrDashboard />}
-					listIndex={0}
-				/>
-				<ListItemLink
-					to='/home/newtally'
-					primary='New Tally'
-					icon={<GrCurrency />}
-					listIndex={1}
-				/>
-				<ListItemLink
-					to='/home/history'
-					primary='History'
-					icon={<GrCalculator />}
-					listIndex={2}
-				/>
-			</List>
-			<Divider />
-			<List>
-				<ListItemLink
-					to='/home/profile'
-					primary='Profile'
-					icon={<GrGremlin />}
-					listIndex={3}
-				/>
-				<ListItemLink
-					to='/home/premium'
-					primary='Premium'
-					icon={<GrDiamond />}
-					listIndex={4}
-				/>
-			</List>
-		</div>
-	);
 
 	return (
 		<>
@@ -228,7 +132,7 @@ export const Navbar = () => {
 							keepMounted: true, // Better open performance on mobile.
 						}}
 					>
-						{drawer}
+						{<SideDrawer />}
 					</Drawer>
 				</Hidden>
 				<Hidden smDown implementation='css'>
@@ -239,7 +143,7 @@ export const Navbar = () => {
 						variant='permanent'
 						open
 					>
-						{drawer}
+						{<SideDrawer />}
 					</Drawer>
 				</Hidden>
 			</nav>
