@@ -117,7 +117,7 @@ export const Navbar = () => {
 					</Hidden>
 					<div></div>
 					<Box className={classes.buttonContainer}>
-						<Link to='/login' className={classes.navLink}>
+						<Link to='/signin' className={classes.navLink}>
 							<Button
 								size='small'
 								variant='text'

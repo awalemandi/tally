@@ -30,6 +30,7 @@ export const signup = (
 					email: data.email,
 					firstName: data.firstName,
 					lastName: data.lastName,
+					userName: data.userName,
 					id: res.user.uid,
 					createdAt: firebase.firestore.FieldValue.serverTimestamp(),
 				};

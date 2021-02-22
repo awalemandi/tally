@@ -8,66 +8,74 @@ export const SET_SUCCESS = 'SET_SUCCESS';
 
 //store state interface
 export interface User {
-    firstName: string;
-    lastName: string;
-    email: string;
-    id: string;
-    createdAt: any;
+	firstName: string;
+	lastName: string;
+	email: string;
+	id: string;
+	userName: string;
+	createdAt: any;
 }
 
 export interface AuthState {
-    user: User | null;
-    authenticated: boolean;
-    loading: boolean;
-    error: string;
-    needVerification: boolean;
-    success: string;
+	user: User | null;
+	authenticated: boolean;
+	loading: boolean;
+	error: string;
+	needVerification: boolean;
+	success: string;
 }
 
 export interface SignUpData {
-    firstName: string;
-    lastName: string;
-    email: string;
-    password: string;
+	firstName: string;
+	lastName: string;
+	userName: string;
+	email: string;
+	password: string;
 }
 
 export interface SignInData {
-    email: string;
-    password: string;
+	email: string;
+	password: string;
 }
 
 //Actions interface
 interface SetUserAction {
-    type: typeof SET_USER;
-    payload: User;
+	type: typeof SET_USER;
+	payload: User;
 }
 
 interface SetLoadingAction {
-    type: typeof SET_LOADING;
-    payload: boolean;
+	type: typeof SET_LOADING;
+	payload: boolean;
 }
 
 interface SignOutAction {
-    type: typeof SIGN_OUT;
+	type: typeof SIGN_OUT;
 }
 
-interface SetErrorAction{
-    type: typeof SET_ERROR;
-    payload: string;
+interface SetErrorAction {
+	type: typeof SET_ERROR;
+	payload: string;
 }
 
-interface SetLoadingAction{
-    type: typeof SET_LOADING;
-    payload: boolean;
+interface SetLoadingAction {
+	type: typeof SET_LOADING;
+	payload: boolean;
 }
 
-interface NeedVerificationAction{
-    type: typeof NEED_VERIFICATION;
+interface NeedVerificationAction {
+	type: typeof NEED_VERIFICATION;
 }
 
 interface SetSuccessAction {
-    type: typeof SET_SUCCESS;
-    payload: string;
+	type: typeof SET_SUCCESS;
+	payload: string;
 }
 
-export type AuthAction = SetUserAction | SetLoadingAction | SignOutAction | SetErrorAction | NeedVerificationAction | SetSuccessAction;
+export type AuthAction =
+	| SetUserAction
+	| SetLoadingAction
+	| SignOutAction
+	| SetErrorAction
+	| NeedVerificationAction
+	| SetSuccessAction;

@@ -48,6 +48,7 @@ export const SignUp = () => {
 	const [userDetails, setUserDetails] = useState({
 		firstName: '',
 		lastName: '',
+		userName: '',
 		email: '',
 		password: '',
 		subscribeNewsletter: false,
@@ -74,6 +75,12 @@ export const SignUp = () => {
 			});
 		},
 		lastName: function (e: React.ChangeEvent<{ value: unknown }>) {
+			setUserDetails({
+				...userDetails,
+				lastName: e.target.value as string,
+			});
+		},
+		userName: function (e: React.ChangeEvent<{ value: unknown }>) {
 			setUserDetails({
 				...userDetails,
 				lastName: e.target.value as string,
@@ -111,6 +118,7 @@ export const SignUp = () => {
 					password: userDetails.password,
 					firstName: userDetails.firstName,
 					lastName: userDetails.lastName,
+					userName: userDetails.userName,
 				},
 				() => setLoading(false)
 			)
@@ -158,6 +166,18 @@ export const SignUp = () => {
 									name='lastName'
 									autoComplete='lname'
 									onChange={handleChange.lastName}
+								/>
+							</Grid>
+							<Grid item xs={12} sm={6}>
+								<TextField
+									variant='outlined'
+									required
+									fullWidth
+									id='userName'
+									label='User Name'
+									name='userName'
+									autoComplete='uname'
+									onChange={handleChange.userName}
 								/>
 							</Grid>
 							<Grid item xs={12}>

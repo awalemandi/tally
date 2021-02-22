@@ -17,7 +17,7 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 import Copyright from '../common/Copyright';
 import Logo from '../../images/tally.png';
-import LoginImage from '../../images/playfulcat.svg';
+import LoginImage from '../../images/minions.svg';
 import AlertMessage from '../common/AlertMessage';
 
 const useStyles = makeStyles(theme => ({
