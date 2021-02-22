@@ -12,7 +12,7 @@ import {
 	Paper,
 } from '@material-ui/core';
 import { RiEmotionHappyLine, RiEmotionUnhappyLine } from 'react-icons/ri';
-import { transactions } from './data';
+import { transactions } from  './data';
 
 // interface transactionData {
 //     transactionType: 'LENT' | 'BORROWED';

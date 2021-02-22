@@ -39,6 +39,7 @@ const useStyles = makeStyles(theme => ({
 
 const Home = () => {
 	const classes = useStyles();
+	console.log('home mounted')
 
 	return (
 		<Container className={classes.root} maxWidth={false}>

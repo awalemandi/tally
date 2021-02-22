@@ -81,13 +81,13 @@ const SideDrawer = () => {
 			<Divider />
 			<List>
 				<ListItemLink
-					to={`/${user.username}/dashboard`}
+					to={`/dashboard`}
 					primary='Dashboard'
 					icon={<GrDashboard />}
 					listIndex={0}
 				/>
 				<ListItemLink
-					to={`/${user.username}/newtally`}
+					to={`/newtally`}
 					primary='New Tally'
 					icon={<GrCurrency />}
 					listIndex={1}

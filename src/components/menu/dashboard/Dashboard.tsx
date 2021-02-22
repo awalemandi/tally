@@ -50,6 +50,7 @@ const Dashboard: FC = () => {
 			<Typography variant='h6' color='primary'>
 				Hello {user?.firstName}
 			</Typography>
+			{console.log('dashboard mounted')}
 			<Grid
 				className={classes.root}
 				container
