@@ -123,6 +123,7 @@ export const Navbar = () => {
 								variant='text'
 								href='#contained-buttons'
 								color='primary'
+								onClick={logoutClickHandler}
 							>
 								Log Out
 							</Button>
