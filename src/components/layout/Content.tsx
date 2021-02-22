@@ -25,36 +25,19 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Content = () => {
-	console.log('content mounted')
+	console.log('content mounted');
 	const classes = useStyles();
 	const { user } = useSelector((state: RootState) => state.auth);
 	return (
 		<div className={classes.root}>
 			<div className={classes.toolbar} />
 			<Switch>
-				<PrivateRoute
-					path={`/dashboard`}
-					component={Dashboard}
-				/>
-				<PrivateRoute
-					path={`/newtally`}
-					component={NewTally}
-				/>
-				<PrivateRoute
-					path={`/history`}
-					component={History}
-				/>
-				<PrivateRoute
-					path={`/profile`}
-					component={Profile}
-				/>
-				<PrivateRoute
-					path={`/premium`}
-					component={Premium}
-				/>
-				<Route path='*'>
-					<NoMatch />
-				</Route>
+				<PrivateRoute path={`/dashboard`} component={Dashboard} />
+				<PrivateRoute path={`/newtally`} component={NewTally} />
+				<PrivateRoute path={`/history`} component={History} />
+				<PrivateRoute path={`/profile`} component={Profile} />
+				<PrivateRoute path={`/premium`} component={Premium} />
+				<PrivateRoute path='/*' component={NoMatch} />
 			</Switch>
 		</div>
 	);

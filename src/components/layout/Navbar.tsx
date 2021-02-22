@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory, Link as RouterLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { signout } from '../../redux/actions/authActions';
@@ -9,6 +9,7 @@ import {
 	AppBar,
 	CssBaseline,
 	Drawer,
+	Link,
 	Hidden,
 	IconButton,
 	Toolbar,
@@ -111,23 +112,15 @@ export const Navbar = () => {
 					</IconButton>
 					<div></div>
 					<Hidden mdUp>
-						<Link to='/'>
-							<img src={Logo} className={classes.logo} />
-						</Link>
+					<Link  component={RouterLink} to='/'>
+						<img src={Logo} className={classes.logo} />
+					</Link>
 					</Hidden>
 					<div></div>
 					<Box className={classes.buttonContainer}>
-						<Link to='/signin' className={classes.navLink}>
-							<Button
-								size='small'
-								variant='text'
-								href='#contained-buttons'
-								color='primary'
-								onClick={logoutClickHandler}
-							>
-								Log Out
-							</Button>
-						</Link>
+								<Button type='submit' size='small' variant='text' component={RouterLink} to='/signin'>
+									Sign out
+								</Button>
 					</Box>
 				</Toolbar>
 			</AppBar>
