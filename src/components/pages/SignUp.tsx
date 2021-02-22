@@ -1,4 +1,7 @@
 import React, { useState, FormEvent, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { signup, setError } from '../../redux/actions/authActions';
+import { RootState } from '../../redux/store';
 import {
 	Button,
 	TextField,
@@ -15,11 +18,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import Logo from '../../images/tally.png';
 import Copyright from '../common/Copyright';
 
+
+//styling
 const useStyles = makeStyles(theme => ({
 	root: {
 		height: '100vh',
 		paddingTop: theme.spacing(8),
-		backgroundColor: theme.palette.secondary.light
+		backgroundColor: theme.palette.secondary.light,
 	},
 	paper: {
 		display: 'flex',
@@ -47,6 +52,18 @@ export const SignUp = () => {
 		password: '',
 		subscribeNewsletter: false,
 	});
+	const [loading, setLoading] = useState(false);
+
+	const dispatch = useDispatch();
+	const { error } = useSelector((state: RootState) => state.auth);
+
+	useEffect(() => {
+		return () => {
+			if (error) {
+				dispatch(setError(''));
+			}
+		};
+	}, [error, dispatch]);
 
 	//onChange handlers for user input
 	const handleChange = {
@@ -84,9 +101,12 @@ export const SignUp = () => {
 	};
 
 	//onClick handler for submit button
-	const handleSubmit = (e: React.SyntheticEvent) => {
+	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
-		console.log(userDetails);
+		setLoading(true);
+		dispatch(
+			signup({ email, password, firstName, lastName }, () => setLoading(false))
+		);
 	};
 
 	return (
@@ -105,6 +125,7 @@ export const SignUp = () => {
 						noValidate={false}
 						onSubmit={handleSubmit}
 					>
+
 						<Grid container spacing={2}>
 							<Grid item xs={12} sm={6}>
 								<TextField
@@ -193,6 +214,6 @@ export const SignUp = () => {
 					<Copyright />
 				</Box>
 			</Container>
-			</div>
+		</div>
 	);
 };
