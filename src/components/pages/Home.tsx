@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { makeStyles } from '@material-ui/core/styles';
 import { Container } from '@material-ui/core';
 import { Navbar } from '../layout/Navbar';
@@ -35,8 +36,10 @@ const useStyles = makeStyles(theme => ({
 		// background: `linear-gradient(45deg, ${theme.palette.secondary.main} 20%, ${theme.palette.secondary.light} 80%)`,
 	},
 }));
+
 const Home = () => {
 	const classes = useStyles();
+
 	return (
 		<Container className={classes.root} maxWidth={false}>
 			<header>

@@ -41,7 +41,6 @@ interface ListItemLinkProps {
 
 const SideDrawer = () => {
 	const classes = useStyles();
-	const theme = useTheme();
 	const [selectedIndex, setSelectedIndex] = React.useState(0);
 	const handleListItemClick = (event: any, index: number) => {
 		setSelectedIndex(index);
