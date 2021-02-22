@@ -9,6 +9,7 @@ import { SignUp } from './components/pages/SignUp';
 import NoMatch from './components/menu/NoMatch';
 import { user } from './components/menu/profile/AccountCard';
 import SignIn from './components/pages/SignIn';
+import ForgotPassword from './components/pages/ForgotPassword';
 
 function App() {
 	return (
@@ -29,6 +30,9 @@ function App() {
 						</Route>
 						<Route path='/signin'>
 							<SignIn />
+						</Route>
+						<Route path='/forgot-password'>
+							<ForgotPassword />
 						</Route>
 						<Route path={`/${user.username}`}>
 							<Home />
