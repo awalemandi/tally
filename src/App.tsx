@@ -60,21 +60,19 @@ function App() {
 						}}
 					>
 						<Switch>
-							<Route exact path='/'>
-								<LandingPage />
-							</Route>
-							<Route path='/signup'>
-								<SignUp />
-							</Route>
-							<Route path='/signin'>
-								<SignIn />
-							</Route>
-							<Route path='/forgot-password'>
-								<ForgotPassword />
-							</Route>
-							<Route path={`/${user?.userName}/dashboard`}>
-								<Home />
-							</Route>
+							<PublicRoute exact path='/' component={LandingPage} />
+							<PublicRoute exact path='/signup' component={SignUp} />
+							<PublicRoute exact path='/signin' component={SignIn} />
+							<PublicRoute
+								exact
+								path='/forgot-password'
+								component={ForgotPassword}
+							/>
+							<PrivateRoute
+								path={`/${user?.userName}`}
+								component={Home}
+								exact
+							/>
 							<Route path='*'>
 								<NoMatch />
 							</Route>
