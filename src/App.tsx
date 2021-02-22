@@ -3,11 +3,12 @@ import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './components/pages/Home';
-import LogIn from './components/pages/LogIn';
+import LogIn from './components/pages/SignIn';
 import LandingPage from './components/pages/LandingPage';
 import { SignUp } from './components/pages/SignUp';
 import NoMatch from './components/menu/NoMatch';
 import { user } from './components/menu/profile/AccountCard';
+import SignIn from './components/pages/SignIn';
 
 function App() {
 	return (
@@ -26,8 +27,8 @@ function App() {
 						<Route path='/signup'>
 							<SignUp />
 						</Route>
-						<Route path='/login'>
-							<LogIn />
+						<Route path='/signin'>
+							<SignIn />
 						</Route>
 						<Route path={`/${user.username}`}>
 							<Home />

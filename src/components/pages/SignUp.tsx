@@ -205,13 +205,13 @@ export const SignUp = () => {
 							variant='contained'
 							color='primary'
 							className={classes.submit}
-							// onClick={handleSubmit}
+							disabled={loading}
 						>
-							Sign Up
+							{loading ? 'Loading...' : 'Sign Up'}
 						</Button>
 						<Grid container justify='flex-end'>
 							<Grid item>
-								<Link href='/login' variant='body2'>
+								<Link href='/signin' variant='body2'>
 									Already have an account? Sign in
 								</Link>
 							</Grid>

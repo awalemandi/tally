@@ -82,9 +82,9 @@ export default function LandingPage() {
 							<img src={Logo} className={classes.logo} />
 						</Link>
 						<Box className={classes.buttonContainer}>
-							<Link to='/login' className={classes.navLink}>
+							<Link to='/signin' className={classes.navLink}>
 								<Button size='small' variant='text' href='#contained-buttons'>
-									Log In
+									Sign In
 								</Button>
 							</Link>
 							<Link to='/signup' className={classes.navLink}>

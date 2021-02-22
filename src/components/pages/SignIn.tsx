@@ -1,4 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, FormEvent, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { signin, setError } from '../../redux/actions/authActions';
+import { RootState } from '../../redux/store';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import {
 	Typography,
@@ -15,6 +18,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Copyright from '../common/Copyright';
 import Logo from '../../images/tally.png';
 import LoginImage from '../../images/playfulcat.svg';
+import AlertMessage from '../common/AlertMessage';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -38,7 +42,7 @@ const useStyles = makeStyles(theme => ({
 		},
 	},
 	image: {
-		width: '25rem'
+		width: '25rem',
 	},
 	paper: {
 		margin: theme.spacing(8, 4),
@@ -68,13 +72,26 @@ const useStyles = makeStyles(theme => ({
 	},
 }));
 
-export default function LogIn() {
+export default function SignIn() {
 	const classes = useStyles();
 	const [signInDetails, setSignInDetails] = useState({
 		email: '',
 		password: '',
 		keepLoggedIn: false,
 	});
+
+	const [loading, setLoading] = useState(false);
+
+	const dispatch = useDispatch();
+	const { error } = useSelector((state: RootState) => state.auth);
+
+	useEffect(() => {
+		return () => {
+			if (error) {
+				dispatch(setError(''));
+			}
+		};
+	}, [error, dispatch]);
 
 	//onChange handlers for user input
 	const handleChange = {
@@ -100,9 +117,18 @@ export default function LogIn() {
 	};
 
 	//onClick handler for submit button
-	const handleSubmit = (e: React.SyntheticEvent) => {
+	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
-		console.log(signInDetails);
+		setLoading(true);
+		dispatch(
+			signin(
+				{
+					email: signInDetails.email,
+					password: signInDetails.password,
+				},
+				() => setLoading(false)
+			)
+		);
 	};
 	return (
 		<Grid container component='main' className={classes.root}>
@@ -132,6 +158,7 @@ export default function LogIn() {
 						noValidate={false}
 						onSubmit={handleSubmit}
 					>
+						{error && <AlertMessage type='error' message={error} />}
 						<TextField
 							variant='outlined'
 							margin='normal'
@@ -173,12 +200,13 @@ export default function LogIn() {
 							variant='contained'
 							color='primary'
 							className={classes.submit}
+							disabled={loading}
 						>
-							Sign In
+							{loading ? 'Loading...' : 'Sign In'}
 						</Button>
 						<Grid container>
 							<Grid item xs>
-								<Link href='#' variant='body2'>
+								<Link href='/forgot-password' variant='body2'>
 									Forgot password?
 								</Link>
 							</Grid>
