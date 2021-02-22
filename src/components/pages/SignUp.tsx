@@ -17,7 +17,7 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 import Logo from '../../images/tally.png';
 import Copyright from '../common/Copyright';
-
+import AlertMessage from '../common/AlertMessage';
 
 //styling
 const useStyles = makeStyles(theme => ({
@@ -105,7 +105,15 @@ export const SignUp = () => {
 		e.preventDefault();
 		setLoading(true);
 		dispatch(
-			signup({ email, password, firstName, lastName }, () => setLoading(false))
+			signup(
+				{
+					email: userDetails.email,
+					password: userDetails.password,
+					firstName: userDetails.firstName,
+					lastName: userDetails.lastName,
+				},
+				() => setLoading(false)
+			)
 		);
 	};
 
@@ -125,7 +133,7 @@ export const SignUp = () => {
 						noValidate={false}
 						onSubmit={handleSubmit}
 					>
-
+						{error && <AlertMessage type='error' message={error} />}
 						<Grid container spacing={2}>
 							<Grid item xs={12} sm={6}>
 								<TextField
