@@ -1,4 +1,10 @@
 import React from 'react';
+import { useHistory, Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../../redux/store';
+import { signout } from '../../redux/actions/authActions';
+
+import MenuIcon from '@material-ui/icons/Menu';
 import {
 	AppBar,
 	CssBaseline,
@@ -9,8 +15,6 @@ import {
 	Box,
 	Button,
 } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
-import { Link } from 'react-router-dom';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 import Logo from '../../images/tally.png';
@@ -78,6 +82,14 @@ const useStyles = makeStyles(theme => ({
 export const Navbar = () => {
 	const classes = useStyles();
 	const theme = useTheme();
+
+	//auth
+	const history = useHistory();
+	const dispatch = useDispatch();
+	const { authenticated } = useSelector((state: RootState) => state.auth);
+	const logoutClickHandler = () => {
+		dispatch(signout());
+	};
 	const [mobileOpen, setMobileOpen] = React.useState(false);
 	const handleDrawerToggle = () => {
 		setMobileOpen(!mobileOpen);

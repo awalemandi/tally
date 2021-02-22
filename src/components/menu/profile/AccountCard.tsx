@@ -20,7 +20,7 @@ import profileImage from '../../../images/profile.jpg';
 // 	users
 // }))
 
-const user = {
+export const user = {
 	avatar: profileImage,
 	firstName: 'Mads',
 	lastName: 'Awale',

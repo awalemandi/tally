@@ -8,6 +8,7 @@ import History from '../menu/history/History';
 import Profile from '../menu/profile/Profile';
 import Premium from '../menu/premium/Premium';
 import NoMatch from '../menu/NoMatch';
+import { user } from '../menu/profile/AccountCard';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -26,19 +27,19 @@ const Content = () => {
 		<div className={classes.root}>
 			<div className={classes.toolbar} />
 			<Switch>
-				<Route path='/home/dashboard'>
+				<Route path={`/${user.username}/dashboard`}>
 					<Dashboard />
 				</Route>
-				<Route path='/home/newtally'>
+				<Route path={`/${user.username}/newtally`}>
 					<NewTally />
 				</Route>
-				<Route path='/home/history'>
+				<Route path={`/${user.username}/history`}>
 					<History />
 				</Route>
-				<Route path='/home/profile'>
+				<Route path={`/${user.username}/profile`}>
 					<Profile />
 				</Route>
-				<Route path='/home/premium'>
+				<Route path={`/${user.username}/premium`}>
 					<Premium />
 				</Route>
 				<Route path='*'>

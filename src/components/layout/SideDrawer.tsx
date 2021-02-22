@@ -18,6 +18,7 @@ import {
 import { Omit } from '@material-ui/types';
 
 import Logo from '../../images/tally.png';
+import { user } from '../menu/profile/AccountCard';
 
 export const drawerWidth: number = 250;
 
@@ -48,7 +49,7 @@ const SideDrawer = () => {
 
 	const ListItemLink = (props: ListItemLinkProps) => {
 		const { icon, primary, to, listIndex } = props;
-	
+
 		const renderLink = React.useMemo(
 			() =>
 				React.forwardRef<any, Omit<LinkProps, 'to'>>((itemProps, ref) => (
@@ -56,7 +57,7 @@ const SideDrawer = () => {
 				)),
 			[to]
 		);
-	
+
 		return (
 			<li>
 				<ListItem
@@ -71,7 +72,7 @@ const SideDrawer = () => {
 			</li>
 		);
 	};
-	
+
 	return (
 		<div>
 			{/* <div className={classes.toolbar} /> */}
@@ -81,19 +82,19 @@ const SideDrawer = () => {
 			<Divider />
 			<List>
 				<ListItemLink
-					to='/home/dashboard'
+					to={`/${user.username}/dashboard`}
 					primary='Dashboard'
 					icon={<GrDashboard />}
 					listIndex={0}
 				/>
 				<ListItemLink
-					to='/home/newtally'
+					to={`/${user.username}/newtally`}
 					primary='New Tally'
 					icon={<GrCurrency />}
 					listIndex={1}
 				/>
 				<ListItemLink
-					to='/home/history'
+					to={`/${user.username}/history`}
 					primary='History'
 					icon={<GrCalculator />}
 					listIndex={2}
@@ -102,13 +103,13 @@ const SideDrawer = () => {
 			<Divider />
 			<List>
 				<ListItemLink
-					to='/home/profile'
+					to={`/${user.username}/profile`}
 					primary='Profile'
 					icon={<GrGremlin />}
 					listIndex={3}
 				/>
 				<ListItemLink
-					to='/home/premium'
+					to={`/${user.username}/premium`}
 					primary='Premium'
 					icon={<GrDiamond />}
 					listIndex={4}
