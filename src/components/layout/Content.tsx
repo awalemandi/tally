@@ -40,15 +40,18 @@ const Content = () => {
 					path={`/newtally`}
 					component={NewTally}
 				/>
-				<Route path={`/${user?.userName}/history`}>
-					<History />
-				</Route>
-				<Route path={`/${user?.userName}/profile`}>
-					<Profile />
-				</Route>
-				<Route path={`/${user?.userName}/premium`}>
-					<Premium />
-				</Route>
+				<PrivateRoute
+					path={`/history`}
+					component={History}
+				/>
+				<PrivateRoute
+					path={`/profile`}
+					component={Profile}
+				/>
+				<PrivateRoute
+					path={`/premium`}
+					component={Premium}
+				/>
 				<Route path='*'>
 					<NoMatch />
 				</Route>
