@@ -81,19 +81,19 @@ const SideDrawer = () => {
 			<Divider />
 			<List>
 				<ListItemLink
-					to={`/${user.username}/dashboard`}
+					to={`/dashboard`}
 					primary='Dashboard'
 					icon={<GrDashboard />}
 					listIndex={0}
 				/>
 				<ListItemLink
-					to={`/${user.username}/newtally`}
+					to={`/newtally`}
 					primary='New Tally'
 					icon={<GrCurrency />}
 					listIndex={1}
 				/>
 				<ListItemLink
-					to={`/${user.username}/history`}
+					to={`/history`}
 					primary='History'
 					icon={<GrCalculator />}
 					listIndex={2}
@@ -102,13 +102,13 @@ const SideDrawer = () => {
 			<Divider />
 			<List>
 				<ListItemLink
-					to={`/${user.username}/profile`}
+					to={`/profile`}
 					primary='Profile'
 					icon={<GrGremlin />}
 					listIndex={3}
 				/>
 				<ListItemLink
-					to={`/${user.username}/premium`}
+					to={`/premium`}
 					primary='Premium'
 					icon={<GrDiamond />}
 					listIndex={4}

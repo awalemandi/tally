@@ -67,14 +67,8 @@ function App() {
 								path='/forgot-password'
 								component={ForgotPassword}
 							/>
-							<PrivateRoute
-								path={`/${user?.userName}`}
-								component={Home}
-								exact
-							/>
-							<Route path='*'>
-								<NoMatch />
-							</Route>
+							<PrivateRoute path={`/${user?.userName}`} component={Home} />
+							<PublicRoute path='*' component={NoMatch} />
 						</Switch>
 					</div>
 				</Router>
