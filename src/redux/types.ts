@@ -31,6 +31,7 @@ export interface SignUpData {
 	userName: string;
 	email: string;
 	password: string;
+	subscribeNewsletter: boolean;
 }
 
 export interface SignInData {

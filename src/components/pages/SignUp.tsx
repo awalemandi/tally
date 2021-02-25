@@ -83,7 +83,7 @@ export const SignUp = () => {
 		userName: function (e: React.ChangeEvent<{ value: unknown }>) {
 			setUserDetails({
 				...userDetails,
-				lastName: e.target.value as string,
+				userName: e.target.value as string,
 			});
 		},
 		email: function (e: React.ChangeEvent<{ value: unknown }>) {
@@ -119,6 +119,7 @@ export const SignUp = () => {
 					firstName: userDetails.firstName,
 					lastName: userDetails.lastName,
 					userName: userDetails.userName,
+					subscribeNewsletter: userDetails.subscribeNewsletter,
 				},
 				() => setLoading(false)
 			)

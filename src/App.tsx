@@ -19,7 +19,6 @@ import Home from './components/pages/Home';
 import LandingPage from './components/pages/LandingPage';
 import { SignUp } from './components/pages/SignUp';
 import NoMatch from './components/menu/NoMatch';
-// import { user } from './components/menu/profile/AccountCard';
 import SignIn from './components/pages/SignIn';
 import ForgotPassword from './components/pages/ForgotPassword';
 
