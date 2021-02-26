@@ -2,7 +2,12 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {
+	BrowserRouter as Router,
+	Route,
+	Switch,
+	useRouteMatch,
+} from 'react-router-dom';
 import PrivateRoute from '../routes/PrivateRoute';
 import { makeStyles } from '@material-ui/core/styles';
 import { drawerWidth } from '../layout/SideDrawer';
@@ -25,19 +30,20 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Content = () => {
-	console.log('content mounted');
+	let { path } = useRouteMatch();
 	const classes = useStyles();
 	const { user } = useSelector((state: RootState) => state.auth);
 	return (
 		<div className={classes.root}>
 			<div className={classes.toolbar} />
+			{console.log(`content FC path: ${path}`)}
 			<Switch>
-				<PrivateRoute path={`/dashboard`} component={Dashboard} />
-				<PrivateRoute path={`/newtally`} component={NewTally} />
-				<PrivateRoute path={`/history`} component={History} />
-				<PrivateRoute path={`/profile`} component={Profile} />
-				<PrivateRoute path={`/premium`} component={Premium} />
-				<PrivateRoute path='/*' component={NoMatch} />
+				<PrivateRoute exact path={`${path}`} component={Dashboard} />
+				<PrivateRoute exact path={`${path}/newtally`} component={NewTally} />
+				<PrivateRoute exact path={`${path}/history`} component={History} />
+				<PrivateRoute exact path={`${path}/profile`} component={Profile} />
+				<PrivateRoute exact path={`${path}/premium`} component={Premium} />
+				<PrivateRoute exact path={`${path}/*`} component={NoMatch} />
 			</Switch>
 		</div>
 	);

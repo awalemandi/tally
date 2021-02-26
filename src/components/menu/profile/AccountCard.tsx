@@ -24,7 +24,7 @@ export const user = {
 	avatar: profileImage,
 	firstName: 'Mads',
 	lastName: 'Awale',
-	username: 'cussinstoic'
+	// username: 'cussinstoic'
 };
 
 const useStyles = makeStyles(() => ({
@@ -48,7 +48,7 @@ const ProfileCard = () => {
 						{`${user.firstName} ${user.lastName}`}
 					</Typography>
 					<Typography color='textSecondary' variant='body1'>
-						{`${user.username}`}
+						{/* {`${user.username}`} */}
 					</Typography>
 				</Box>
 			</CardContent>

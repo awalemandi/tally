@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { signin, setError } from '../../redux/actions/authActions';
 import { RootState } from '../../redux/store';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import {Link as RouterLink} from 'react-router-dom';
+import { Link as RouterLink, useRouteMatch } from 'react-router-dom';
 import {
 	Typography,
 	Button,
@@ -78,6 +78,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function SignIn() {
+	let { url } = useRouteMatch();
 	const classes = useStyles();
 	const [signInDetails, setSignInDetails] = useState({
 		email: '',
@@ -152,7 +153,7 @@ export default function SignIn() {
 				className={classes.formContainer}
 			>
 				<div className={classes.paper}>
-					<Link  component={RouterLink} to='/'>
+					<Link component={RouterLink} to={`${url}/`}>
 						<img src={Logo} className={classes.logo} />
 					</Link>
 					<Typography component='h1' variant='h5' className={classes.greeting}>
@@ -199,18 +200,18 @@ export default function SignIn() {
 							}
 							label='Remember me'
 						/>
-							<Button
-								type='submit'
-								fullWidth
-								variant='contained'
-								color='primary'
-								className={classes.submit}
-								disabled={loading}
-								component={RouterLink}
-								to='/dashboard'
-							>
-								{loading ? 'Loading...' : 'Sign In'}
-							</Button>
+						<Button
+							type='submit'
+							fullWidth
+							variant='contained'
+							color='primary'
+							className={classes.submit}
+							disabled={loading}
+							// component={RouterLink}
+							// to={`${url}/dashboard`}
+						>
+							{loading ? 'Loading...' : 'Sign In'}
+						</Button>
 						<Grid container>
 							<Grid item xs>
 								<Link href='/forgot-password' variant='body2'>
