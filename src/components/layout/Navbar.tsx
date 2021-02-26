@@ -83,13 +83,14 @@ const useStyles = makeStyles(theme => ({
 export const Navbar = () => {
 	const classes = useStyles();
 	const theme = useTheme();
+	const history = useHistory();
 
 	//auth
-	const history = useHistory();
 	const dispatch = useDispatch();
 	const { authenticated } = useSelector((state: RootState) => state.auth);
 	const logoutClickHandler = () => {
 		dispatch(signout());
+		history.push('signin');
 	};
 	const [mobileOpen, setMobileOpen] = React.useState(false);
 	const handleDrawerToggle = () => {
@@ -112,15 +113,15 @@ export const Navbar = () => {
 					</IconButton>
 					<div></div>
 					<Hidden mdUp>
-					<Link  component={RouterLink} to='/'>
-						<img src={Logo} className={classes.logo} />
-					</Link>
+						<RouterLink to='/'>
+							<img src={Logo} className={classes.logo} />
+						</RouterLink>
 					</Hidden>
 					<div></div>
 					<Box className={classes.buttonContainer}>
-								<Button type='submit' size='small' variant='text' component={RouterLink} to='/signin'>
-									Sign out
-								</Button>
+						<Button size='small' variant='text' onClick={logoutClickHandler}>
+							Sign out
+						</Button>
 					</Box>
 				</Toolbar>
 			</AppBar>

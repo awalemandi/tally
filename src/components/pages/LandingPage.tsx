@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import {
 	AppBar,
 	Toolbar,
@@ -72,6 +72,7 @@ function HideOnScroll(props: Props) {
 
 export default function LandingPage() {
 	const classes = useStyles();
+	const history = useHistory();
 	return (
 		<>
 			<CssBaseline />
@@ -83,7 +84,12 @@ export default function LandingPage() {
 						</Link>
 						<Box className={classes.buttonContainer}>
 							<Link to='/signin' className={classes.navLink}>
-								<Button size='small' variant='text' href='#contained-buttons'>
+								<Button
+									size='small'
+									variant='text'
+									href='#contained-buttons'
+									onClick={() => history.push('/signin')}
+								>
 									Sign In
 								</Button>
 							</Link>
@@ -93,6 +99,7 @@ export default function LandingPage() {
 									variant='contained'
 									color='primary'
 									href='#contained-buttons'
+									onClick={() => history.push('/signup')}
 								>
 									Sign Up
 								</Button>
