@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link as RouterLink, useHistory } from 'react-router-dom';
 import {
 	AppBar,
 	Toolbar,
@@ -79,11 +79,11 @@ export default function LandingPage() {
 			<HideOnScroll>
 				<AppBar color='default'>
 					<Toolbar className={classes.navbar}>
-						<Link to='/'>
+						<RouterLink to='/'>
 							<img src={Logo} className={classes.logo} />
-						</Link>
+						</RouterLink>
 						<Box className={classes.buttonContainer}>
-							<Link to='/signin' className={classes.navLink}>
+							<RouterLink to='/signin' className={classes.navLink}>
 								<Button
 									size='small'
 									variant='text'
@@ -92,8 +92,8 @@ export default function LandingPage() {
 								>
 									Sign In
 								</Button>
-							</Link>
-							<Link to='/signup' className={classes.navLink}>
+							</RouterLink>
+							<RouterLink to='/signup' className={classes.navLink}>
 								<Button
 									size='large'
 									variant='contained'
@@ -103,7 +103,7 @@ export default function LandingPage() {
 								>
 									Sign Up
 								</Button>
-							</Link>
+							</RouterLink>
 						</Box>
 					</Toolbar>
 				</AppBar>

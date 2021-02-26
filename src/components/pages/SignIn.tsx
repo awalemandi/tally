@@ -153,9 +153,9 @@ export default function SignIn() {
 				className={classes.formContainer}
 			>
 				<div className={classes.paper}>
-					<Link component={RouterLink} to={`${url}/`}>
+					<RouterLink to='/'>
 						<img src={Logo} className={classes.logo} />
-					</Link>
+					</RouterLink>
 					<Typography component='h1' variant='h5' className={classes.greeting}>
 						Welcome back!
 					</Typography>
@@ -207,8 +207,6 @@ export default function SignIn() {
 							color='primary'
 							className={classes.submit}
 							disabled={loading}
-							// component={RouterLink}
-							// to={`${url}/dashboard`}
 						>
 							{loading ? 'Loading...' : 'Sign In'}
 						</Button>
@@ -220,7 +218,7 @@ export default function SignIn() {
 							</Grid>
 							<Grid item>
 								<Link href='/signup' variant='body2'>
-									{"Don't have an account? Sign Up"}
+									Don't have an account? Sign Up
 								</Link>
 							</Grid>
 						</Grid>

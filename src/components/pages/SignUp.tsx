@@ -1,5 +1,6 @@
 import React, { useState, FormEvent, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link as RouterLink } from 'react-router-dom';
 import { signup, setError } from '../../redux/actions/authActions';
 import { RootState } from '../../redux/store';
 import {
@@ -131,9 +132,9 @@ export const SignUp = () => {
 			<Container component='main' maxWidth='xs'>
 				<CssBaseline />
 				<div className={classes.paper}>
-					<Link href='/'>
+					<RouterLink to='/'>
 						<img src={Logo} className={classes.logo} />
-					</Link>
+					</RouterLink>
 					<Typography component='h1' variant='h5'>
 						Ready to Tally Up?
 					</Typography>
