@@ -6,6 +6,7 @@ import {
 	BrowserRouter as Router,
 	Switch,
 	Route,
+	Redirect,
 	useParams,
 	useRouteMatch,
 } from 'react-router-dom';
@@ -30,7 +31,9 @@ import ForgotPassword from './components/pages/ForgotPassword';
 
 function App() {
 	const dispatch = useDispatch();
-	const { loading, user } = useSelector((state: RootState) => state.auth);
+	const { loading, user, authenticated } = useSelector(
+		(state: RootState) => state.auth
+	);
 
 	//Check if user already exists
 	useEffect(() => {
@@ -73,8 +76,12 @@ function App() {
 								path='/forgot-password'
 								component={ForgotPassword}
 							/>
-							<PrivateRoute path={`/${user?.userName}`} component={Home} />
-							<PublicRoute path='*' component={NoMatch} />
+							{authenticated ? (
+								<Route path={`/${user?.userName}`} component={Home} />
+							) : (
+								<Redirect to='/signin' />
+							)}
+							<Route path='*' component={NoMatch} />
 						</Switch>
 					</div>
 				</Router>

@@ -90,7 +90,7 @@ export const Navbar = () => {
 	const { authenticated } = useSelector((state: RootState) => state.auth);
 	const logoutClickHandler = () => {
 		dispatch(signout());
-		history.push('signin');
+		history.push('/signin');
 	};
 	const [mobileOpen, setMobileOpen] = React.useState(false);
 	const handleDrawerToggle = () => {
@@ -119,9 +119,9 @@ export const Navbar = () => {
 					</Hidden>
 					<div></div>
 					<Box className={classes.buttonContainer}>
-						<Button size='small' variant='text' onClick={logoutClickHandler}>
-							Sign out
-						</Button>
+							<Button size='small' variant='text' onClick={logoutClickHandler}>
+								Sign out
+							</Button>
 					</Box>
 				</Toolbar>
 			</AppBar>
