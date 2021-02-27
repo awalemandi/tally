@@ -32,6 +32,16 @@ const useStyles = makeStyles(theme => ({
 		height: '110px',
 		alignSelf: 'center',
 	},
+	listWrap: {
+		'&:hover': {
+			borderLeft: `solid 5px ${theme.palette.primary.main}`,
+			color: theme.palette.primary.main,
+		},
+		'&.Mui-selected': {
+			borderLeft: `solid 5px ${theme.palette.primary.dark}`,
+			color: theme.palette.primary.dark,
+		},
+	},
 }));
 
 interface ListItemLinkProps {
@@ -43,15 +53,17 @@ interface ListItemLinkProps {
 
 const SideDrawer = () => {
 	let { url } = useRouteMatch();
-	console.log(`sidebar url: ${url}`);
 	const classes = useStyles();
 	const [selectedIndex, setSelectedIndex] = React.useState(0);
-	const handleListItemClick = (event: any, index: number) => {
+	const handleListItemClick = (
+		event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+		index: number
+	) => {
 		setSelectedIndex(index);
 	};
 
 	const ListItemLink = (props: ListItemLinkProps) => {
-		const { icon, primary, to } = props;
+		const { icon, primary, to, listIndex } = props;
 
 		const renderLink = React.useMemo(
 			() =>
@@ -63,7 +75,13 @@ const SideDrawer = () => {
 
 		return (
 			<li>
-				<ListItem button component={renderLink}>
+				<ListItem
+					button
+					component={renderLink}
+					className={classes.listWrap}
+					selected={selectedIndex === listIndex}
+					onClick={(event: any) => handleListItemClick(event, listIndex)}
+				>
 					{icon ? <ListItemIcon>{icon}</ListItemIcon> : null}
 					<ListItemText primary={primary} />
 				</ListItem>
@@ -73,7 +91,6 @@ const SideDrawer = () => {
 
 	return (
 		<div>
-			{/* <div className={classes.toolbar} /> */}
 			<RouterLink to={`${url}/`}>
 				<img src={Logo} className={classes.logo} />
 			</RouterLink>

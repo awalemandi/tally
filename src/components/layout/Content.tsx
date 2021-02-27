@@ -36,7 +36,6 @@ const Content = () => {
 	return (
 		<div className={classes.root}>
 			<div className={classes.toolbar} />
-			{console.log(`content FC path: ${path}`)}
 			<Switch>
 				<PrivateRoute exact path={`${path}`} component={Dashboard} />
 				<PrivateRoute exact path={`${path}/newtally`} component={NewTally} />
