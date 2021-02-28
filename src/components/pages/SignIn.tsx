@@ -156,8 +156,8 @@ export default function SignIn() {
 					<RouterLink to='/'>
 						<img src={Logo} className={classes.logo} />
 					</RouterLink>
-					<Typography component='h1' variant='h5' className={classes.greeting}>
-						Welcome back!
+					<Typography component='h1' variant='h4' className={classes.greeting}>
+						Hello there!
 					</Typography>
 					<form
 						className={classes.form}

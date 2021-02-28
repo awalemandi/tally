@@ -20,6 +20,7 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 import Logo from '../../images/tally.png';
 import SideDrawer, { drawerWidth } from './SideDrawer';
+import { IoWalkOutline } from 'react-icons/io5';
 
 //styling
 const useStyles = makeStyles(theme => ({
@@ -119,9 +120,15 @@ export const Navbar = () => {
 					</Hidden>
 					<div></div>
 					<Box className={classes.buttonContainer}>
-							<Button size='small' variant='text' onClick={logoutClickHandler}>
-								Sign out
-							</Button>
+						<Button
+							size='small'
+							startIcon={<IoWalkOutline />}
+							variant='contained'
+							color='primary'
+							onClick={logoutClickHandler}
+						>
+							Sign out
+						</Button>
 					</Box>
 				</Toolbar>
 			</AppBar>
