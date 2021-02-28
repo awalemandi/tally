@@ -37,6 +37,7 @@ export interface SignUpData {
 export interface SignInData {
 	email: string;
 	password: string;
+	remember: boolean;
 }
 
 //Actions interface

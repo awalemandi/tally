@@ -131,6 +131,7 @@ export default function SignIn() {
 				{
 					email: signInDetails.email,
 					password: signInDetails.password,
+					remember: signInDetails.keepLoggedIn,
 				},
 				() => setLoading(false)
 			)

@@ -92,17 +92,39 @@ export const setLoading = (
 };
 
 //Log in
-export const signin = (data: SignInData, onError: () => void): ThunkAction<void, RootState, null, AuthAction> => {
+export const signin = (
+	data: SignInData,
+	onError: () => void
+): ThunkAction<void, RootState, null, AuthAction> => {
 	return async dispatch => {
 		try {
-			await firebase.auth().signInWithEmailAndPassword(data.email, data.password);
+			//To remember user or not to?
+			if (data.remember) {
+				await firebase
+					.auth()
+					.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+					.then(() => {
+						return firebase
+							.auth()
+							.signInWithEmailAndPassword(data.email, data.password);
+					});
+			} else {
+				await firebase
+					.auth()
+					.setPersistence(firebase.auth.Auth.Persistence.SESSION)
+					.then(() => {
+						return firebase
+							.auth()
+							.signInWithEmailAndPassword(data.email, data.password);
+					});
+			}
 		} catch (err) {
 			console.log(err);
 			onError();
-			dispatch(setError(err.message))
+			dispatch(setError(err.message));
 		}
-	}
-}
+	};
+};
 
 //Log out
 export const signout = (): ThunkAction<void, RootState, null, AuthAction> => {
@@ -111,53 +133,65 @@ export const signout = (): ThunkAction<void, RootState, null, AuthAction> => {
 			dispatch(setLoading(true));
 			await firebase.auth().signOut();
 			dispatch({
-				type: SIGN_OUT
+				type: SIGN_OUT,
 			});
-		}catch (err) {
+		} catch (err) {
 			console.log(err);
-			dispatch(setLoading(false));					
+			dispatch(setLoading(false));
 		}
-	}
-}
+	};
+};
 
 //Set Error
-export const setError = (msg: string): ThunkAction<void, RootState, null, AuthAction> => {
+export const setError = (
+	msg: string
+): ThunkAction<void, RootState, null, AuthAction> => {
 	return dispatch => {
 		dispatch({
 			type: SET_ERROR,
-			payload: msg
+			payload: msg,
 		});
-	}
-}
+	};
+};
 
 //Set need verification
-export const setNeedVerification = (): ThunkAction<void, RootState, null, AuthAction> => {
+export const setNeedVerification = (): ThunkAction<
+	void,
+	RootState,
+	null,
+	AuthAction
+> => {
 	return dispatch => {
 		dispatch({
-			type: NEED_VERIFICATION
+			type: NEED_VERIFICATION,
 		});
-	}
-}
+	};
+};
 
 //Set Success
-export const setSuccess = (msg: string): ThunkAction<void, RootState, null, AuthAction> => {
+export const setSuccess = (
+	msg: string
+): ThunkAction<void, RootState, null, AuthAction> => {
 	return dispatch => {
 		dispatch({
 			type: SET_SUCCESS,
-			payload: msg
+			payload: msg,
 		});
-	}
-}
+	};
+};
 
 //Send password reset email
-export const sendPasswordResetEmail = (email: string, successMsg: string): ThunkAction<void, RootState, null, AuthAction> => {
+export const sendPasswordResetEmail = (
+	email: string,
+	successMsg: string
+): ThunkAction<void, RootState, null, AuthAction> => {
 	return async dispatch => {
 		try {
 			await firebase.auth().sendPasswordResetEmail(email);
 			dispatch(setSuccess(successMsg));
-		}catch(err) {
+		} catch (err) {
 			console.log(err);
 			dispatch(setError(err.message));
 		}
-	}
-}
+	};
+};
