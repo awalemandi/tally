@@ -1,7 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/store';
+
+import {
+	BrowserRouter as Router,
+	Route,
+	Switch,
+	useRouteMatch,
+} from 'react-router-dom';
+import PrivateRoute from '../routes/PrivateRoute';
 import { makeStyles } from '@material-ui/core/styles';
-import { drawerWidth } from '../layout/Navbar';
+import { drawerWidth } from '../layout/SideDrawer';
 import Dashboard from '../menu/dashboard/Dashboard';
 import NewTally from '../menu/newTally/NewTally';
 import History from '../menu/history/History';
@@ -21,29 +30,19 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Content = () => {
+	let { path } = useRouteMatch();
 	const classes = useStyles();
+	const { user } = useSelector((state: RootState) => state.auth);
 	return (
 		<div className={classes.root}>
 			<div className={classes.toolbar} />
 			<Switch>
-				<Route path='/home/dashboard'>
-					<Dashboard />
-				</Route>
-				<Route path='/home/newtally'>
-					<NewTally />
-				</Route>
-				<Route path='/home/history'>
-					<History />
-				</Route>
-				<Route path='/home/profile'>
-					<Profile />
-				</Route>
-				<Route path='/home/premium'>
-					<Premium />
-				</Route>
-											<Route path='*'>
-												<NoMatch />
-											</Route>
+				<PrivateRoute exact path={`${path}`} component={Dashboard} />
+				<PrivateRoute exact path={`${path}/newtally`} component={NewTally} />
+				<PrivateRoute exact path={`${path}/history`} component={History} />
+				<PrivateRoute exact path={`${path}/profile`} component={Profile} />
+				<PrivateRoute exact path={`${path}/premium`} component={Premium} />
+				<PrivateRoute exact path={`${path}/*`} component={NoMatch} />
 			</Switch>
 		</div>
 	);

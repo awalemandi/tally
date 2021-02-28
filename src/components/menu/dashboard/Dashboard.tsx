@@ -1,4 +1,9 @@
-import React from 'react';
+import React, { FC, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import AlertMessage from '../../common/AlertMessage';
+import { setSuccess } from '../../../redux/actions/authActions';
+import { RootState } from '../../../redux/store';
+
 import { Typography, Grid, makeStyles } from '@material-ui/core';
 
 import Savings from './Savings';
@@ -19,12 +24,32 @@ const useStyles = makeStyles(theme => ({
 	},
 }));
 
-const Dashboard = () => {
+const Dashboard: FC = () => {
 	const classes = useStyles();
 
+	//auth
+	const { user, needVerification, success } = useSelector(
+		(state: RootState) => state.auth
+	);
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		if (success) {
+			dispatch(setSuccess(''));
+		}
+	}, [success, dispatch]);
 	return (
 		<>
 			<Typography variant='h3'>Dashboard</Typography>
+			{needVerification && (
+				<AlertMessage
+					type='success'
+					message='Please verify your email address.'
+				/>
+			)}
+			<Typography variant='h6' color='primary'>
+				Hello {user?.firstName}
+			</Typography>
 			<Grid
 				className={classes.root}
 				container

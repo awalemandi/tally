@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, FormEvent, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { signin, setError } from '../../redux/actions/authActions';
+import { RootState } from '../../redux/store';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { Link as RouterLink, useRouteMatch } from 'react-router-dom';
 import {
 	Typography,
 	Button,
+	Link,
 	TextField,
 	FormControlLabel,
 	Checkbox,
-	Link,
 	Paper,
 	Box,
 	Grid,
@@ -14,7 +18,8 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 import Copyright from '../common/Copyright';
 import Logo from '../../images/tally.png';
-import LoginImage from '../../images/playfulcat.svg';
+import LoginImage from '../../images/minions.svg';
+import AlertMessage from '../common/AlertMessage';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -38,7 +43,7 @@ const useStyles = makeStyles(theme => ({
 		},
 	},
 	image: {
-		width: '25rem'
+		width: '25rem',
 	},
 	paper: {
 		margin: theme.spacing(8, 4),
@@ -66,15 +71,33 @@ const useStyles = makeStyles(theme => ({
 	submit: {
 		margin: theme.spacing(3, 0, 2),
 	},
+	navLink: {
+		textDecoration: 'none',
+		alignSelf: 'center',
+	},
 }));
 
-export default function LogIn() {
+export default function SignIn() {
+	let { url } = useRouteMatch();
 	const classes = useStyles();
 	const [signInDetails, setSignInDetails] = useState({
 		email: '',
 		password: '',
 		keepLoggedIn: false,
 	});
+
+	const [loading, setLoading] = useState(false);
+
+	const dispatch = useDispatch();
+	const { error } = useSelector((state: RootState) => state.auth);
+
+	useEffect(() => {
+		return () => {
+			if (error) {
+				dispatch(setError(''));
+			}
+		};
+	}, [error, dispatch]);
 
 	//onChange handlers for user input
 	const handleChange = {
@@ -100,9 +123,19 @@ export default function LogIn() {
 	};
 
 	//onClick handler for submit button
-	const handleSubmit = (e: React.SyntheticEvent) => {
+	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
-		console.log(signInDetails);
+		setLoading(true);
+		dispatch(
+			signin(
+				{
+					email: signInDetails.email,
+					password: signInDetails.password,
+					remember: signInDetails.keepLoggedIn,
+				},
+				() => setLoading(false)
+			)
+		);
 	};
 	return (
 		<Grid container component='main' className={classes.root}>
@@ -121,17 +154,18 @@ export default function LogIn() {
 				className={classes.formContainer}
 			>
 				<div className={classes.paper}>
-					<Link href='/'>
+					<RouterLink to='/'>
 						<img src={Logo} className={classes.logo} />
-					</Link>
-					<Typography component='h1' variant='h5' className={classes.greeting}>
-						Welcome back!
+					</RouterLink>
+					<Typography component='h1' variant='h4' className={classes.greeting}>
+						Hello there!
 					</Typography>
 					<form
 						className={classes.form}
 						noValidate={false}
 						onSubmit={handleSubmit}
 					>
+						{error && <AlertMessage type='error' message={error} />}
 						<TextField
 							variant='outlined'
 							margin='normal'
@@ -173,18 +207,19 @@ export default function LogIn() {
 							variant='contained'
 							color='primary'
 							className={classes.submit}
+							disabled={loading}
 						>
-							Sign In
+							{loading ? 'Loading...' : 'Sign In'}
 						</Button>
 						<Grid container>
 							<Grid item xs>
-								<Link href='#' variant='body2'>
+								<Link href='/forgot-password' variant='body2'>
 									Forgot password?
 								</Link>
 							</Grid>
 							<Grid item>
 								<Link href='/signup' variant='body2'>
-									{"Don't have an account? Sign Up"}
+									Don't have an account? Sign Up
 								</Link>
 							</Grid>
 						</Grid>
