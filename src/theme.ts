@@ -14,7 +14,7 @@ const lightTheme = createMuiTheme({
 		},
 	},
 	typography: {
-		fontFamily: ['Open Sans', 'Roboto'].join(','),
+		fontFamily: ['Rubik', 'Roboto'].join(','),
 	},
 });
 

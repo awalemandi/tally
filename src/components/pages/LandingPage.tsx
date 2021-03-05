@@ -18,6 +18,8 @@ import Logo from '../../images/tally.png';
 import LandingSection from '../common/landingSection/LandingSection';
 import landingPageData from '../common/landingSection/data';
 import HeroSection from '../common/heroSection/HeroSection';
+import { RiAccountPinCircleFill } from 'react-icons/ri';
+import { HiUserAdd } from 'react-icons/hi';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -44,13 +46,15 @@ const useStyles = makeStyles(theme => ({
 		},
 	},
 	buttonContainer: {
-		width: '12rem',
+		maxWidth: '20rem',
+		height: '80%',
 		display: 'flex',
 		justifyContent: 'space-between',
 	},
 	navLink: {
 		textDecoration: 'none',
 		alignSelf: 'center',
+		margin: '0.5rem',
 	},
 }));
 
@@ -76,6 +80,7 @@ export default function LandingPage() {
 	return (
 		<>
 			<CssBaseline />
+			{/* //Landing page Navbar */}
 			<HideOnScroll>
 				<AppBar color='default'>
 					<Toolbar className={classes.navbar}>
@@ -89,8 +94,9 @@ export default function LandingPage() {
 									variant='text'
 									href='#contained-buttons'
 									onClick={() => history.push('/signin')}
+									startIcon={<RiAccountPinCircleFill />}
 								>
-									Sign In
+									Log In
 								</Button>
 							</RouterLink>
 							<RouterLink to='/signup' className={classes.navLink}>
@@ -100,6 +106,7 @@ export default function LandingPage() {
 									color='primary'
 									href='#contained-buttons'
 									onClick={() => history.push('/signup')}
+									startIcon={<HiUserAdd />}
 								>
 									Sign Up
 								</Button>
@@ -110,7 +117,9 @@ export default function LandingPage() {
 			</HideOnScroll>
 			<Toolbar />
 			<div className={classes.root}>
-				<HeroSection />
+				{/* animation for hero section */}
+				{/* <HeroSection /> */}
+				{/* //Generate landing page section components from landingPageData */}
 				{landingPageData.map(section => (
 					<LandingSection
 						id={section.id}
