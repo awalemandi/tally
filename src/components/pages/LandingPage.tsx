@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink, useHistory } from 'react-router-dom';
 import {
 	AppBar,
 	Toolbar,
@@ -16,8 +16,10 @@ import {
 import Footer from '../layout/Footer';
 import Logo from '../../images/tally.png';
 import LandingSection from '../common/landingSection/LandingSection';
-import { landingPageData } from '../common/landingSection/Data';
+import landingPageData from '../common/landingSection/data';
 import HeroSection from '../common/heroSection/HeroSection';
+import { RiAccountPinCircleFill } from 'react-icons/ri';
+import { HiUserAdd } from 'react-icons/hi';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -44,13 +46,15 @@ const useStyles = makeStyles(theme => ({
 		},
 	},
 	buttonContainer: {
-		width: '12rem',
+		maxWidth: '20rem',
+		height: '80%',
 		display: 'flex',
 		justifyContent: 'space-between',
 	},
 	navLink: {
 		textDecoration: 'none',
 		alignSelf: 'center',
+		margin: '0.5rem',
 	},
 }));
 
@@ -72,38 +76,50 @@ function HideOnScroll(props: Props) {
 
 export default function LandingPage() {
 	const classes = useStyles();
+	const history = useHistory();
 	return (
 		<>
 			<CssBaseline />
+			{/* //Landing page Navbar */}
 			<HideOnScroll>
 				<AppBar color='default'>
 					<Toolbar className={classes.navbar}>
-						<Link to='/'>
+						<RouterLink to='/'>
 							<img src={Logo} className={classes.logo} />
-						</Link>
+						</RouterLink>
 						<Box className={classes.buttonContainer}>
-							<Link to='/login' className={classes.navLink}>
-								<Button size='small' variant='text' href='#contained-buttons'>
+							<RouterLink to='/signin' className={classes.navLink}>
+								<Button
+									size='small'
+									variant='text'
+									href='#contained-buttons'
+									onClick={() => history.push('/signin')}
+									startIcon={<RiAccountPinCircleFill />}
+								>
 									Log In
 								</Button>
-							</Link>
-							<Link to='/signup' className={classes.navLink}>
+							</RouterLink>
+							<RouterLink to='/signup' className={classes.navLink}>
 								<Button
 									size='large'
 									variant='contained'
 									color='primary'
 									href='#contained-buttons'
+									onClick={() => history.push('/signup')}
+									startIcon={<HiUserAdd />}
 								>
 									Sign Up
 								</Button>
-							</Link>
+							</RouterLink>
 						</Box>
 					</Toolbar>
 				</AppBar>
 			</HideOnScroll>
 			<Toolbar />
 			<div className={classes.root}>
-				<HeroSection />
+				{/* animation for hero section */}
+				{/* <HeroSection /> */}
+				{/* //Generate landing page section components from landingPageData */}
 				{landingPageData.map(section => (
 					<LandingSection
 						id={section.id}

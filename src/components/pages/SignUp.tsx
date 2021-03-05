@@ -1,4 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, FormEvent, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link as RouterLink } from 'react-router-dom';
+import { signup, setError } from '../../redux/actions/authActions';
+import { RootState } from '../../redux/store';
 import {
 	Button,
 	TextField,
@@ -14,12 +18,14 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 import Logo from '../../images/tally.png';
 import Copyright from '../common/Copyright';
+import AlertMessage from '../common/AlertMessage';
 
+//styling
 const useStyles = makeStyles(theme => ({
 	root: {
 		height: '100vh',
 		paddingTop: theme.spacing(8),
-		backgroundColor: theme.palette.secondary.light
+		backgroundColor: theme.palette.secondary.light,
 	},
 	paper: {
 		display: 'flex',
@@ -43,10 +49,23 @@ export const SignUp = () => {
 	const [userDetails, setUserDetails] = useState({
 		firstName: '',
 		lastName: '',
+		userName: '',
 		email: '',
 		password: '',
 		subscribeNewsletter: false,
 	});
+	const [loading, setLoading] = useState(false);
+
+	const dispatch = useDispatch();
+	const { error } = useSelector((state: RootState) => state.auth);
+
+	useEffect(() => {
+		return () => {
+			if (error) {
+				dispatch(setError(''));
+			}
+		};
+	}, [error, dispatch]);
 
 	//onChange handlers for user input
 	const handleChange = {
@@ -60,6 +79,12 @@ export const SignUp = () => {
 			setUserDetails({
 				...userDetails,
 				lastName: e.target.value as string,
+			});
+		},
+		userName: function (e: React.ChangeEvent<{ value: unknown }>) {
+			setUserDetails({
+				...userDetails,
+				userName: e.target.value as string,
 			});
 		},
 		email: function (e: React.ChangeEvent<{ value: unknown }>) {
@@ -84,9 +109,22 @@ export const SignUp = () => {
 	};
 
 	//onClick handler for submit button
-	const handleSubmit = (e: React.SyntheticEvent) => {
+	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
-		console.log(userDetails);
+		setLoading(true);
+		dispatch(
+			signup(
+				{
+					email: userDetails.email,
+					password: userDetails.password,
+					firstName: userDetails.firstName,
+					lastName: userDetails.lastName,
+					userName: userDetails.userName,
+					subscribeNewsletter: userDetails.subscribeNewsletter,
+				},
+				() => setLoading(false)
+			)
+		);
 	};
 
 	return (
@@ -94,9 +132,9 @@ export const SignUp = () => {
 			<Container component='main' maxWidth='xs'>
 				<CssBaseline />
 				<div className={classes.paper}>
-					<Link href='/'>
+					<RouterLink to='/'>
 						<img src={Logo} className={classes.logo} />
-					</Link>
+					</RouterLink>
 					<Typography component='h1' variant='h5'>
 						Ready to Tally Up?
 					</Typography>
@@ -105,6 +143,7 @@ export const SignUp = () => {
 						noValidate={false}
 						onSubmit={handleSubmit}
 					>
+						{error && <AlertMessage type='error' message={error} />}
 						<Grid container spacing={2}>
 							<Grid item xs={12} sm={6}>
 								<TextField
@@ -129,6 +168,18 @@ export const SignUp = () => {
 									name='lastName'
 									autoComplete='lname'
 									onChange={handleChange.lastName}
+								/>
+							</Grid>
+							<Grid item xs={12} sm={6}>
+								<TextField
+									variant='outlined'
+									required
+									fullWidth
+									id='userName'
+									label='User Name'
+									name='userName'
+									autoComplete='uname'
+									onChange={handleChange.userName}
 								/>
 							</Grid>
 							<Grid item xs={12}>
@@ -176,13 +227,13 @@ export const SignUp = () => {
 							variant='contained'
 							color='primary'
 							className={classes.submit}
-							// onClick={handleSubmit}
+							disabled={loading}
 						>
-							Sign Up
+							{loading ? 'Loading...' : 'Sign Up'}
 						</Button>
 						<Grid container justify='flex-end'>
 							<Grid item>
-								<Link href='/login' variant='body2'>
+								<Link href='/signin' variant='body2'>
 									Already have an account? Sign in
 								</Link>
 							</Grid>
@@ -193,6 +244,6 @@ export const SignUp = () => {
 					<Copyright />
 				</Box>
 			</Container>
-			</div>
+		</div>
 	);
 };
