@@ -6,15 +6,9 @@ export const SET_ERROR = 'SET_ERROR';
 export const NEED_VERIFICATION = 'NEED_VERIFICATION';
 export const SET_SUCCESS = 'SET_SUCCESS';
 
+export const SET_TRANSACTION = 'SET_TRANSACTION';
 
-export interface Transaction {
-	id: string;
-	date: string;
-	amount: number;
-	type: 'lent' | 'burrowed';
-	category: string;
-	reason: string;
-}
+
 //store state interface
 export interface User {
 	firstName: string;
@@ -96,3 +90,28 @@ export type AuthAction =
 	| SetErrorAction
 	| NeedVerificationAction
 	| SetSuccessAction;
+
+
+	//transaction types
+	export interface TransactionData {
+		id: string;
+		date: string;
+		amount: number;
+		type: 'lent' | 'burrowed';
+		category: string;
+		reason: string;
+	};
+
+	export interface TransactionState {
+		loading: boolean;
+		error: string;
+		success: string;
+	};
+
+	export interface SetTransactionAction {
+		type: typeof SET_TRANSACTION;
+		payload: TransactionData;
+	}
+
+	export type TransactionAction = | SetTransactionAction | SetLoadingAction | SetErrorAction| SetSuccessAction;
+
