@@ -6,6 +6,15 @@ export const SET_ERROR = 'SET_ERROR';
 export const NEED_VERIFICATION = 'NEED_VERIFICATION';
 export const SET_SUCCESS = 'SET_SUCCESS';
 
+
+export interface Transaction {
+	id: string;
+	date: string;
+	amount: number;
+	type: 'lent' | 'burrowed';
+	category: string;
+	reason: string;
+}
 //store state interface
 export interface User {
 	firstName: string;
@@ -14,6 +23,12 @@ export interface User {
 	id: string;
 	userName: string;
 	createdAt: any;
+	category: [],
+	party: [],
+	outstanding: number;
+	totalCredit: number;
+	totalDebit: number;
+	transactions: {};
 }
 
 export interface AuthState {

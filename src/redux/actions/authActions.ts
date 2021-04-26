@@ -33,6 +33,12 @@ export const signup = (
 					userName: data.userName,
 					id: res.user.uid,
 					createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+					category: [],
+					party: [],
+					outstanding: 0,
+					totalCredit: 0,
+					totalDebit: 0,
+					transactions: {}
 				};
 				await firebase
 					.firestore()
