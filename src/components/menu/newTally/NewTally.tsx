@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TransactionType from './TransactionType';
 import Amount from './Amount';
 import Reason from './Reason';
@@ -11,9 +11,7 @@ import { TiPlusOutline } from 'react-icons/ti';
 import Category from './Category';
 
 const useStyles = makeStyles(theme => ({
-	form: {
-
-	},
+	form: {},
 	inputContainer: {
 		width: '70%',
 		height: 'auto',
@@ -24,10 +22,10 @@ const useStyles = makeStyles(theme => ({
 		justifyContent: 'center',
 		alignItems: 'center',
 		[theme.breakpoints.down('lg')]: {
-			width: '90%'
+			width: '90%',
 		},
 		[theme.breakpoints.down('sm')]: {
-			width: '100%'
+			width: '100%',
 		},
 	},
 	inputWrapper: {
@@ -36,17 +34,17 @@ const useStyles = makeStyles(theme => ({
 		marginBottom: theme.spacing(1),
 		padding: theme.spacing(1),
 		[theme.breakpoints.down('lg')]: {
-			width: '35%'
+			width: '35%',
 		},
 		[theme.breakpoints.down('md')]: {
-			width: '30%'
+			width: '30%',
 		},
 		[theme.breakpoints.down('sm')]: {
-			width: '40%'
+			width: '40%',
 		},
 		[theme.breakpoints.down('xs')]: {
-			width: '80%'
-		}
+			width: '80%',
+		},
 	},
 	actionButton: {
 		marginTop: theme.spacing(2),
@@ -60,12 +58,30 @@ const useStyles = makeStyles(theme => ({
 
 const NewTally = () => {
 	const classes = useStyles();
+	const [transaction, setTransaction] = useState({
+		id: '',
+		date: '',
+		amount: 0,
+		type: '',
+		category: '',
+		reason: '',
+	});
+
+	//handler functions
+
+	const handleTypeChange = (newType: string) => {
+		setTransaction({ ...transaction, type: newType });
+	};
+
 	return (
 		<form noValidate autoComplete='off' className={classes.form}>
 			<Typography variant='h3'>Add a new Tally</Typography>
 			<div className={classes.inputContainer}>
 				<div className={classes.inputWrapper}>
-					<TransactionType />
+					<TransactionType
+						type={transaction.type}
+						handleClick={handleTypeChange}
+					/>
 				</div>
 				<div className={classes.inputWrapper}>
 					<Amount />
