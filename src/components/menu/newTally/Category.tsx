@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../../../redux/store';
+import { db } from '../../../firebase/config';
 import {
 	Grid,
 	Typography,
@@ -21,7 +24,17 @@ const useStyles = makeStyles(theme => ({
 
 function Category() {
 	const classes = useStyles();
+
+	const { user } = useSelector((state: RootState) => state.auth);
+	const dispatch = useDispatch();
+	const userDocRef = db.collection('users').doc(`${user?.id}`);
+
 	const [category, setCategory] = React.useState('');
+	const [categoryOptions, setCategoryOptions] = useState([
+		'Friends',
+		'Family',
+		'bullshit',
+	]);
 
 	const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
 		setCategory(event.target.value as string);
@@ -50,10 +63,9 @@ function Category() {
 					onChange={handleChange}
 					fullWidth
 				>
-					<MenuItem>Family</MenuItem>
-					<MenuItem>Friends</MenuItem>
-					<MenuItem>Education</MenuItem>
-					<MenuItem>Mortgage</MenuItem>
+					{categoryOptions.map(option => (
+						<MenuItem>{option}</MenuItem>
+					))}
 					<Button
 						fullWidth
 						variant='text'

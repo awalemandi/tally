@@ -9,7 +9,6 @@ import Amount from './Amount';
 import Reason from './Reason';
 import { Grid, Hidden, Typography, Fab } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
 import Party from './Party';
 import Date from './Date';
 import { TiPlusOutline } from 'react-icons/ti';
@@ -64,11 +63,6 @@ const useStyles = makeStyles(theme => ({
 const NewTally = () => {
 	const classes = useStyles();
 
-	const { user } = useSelector((state: RootState) => state.auth);
-	const dispatch = useDispatch();
-
-	const userDocRef = db.collection('users').doc(`${user?.id}`);
-
 	const [transaction, setTransaction] = useState({
 		id: '',
 		date: '',
@@ -115,7 +109,7 @@ const NewTally = () => {
 					className={classes.actionButton}
 				>
 					<TiPlusOutline className={classes.icon} />
-					Add Tally {user?.id}
+					Add Tally
 				</Fab>
 			</div>
 		</form>
