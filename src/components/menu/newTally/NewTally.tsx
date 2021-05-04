@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+import { db } from '../../../firebase/config';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../../../redux/store';
+
 import TransactionType from './TransactionType';
 import Amount from './Amount';
 import Reason from './Reason';
@@ -58,6 +63,12 @@ const useStyles = makeStyles(theme => ({
 
 const NewTally = () => {
 	const classes = useStyles();
+
+	const { user } = useSelector((state: RootState) => state.auth);
+	const dispatch = useDispatch();
+
+	const userDocRef = db.collection('users').doc(`${user?.id}`);
+
 	const [transaction, setTransaction] = useState({
 		id: '',
 		date: '',
@@ -104,7 +115,7 @@ const NewTally = () => {
 					className={classes.actionButton}
 				>
 					<TiPlusOutline className={classes.icon} />
-					Add Tally
+					Add Tally {user?.id}
 				</Fab>
 			</div>
 		</form>

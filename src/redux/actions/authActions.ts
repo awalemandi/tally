@@ -13,7 +13,7 @@ import {
 	SET_SUCCESS,
 } from '../types';
 import { RootState } from '../store';
-import firebase from '../../firebase/config';
+import { firebase } from '../../firebase/config';
 
 //Create user
 export const signup = (
@@ -38,7 +38,7 @@ export const signup = (
 					outstanding: 0,
 					totalCredit: 0,
 					totalDebit: 0,
-					transactions: {}
+					transactions: {},
 				};
 				await firebase
 					.firestore()

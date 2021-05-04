@@ -12,7 +12,7 @@ import {
 } from 'react-router-dom';
 import PublicRoute from './components/routes/PublicRoute';
 import PrivateRoute from './components/routes/PrivateRoute';
-import firebase from './firebase/config';
+import { firebase } from './firebase/config';
 import LinearProgress from '@material-ui/core/LinearProgress';
 
 import {
