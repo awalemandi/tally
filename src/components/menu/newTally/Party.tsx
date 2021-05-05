@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
 function Party() {
 	const classes = useStyles();
 	const [party, setParty] = React.useState('');
-	const { loading, data, error } = useFetchSelections('party');
+	const { loading, data } = useFetchSelections('party');
 
 	const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
 		setParty(event.target.value as string);
@@ -52,10 +52,11 @@ function Party() {
 					onChange={handleChange}
 					fullWidth
 				>
-					<MenuItem>Tommy Shelby</MenuItem>
-					<MenuItem>Dad</MenuItem>
-					<MenuItem>Westpac</MenuItem>
-					<MenuItem>Some guy</MenuItem>
+					{loading ? (
+						<MenuItem>Loading..</MenuItem>
+					) : (
+						data.map(option => <MenuItem>{option}</MenuItem>)
+					)}
 					<Button
 						fullWidth
 						variant='text'

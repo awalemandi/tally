@@ -6,10 +6,8 @@ import { db } from '../../firebase/config';
 function useFetchSelections(query: string) {
 	const [loading, setLoading] = useState(true);
 	const [data, setData] = useState([]);
-	const [error, setError] = useState('');
 
 	const { user } = useSelector((state: RootState) => state.auth);
-	const dispatch = useDispatch();
 
 	useEffect(() => {
 		if (!query || !user) return;
@@ -18,15 +16,19 @@ function useFetchSelections(query: string) {
 			.collection('users')
 			.doc(`${user?.id}`)
 			.onSnapshot(snapshot => {
-				const data = snapshot.data();
-				setData(data ? data[`${query}`] : []);
-				setLoading(false);
+				try {
+					const data = snapshot.data();
+					setData(data ? data[`${query}`] : []);
+					setLoading(false);
+				} catch (e) {
+					console.log(e);
+				}
 			});
 
 		return unsubscribe;
 	}, [query]);
 
-	return { loading, data, error };
+	return { loading, data };
 }
 
 export default useFetchSelections;

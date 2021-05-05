@@ -27,11 +27,11 @@ function Category() {
 	const classes = useStyles();
 
 	const { user } = useSelector((state: RootState) => state.auth);
-	const dispatch = useDispatch();
-	const userDocRef = db.collection('users').doc(`${user?.id}`);
+	// const dispatch = useDispatch();
+	// const userDocRef = db.collection('users').doc(`${user?.id}`);
 
 	const [category, setCategory] = React.useState('');
-	const { loading, data, error } = useFetchSelections('category');
+	const { loading, data } = useFetchSelections('category');
 
 	const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
 		setCategory(event.target.value as string);
@@ -60,10 +60,11 @@ function Category() {
 					onChange={handleChange}
 					fullWidth
 				>
-					{/* {categoryOptions.map(option => (
-						<MenuItem>{option}</MenuItem>
-					))} */}
-					{loading ? <MenuItem>Loading..</MenuItem> : data}
+					{loading ? (
+						<MenuItem>Loading..</MenuItem>
+					) : (
+						data.map(option => <MenuItem>{option}</MenuItem>)
+					)}
 					<Button
 						fullWidth
 						variant='text'
