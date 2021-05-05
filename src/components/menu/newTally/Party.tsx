@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import useFetchSelections from '../../hooks/useFetchSelections';
 import {
 	Grid,
 	Typography,
@@ -22,6 +23,7 @@ const useStyles = makeStyles(theme => ({
 function Party() {
 	const classes = useStyles();
 	const [party, setParty] = React.useState('');
+	const { loading, data, error } = useFetchSelections('party');
 
 	const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
 		setParty(event.target.value as string);

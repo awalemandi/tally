@@ -14,6 +14,7 @@ import {
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { TiPlus } from 'react-icons/ti';
+import useFetchSelections from '../../hooks/useFetchSelections';
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -30,11 +31,7 @@ function Category() {
 	const userDocRef = db.collection('users').doc(`${user?.id}`);
 
 	const [category, setCategory] = React.useState('');
-	const [categoryOptions, setCategoryOptions] = useState([
-		'Friends',
-		'Family',
-		'bullshit',
-	]);
+	const { loading, data, error } = useFetchSelections('category');
 
 	const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
 		setCategory(event.target.value as string);
@@ -63,9 +60,10 @@ function Category() {
 					onChange={handleChange}
 					fullWidth
 				>
-					{categoryOptions.map(option => (
+					{/* {categoryOptions.map(option => (
 						<MenuItem>{option}</MenuItem>
-					))}
+					))} */}
+					{loading ? <MenuItem>Loading..</MenuItem> : data}
 					<Button
 						fullWidth
 						variant='text'
