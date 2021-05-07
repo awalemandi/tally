@@ -28,10 +28,12 @@ function Category() {
 
 	const { user } = useSelector((state: RootState) => state.auth);
 
-	const [category, setCategory] = React.useState('');
+	const [category, setCategory] = useState('sdafa');
 	const { loading, data } = useFetchSelections('category');
 
-	const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+	const handleChange = (
+		event: React.ChangeEvent<{ name?: string | undefined; value: unknown }>
+	) => {
 		setCategory(event.target.value as string);
 	};
 
@@ -59,6 +61,7 @@ function Category() {
 				</Typography>
 			</Grid>
 			<Grid item xs={12}>
+				category is {category}
 				<Select
 					labelId=''
 					id='party'

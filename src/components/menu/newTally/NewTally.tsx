@@ -77,22 +77,8 @@ const NewTally = () => {
 
 	const handleTypeChange = (newType: string) => {
 		setTransaction({ ...transaction, type: newType });
-	};
-
-	const addOption = (selection: string, newOption: string) => {
-		if (selection == 'category') {
-			db.collection('users')
-				.doc(`${user?.id}`)
-				.update({
-					category: firebase.firestore.FieldValue.arrayUnion(newOption),
-				});
-		}
-		if (selection == 'party') {
-			db.collection('users')
-				.doc(`${user?.id}`)
-				.update({ party: firebase.firestore.FieldValue.arrayUnion(newOption) });
-		}
-	};
+	}
+	
 
 	return (
 		<form noValidate autoComplete='off' className={classes.form}>
