@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { RootState } from '../../../redux/store';
-import { db } from '../../../firebase/config';
+import { firebase, db } from '../../../firebase/config';
 import {
 	Grid,
 	Typography,
@@ -27,14 +27,20 @@ function Category() {
 	const classes = useStyles();
 
 	const { user } = useSelector((state: RootState) => state.auth);
-	// const dispatch = useDispatch();
-	// const userDocRef = db.collection('users').doc(`${user?.id}`);
 
 	const [category, setCategory] = React.useState('');
 	const { loading, data } = useFetchSelections('category');
 
 	const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
 		setCategory(event.target.value as string);
+	};
+
+	const addOption = (newOption: string) => {
+		db.collection('users')
+			.doc(`${user?.id}`)
+			.update({
+				category: firebase.firestore.FieldValue.arrayUnion(newOption),
+			});
 	};
 
 	return (
@@ -72,6 +78,7 @@ function Category() {
 						variant='text'
 						color='primary'
 						startIcon={<TiPlus />}
+						onClick={() => addOption('test category')}
 					>
 						Add
 					</Button>
