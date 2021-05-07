@@ -7,14 +7,14 @@ import {
 	OutlinedInput,
 	InputAdornment,
 	TextField,
-	Paper
+	Paper,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
 	root: {
 		padding: theme.spacing(1),
-		marginBottom: theme.spacing(1)
+		marginBottom: theme.spacing(1),
 	},
 }));
 
@@ -22,9 +22,10 @@ function Amount() {
 	const classes = useStyles();
 	const [amount, setAmount] = React.useState(0);
 
-	// const handleClick = () => {
-	//     setAmount();
-	// };
+	const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+		if ((event.target.value as number) >= 0)
+			setAmount(event.target.value as number);
+	};
 
 	return (
 		<Grid
@@ -51,6 +52,8 @@ function Amount() {
 						startAdornment: <InputAdornment position='start'>$</InputAdornment>,
 					}}
 					variant='outlined'
+					value={amount}
+					onChange={handleChange}
 				/>
 			</Grid>
 		</Grid>
