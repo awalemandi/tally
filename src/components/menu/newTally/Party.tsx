@@ -30,7 +30,7 @@ function Party(props: Props) {
 	const classes = useStyles();
 	const { user } = useSelector((state: RootState) => state.auth);
 
-	const [party, setParty] = React.useState('');
+	const [party, setParty] = useState('');
 	const { loading, data } = useFetchSelections('party');
 
 	const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
@@ -70,7 +70,9 @@ function Party(props: Props) {
 						<MenuItem>Loading..</MenuItem>
 					) : (
 						data.map(option => (
-							<MenuItem key={data.indexOf(option)}>{option}</MenuItem>
+							<MenuItem value={option} key={data.indexOf(option)}>
+								{option}
+							</MenuItem>
 						))
 					)}
 					<Button
@@ -78,7 +80,7 @@ function Party(props: Props) {
 						variant='text'
 						color='primary'
 						startIcon={<TiPlus />}
-						onClick={()=> addOption('test party')}
+						onClick={() => addOption('test party')}
 					>
 						Add
 					</Button>

@@ -31,9 +31,7 @@ function Category() {
 	const [category, setCategory] = useState('sdafa');
 	const { loading, data } = useFetchSelections('category');
 
-	const handleChange = (
-		event: React.ChangeEvent<{ name?: string | undefined; value: unknown }>
-	) => {
+	const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
 		setCategory(event.target.value as string);
 	};
 
@@ -61,7 +59,6 @@ function Category() {
 				</Typography>
 			</Grid>
 			<Grid item xs={12}>
-				category is {category}
 				<Select
 					labelId=''
 					id='party'
@@ -73,7 +70,9 @@ function Category() {
 						<MenuItem>Loading..</MenuItem>
 					) : (
 						data.map(option => (
-							<MenuItem key={data.indexOf(option)}>{option}</MenuItem>
+							<MenuItem value={option} key={data.indexOf(option)}>
+								{option}
+							</MenuItem>
 						))
 					)}
 					<Button
