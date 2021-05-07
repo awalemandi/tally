@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import { firebase, db } from '../../../firebase/config';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../redux/store';
+
 import useFetchSelections from '../../hooks/useFetchSelections';
 import {
 	Grid,
@@ -20,13 +24,23 @@ const useStyles = makeStyles(theme => ({
 	},
 }));
 
-function Party() {
+interface Props {}
+
+function Party(props: Props) {
 	const classes = useStyles();
+	const { user } = useSelector((state: RootState) => state.auth);
+
 	const [party, setParty] = React.useState('');
 	const { loading, data } = useFetchSelections('party');
 
 	const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
 		setParty(event.target.value as string);
+	};
+
+	const addOption = (newOption: string) => {
+		db.collection('users')
+			.doc(`${user?.id}`)
+			.update({ party: firebase.firestore.FieldValue.arrayUnion(newOption) });
 	};
 
 	return (
@@ -55,13 +69,16 @@ function Party() {
 					{loading ? (
 						<MenuItem>Loading..</MenuItem>
 					) : (
-						data.map(option => <MenuItem>{option}</MenuItem>)
+						data.map(option => (
+							<MenuItem key={data.indexOf(option)}>{option}</MenuItem>
+						))
 					)}
 					<Button
 						fullWidth
 						variant='text'
 						color='primary'
 						startIcon={<TiPlus />}
+						onClick={()=> addOption('test party')}
 					>
 						Add
 					</Button>

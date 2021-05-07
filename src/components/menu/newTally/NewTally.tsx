@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { db } from '../../../firebase/config';
+import { firebase, db } from '../../../firebase/config';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../../redux/store';
@@ -62,6 +62,7 @@ const useStyles = makeStyles(theme => ({
 
 const NewTally = () => {
 	const classes = useStyles();
+	const { user } = useSelector((state: RootState) => state.auth);
 
 	const [transaction, setTransaction] = useState({
 		id: '',
@@ -72,10 +73,25 @@ const NewTally = () => {
 		reason: '',
 	});
 
-	//handler functions
+	//eventhandlers
 
 	const handleTypeChange = (newType: string) => {
 		setTransaction({ ...transaction, type: newType });
+	};
+
+	const addOption = (selection: string, newOption: string) => {
+		if (selection == 'category') {
+			db.collection('users')
+				.doc(`${user?.id}`)
+				.update({
+					category: firebase.firestore.FieldValue.arrayUnion(newOption),
+				});
+		}
+		if (selection == 'party') {
+			db.collection('users')
+				.doc(`${user?.id}`)
+				.update({ party: firebase.firestore.FieldValue.arrayUnion(newOption) });
+		}
 	};
 
 	return (

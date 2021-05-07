@@ -63,7 +63,9 @@ function Category() {
 					{loading ? (
 						<MenuItem>Loading..</MenuItem>
 					) : (
-						data.map(option => <MenuItem>{option}</MenuItem>)
+						data.map(option => (
+							<MenuItem key={data.indexOf(option)}>{option}</MenuItem>
+						))
 					)}
 					<Button
 						fullWidth
